@@ -19,9 +19,9 @@ import cairosvg
 import generate_card as gc
 from generate_card import (
     NAVY, NAVY_BG2, WATERMARK, WHITE, SOFT, BLACK, FONT,
-    NAME, ADDRESS, UID, PHONE, EMAIL, BULLETS,
+    NAME, ADDRESS, UID, PHONE, EMAIL,
     ICON_WHATSAPP, ICON_TELEGRAM, ICON_SIGNAL, ICON_THUMB, ICON_WRENCH,
-    esc, icon, arc_text, qr_path, approx_text_width,
+    esc, icon, arc_text, qr_path, text_width,
 )
 
 # --------------------------------------------------------------------------- #
@@ -43,7 +43,25 @@ WEBSITE_LABEL = "www.24-stunden-mietwerkstatt.at"
 
 ICON_CHECK = "M5 12.5l4.2 4.2L19 7"  # Haken (stroke, viewBox 24)
 
-TAGLINE = "Mach's dir selbst – deine Profi-Werkstatt zur Selbstmiete"
+TAGLINE = "Mach's dir selbst – deine Werkstatt zur Selbstmiete"
+
+# Leistungen (von der Website), zweispaltig
+SERVICES_LEFT = [
+    "4 Hebebühnen bis 5,5t",
+    "Werkzeugwagen inklusive",
+    "24/7 Zugang für Kunden",
+    "Klimaservice & Gas",
+    "Trockeneis-Reinigung",
+    "Reifenservice & -handel",
+]
+SERVICES_RIGHT = [
+    "Unterbodenschutz",
+    "Bremsenentlüftung",
+    "Diagnosegerät",
+    "Werkstattpresse",
+    "Spezialwerkzeug",
+    "PKW-Aufbereitung",
+]
 
 
 # --------------------------------------------------------------------------- #
@@ -87,11 +105,14 @@ def badge(cx, cy, r):
 
 
 def ctext(y, size, parts, fill=WHITE, cx=CX, letter=None):
-    """Zentrierte Zeile mit optional gemischten Schriftschnitten (tspans)."""
+    """Zentrierte Zeile mit optional gemischten Schriftschnitten (tspans).
+    Breite exakt aus der Schrift gemessen -> sauber mittig."""
     if isinstance(parts, str):
         parts = [(parts, "normal")]
-    total = sum(approx_text_width(t, size) * (1.05 if w == "bold" else 1.0)
-                for t, w in parts)
+    total = sum(text_width(t, size, w) for t, w in parts)
+    nchars = sum(len(t) for t, _ in parts)
+    if letter and nchars > 1:
+        total += letter * (nchars - 1)
     x = cx - total / 2
     ls = f' letter-spacing="{letter}"' if letter else ""
     spans = "".join(f'<tspan font-weight="{w}">{esc(t)}</tspan>' for t, w in parts)
@@ -106,7 +127,7 @@ def divider(y, half=52, cx=CX, op=0.35):
 
 def contact_row(cx, y, isz=8.0, num_size=6.0, gap=3.4, color=WHITE):
     """WhatsApp | Nummer | Telegram | Signal – zentriert."""
-    num_w = approx_text_width(PHONE, num_size)
+    num_w = text_width(PHONE, num_size, "bold")
     total = isz + gap + num_w + gap + isz + gap + isz
     x = cx - total / 2
     iy = y - isz / 2
@@ -124,7 +145,7 @@ def contact_row(cx, y, isz=8.0, num_size=6.0, gap=3.4, color=WHITE):
 
 def url_pill(cx, cy, size=6.0):
     """Website-URL als hervorgehobene Pille, vertikal um cy zentriert."""
-    w = approx_text_width(WEBSITE_LABEL, size) + 16
+    w = text_width(WEBSITE_LABEL, size, "bold") + 16
     h = size + 7
     return (f'<rect x="{cx-w/2:.3f}" y="{cy-h/2:.3f}" rx="{h/2}" '
             f'width="{w:.3f}" height="{h:.3f}" fill="{WHITE}"/>'
@@ -139,55 +160,60 @@ def url_pill(cx, cy, size=6.0):
 def build_front():
     s = [header(), background()]
 
-    # Hero
-    s.append(badge(CX, 30, 16))
-    s.append(ctext(53, 10.5, [("24h ", "normal"), ("MIETWERKSTATT", "bold")], letter=0.2))
-    s.append(ctext(62, 5.0, f"{NAME} · 3100 St. Pölten", fill=SOFT))
-    s.append(ctext(69.5, 4.4, TAGLINE, fill=ACCENT))
-    s.append(divider(76, half=56))
+    px = BLEED + SAFE                 # linker Inhaltsrand (11)
+    pr = PAGE_W - BLEED - SAFE        # rechter Inhaltsrand (143)
+    pw = pr - px                      # Inhaltsbreite (132)
 
-    # Leistungen
-    s.append(ctext(87, 6.6, [("Unsere Leistungen", "bold")]))
-    ly = 98
-    step = 11.0
-    lx = BLEED + 24
-    for i, b in enumerate(BULLETS):
-        y = ly + i * step
-        s.append(icon(ICON_CHECK, lx, y - 6.2, 7.6, color=ACCENT, stroke=True, sw=2.6))
-        s.append(f'<text x="{lx+10.5}" y="{y}" font-family="{FONT}" font-size="5.8" '
-                 f'fill="{WHITE}">{esc(b)}</text>')
+    # Hero
+    s.append(badge(CX, 28, 15))
+    s.append(ctext(49, 10.0, [("24h ", "normal"), ("MIETWERKSTATT", "bold")], letter=0.2))
+    s.append(ctext(57, 4.8, f"{NAME} · 3100 St. Pölten", fill=SOFT))
+    s.append(ctext(64, 4.2, TAGLINE, fill=ACCENT))
+    s.append(divider(70, half=56))
+
+    # Leistungen – zwei Spalten
+    s.append(ctext(79, 6.4, [("Unsere Leistungen", "bold")]))
+    col_x = (px + 1, CX + 4)          # Icon-Position je Spalte
+    fsz = 4.6
+    y0 = 90
+    step = 9.6
+    for col, items in zip(col_x, (SERVICES_LEFT, SERVICES_RIGHT)):
+        for i, b in enumerate(items):
+            y = y0 + i * step
+            s.append(icon(ICON_CHECK, col, y - 5.2, 6.6, color=ACCENT, stroke=True, sw=2.8))
+            s.append(f'<text x="{col+8.6}" y="{y}" font-family="{FONT}" font-size="{fsz}" '
+                     f'fill="{WHITE}">{esc(b)}</text>')
 
     # Hinweis
     s.append(divider(151, half=56))
-    s.append(ctext(158, 3.6,
+    s.append(ctext(157, 3.5,
                    "Anfragen ausschließlich per WhatsApp, Telegram oder Signal.", fill=SOFT))
-    s.append(ctext(163, 3.6,
+    s.append(ctext(162, 3.5,
                    [("Anrufe werden ", "normal"), ("NICHT", "bold"),
                     (" entgegengenommen.", "normal")], fill=SOFT))
 
-    # Footer-Panel: QR + Kontakt + URL
-    py = 168
-    ph = 40
-    px = BLEED + SAFE
-    pw = TRIM_W - 2 * SAFE
+    # Footer-Panel: QR + Kontakt (oben) und URL-Pille (unten, ganze Breite)
+    py = 166
+    ph = 41
     s.append(f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="3" '
              f'fill="{PANEL}" stroke="{WHITE}" stroke-opacity="0.15" stroke-width="0.4"/>')
 
     # QR links (zeigt auf die Website)
-    qp = ph - 8
+    qp = 26.0
     qx = px + 4
     qy = py + 4
     s.append(f'<rect x="{qx}" y="{qy}" width="{qp}" height="{qp}" rx="1.6" fill="{WHITE}"/>')
     qr_svg, _ = qr_path(WEBSITE, qx, qy, qp, quiet=3)
     s.append(qr_svg)
 
-    # Rechts: Kontakt + URL
-    rx0 = qx + qp + 5
-    rcx = (rx0 + px + pw - 4) / 2
-    s.append(ctext(py + 9, 3.5, "Termine & Infos – einfach scannen", fill=SOFT, cx=rcx))
-    s.append(contact_row(rcx, py + 19, isz=6.0, num_size=5.0, gap=2.4))
-    s.append(ctext(py + 28, 4.0, EMAIL, fill=SOFT, cx=rcx))
-    s.append(url_pill(rcx, py + 35, size=4.8))
+    # Rechts neben QR: Kontaktblock (mittig in der Restbreite)
+    rcx = (qx + qp + px + pw - 4) / 2 + 1
+    s.append(ctext(py + 8.5, 3.4, "Termine & Infos – einfach scannen", fill=SOFT, cx=rcx))
+    s.append(contact_row(rcx, py + 17.5, isz=5.6, num_size=4.8, gap=2.2))
+    s.append(ctext(py + 25.5, 3.9, EMAIL, fill=SOFT, cx=rcx))
+
+    # URL-Pille unten, auf der ganzen Karte zentriert
+    s.append(url_pill(CX, py + ph - 5.5, size=5.4))
 
     s.append('</svg>')
     return "".join(s)
@@ -204,10 +230,10 @@ def build_back():
     s.append(divider(62, half=56))
 
     steps = [
-        ("1", "Anfragen", "Kontakt per WhatsApp, Telegram oder Signal."),
-        ("2", "Registrieren & Einweisung", "Kurze Einweisung – danach 24/7 Zugang."),
-        ("3", "Termin buchen", "Hebebühne & Platz flexibel rund um die Uhr."),
-        ("4", "Selbst schrauben", "Eigenständig arbeiten – Profi-Werkzeug inklusive."),
+        ("1", "Ersttermin vereinbaren", "Per WhatsApp, Telegram oder Signal anfragen."),
+        ("2", "Registrierung & Einweisung", "Vor Ort registrieren + Einweisung erhalten."),
+        ("3", "Freischaltung", "Nach ein paar Terminen für 24/7 freigeschaltet."),
+        ("4", "24/7 selbst schrauben", "Online buchen – Werkzeug inklusive."),
     ]
     sy = 76
     step_h = 22
@@ -232,7 +258,8 @@ def build_back():
     # Footer: URL prominent
     s.append(url_pill(CX, 196, size=6.0))
     s.append(ctext(209, 3.6,
-                   [("24/7 Zugang nach Registrierung und Einweisung.", "normal")], fill=SOFT))
+                   [("24/7 Zugang nach Freischaltung – schrauben wann du willst.", "normal")],
+                   fill=SOFT))
 
     s.append('</svg>')
     return "".join(s)

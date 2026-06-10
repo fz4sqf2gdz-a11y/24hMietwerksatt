@@ -18,6 +18,7 @@ import os
 import qrcode
 import qrcode.constants
 import cairosvg
+from PIL import ImageFont
 
 # --------------------------------------------------------------------------- #
 #  Konfiguration
@@ -105,9 +106,29 @@ def icon(path_d: str, x, y, size, color=WHITE, vb=24, stroke=False, sw=2.0):
             f'<path d="{path_d}" {style}/></g>')
 
 
-def approx_text_width(text, size):
-    """Grobe Textbreite (Liberation Sans) zur Zentrierung von Mischzeilen."""
-    return len(text) * size * 0.53
+_FONT_FILES = {
+    "normal": "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
+    "bold": "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+}
+_FONT_CACHE = {}
+
+
+def _font(weight):
+    f = _FONT_CACHE.get(weight)
+    if f is None:
+        f = ImageFont.truetype(_FONT_FILES.get(weight, _FONT_FILES["normal"]), 1000)
+        _FONT_CACHE[weight] = f
+    return f
+
+
+def text_width(text, size, weight="normal"):
+    """Exakte Textbreite (mm) – aus der echten Schrift gemessen, fuer korrektes
+    Zentrieren. Misst bei 1000 px und skaliert auf die Schriftgroesse."""
+    return _font(weight).getlength(text) / 1000.0 * size
+
+
+def approx_text_width(text, size, weight="normal"):
+    return text_width(text, size, weight)
 
 
 def arc_text(cx, cy, radius, text, mid_deg, span_deg, size, color,
@@ -262,8 +283,7 @@ def build_back():
         # parts: list of (text, weight). Einzelnes text-Element mit tspans,
         # linksbuendig ab berechnetem Startpunkt -> natuerliche Wortabstaende
         # bei korrekter Zentrierung (umgeht cairosvg-Anchor-Bug bei tspans).
-        total = sum(approx_text_width(t, size) * (1.05 if w == "bold" else 1.0)
-                    for t, w in parts)
+        total = sum(text_width(t, size, w) for t, w in parts)
         x = cx - total / 2
         spans = "".join(
             f'<tspan font-weight="{w}">{esc(t)}</tspan>' for t, w in parts
@@ -281,7 +301,7 @@ def build_back():
     isz = 5.6                      # Icon-Kantenlaenge
     gap = 2.6
     num_size = 4.0
-    num_w = approx_text_width(PHONE, num_size)
+    num_w = text_width(PHONE, num_size, "bold")
     # Reihenfolge + Breiten
     total = isz + gap + num_w + gap + isz + gap + isz
     start = cx - total / 2

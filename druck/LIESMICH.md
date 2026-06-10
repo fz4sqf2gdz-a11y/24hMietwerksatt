@@ -1,9 +1,11 @@
-# Visitenkarte – Werner Paternoster / 24h Mietwerkstatt
+# Druckdaten – Werner Paternoster / 24h Mietwerkstatt
 
-Druckfertige Visitenkarte (Vorder- und Rückseite), vollständig vektorbasiert –
-gestochen scharf für die Druckerei.
+Druckfertige **Visitenkarte** und **A5-Flyer** (jeweils Vorder- und Rückseite),
+vollständig vektorbasiert – gestochen scharf für die Druckerei.
 
 ## Dateien
+
+### Visitenkarte (85 × 55 mm)
 
 | Datei | Zweck |
 |-------|-------|
@@ -11,11 +13,19 @@ gestochen scharf für die Druckerei.
 | `vorderseite.svg` / `rueckseite.svg` | Bearbeitbare Vektorquelle (z. B. in Inkscape/Illustrator) |
 | `vorderseite.png` / `rueckseite.png` | Vorschau (600 dpi) |
 
+### Flyer (A5, 148 × 210 mm)
+
+| Datei | Zweck |
+|-------|-------|
+| `flyer_vorderseite.pdf` / `flyer_rueckseite.pdf` | **Druckdaten** für die Druckerei |
+| `flyer_vorderseite.svg` / `flyer_rueckseite.svg` | Bearbeitbare Vektorquelle |
+| `flyer_vorderseite.png` / `flyer_rueckseite.png` | Vorschau (300 dpi) |
+
 ## Druckspezifikation
 
-- **Endformat (Trim):** 85 × 55 mm
-- **Beschnitt (Bleed):** 3 mm rundum → Datenformat **91 × 61 mm**
-- **Sicherheitsabstand:** ca. 4 mm zum Rand (wichtiger Inhalt bleibt innen)
+- **Visitenkarte:** Endformat 85 × 55 mm + 3 mm Beschnitt → Datenformat **91 × 61 mm**
+- **Flyer:** Endformat A5 148 × 210 mm + 3 mm Beschnitt → Datenformat **154 × 216 mm**
+- **Sicherheitsabstand:** wichtiger Inhalt bleibt innerhalb des Trims
 - **Farben:** Hintergrund Dunkelblau, Texte/Icons Weiß, QR-Code **rein schwarz (#000000)**
 - **Schrift:** Liberation Sans (Arial-kompatibel), im PDF eingebettet/als Pfade
 - Alles ist Vektor → beliebig skalierbar ohne Qualitätsverlust
@@ -23,24 +33,29 @@ gestochen scharf für die Druckerei.
 > Tipp für die Druckerei: Für satte Tiefe das Dunkelblau als Rich-Black/CMYK
 > anlegen. Bei Bedarf liefern wir gern eine CMYK-konvertierte PDF.
 
-## QR-Code
+## QR-Codes
 
-Der QR-Code ist als **vCard** hinterlegt: beim Scannen wird direkt der Kontakt
-(Name, Firma, Adresse, Telefon, E-Mail) gespeichert. Er ist als Vektor erzeugt
-und damit gestochen scharf. Geprüft und erfolgreich dekodiert.
+- **Visitenkarte:** QR als **vCard** – beim Scannen wird direkt der Kontakt
+  (Name, Firma, Adresse, Telefon, E-Mail) gespeichert.
+- **Flyer:** QR verweist auf die **Website** `https://www.24-stunden-mietwerkstatt.at`.
 
-## Rückseite
+Beide QR-Codes sind als Vektor erzeugt (gestochen scharf) und wurden getestet
+und erfolgreich dekodiert.
 
-- Icons aufgeräumt/angepasst: **WhatsApp, Telegram, Signal**
+## Icons
+
+- Aufgeräumt/angepasst: **WhatsApp, Telegram, Signal**
 - Das frühere **SMS-Icon wurde entfernt**
 - Hinweis „Anrufe werden **NICHT** entgegengenommen.“
 
 ## Neu erzeugen / Inhalte ändern
 
-Alle Texte, Kontaktdaten und der QR-Inhalt stehen oben im Generator
-`../generate_card.py`. Nach Änderungen einfach neu erzeugen:
+Alle Texte, Kontaktdaten und QR-Inhalte stehen oben in den Generatoren
+`../generate_card.py` (Visitenkarte) und `../generate_flyer.py` (Flyer).
+Nach Änderungen einfach neu erzeugen:
 
 ```bash
 pip install "qrcode[pil]" cairosvg
 python generate_card.py
+python generate_flyer.py
 ```

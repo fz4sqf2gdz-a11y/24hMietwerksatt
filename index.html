@@ -1,0 +1,1079 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mietwerkstatt St. Pölten – Werner Paternoster | 24/7</title>
+  <meta name="description" content="Die Mietwerkstatt von Werner Paternoster in St. Pölten. 24/7 Hebebühnen mieten. Klimaservice, Reifenservice & Trockeneis. Faire Preise & persönliche Betreuung.">
+  <link rel="icon" href="images/logo.png">
+  <link rel="preload" as="image" href="images/hero-aerial.jpg">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Einheitliche System-Schriftart */
+    :root {
+      --primary: #ffcc00;
+      --primary-hover: #e6b800;
+      --dark-bg: #11141a;
+      --card-bg: #1a1d24;
+      --text-light: #f5f6f8;
+      --text-muted: #9fa6b5;
+      --border-color: #262c38;
+    }
+
+    body, html {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
+      color: var(--text-light);
+      background-color: var(--dark-bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2, h3, h4, h5, h6, p, a, span, button, li, summary, div, input, textarea {
+      font-family: inherit !important;
+    }
+
+    /* Ticker */
+    .ticker-wrap {
+      width: 100%;
+      background: #0b0d10;
+      border-bottom: 2px solid var(--primary);
+      overflow: hidden;
+      padding: 12px 0;
+    }
+    .ticker-inner {
+      display: flex;
+      width: max-content;
+      animation: smoothTicker 30s linear infinite;
+    }
+    .ticker-inner:hover {
+      animation-play-state: paused;
+    }
+    .ticker-item {
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 0 30px;
+      white-space: nowrap;
+    }
+    .ticker-item span {
+      color: var(--primary);
+    }
+    @keyframes smoothTicker {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+
+    /* Header */
+    .site-header {
+      background: var(--dark-bg);
+      padding: 22px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+      box-sizing: border-box;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+    .nav a:hover {
+      color: var(--primary);
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 30px;
+      cursor: pointer;
+      padding: 5px;
+      line-height: 1;
+    }
+
+    @media (max-width: 1024px) {
+      .nav-toggle {
+        display: block;
+      }
+      .nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #161920;
+        padding: 30px 24px;
+        gap: 22px;
+        border-top: 1px solid var(--border-color);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+        box-sizing: border-box;
+      }
+      .nav.active {
+        display: flex;
+      }
+      .nav a, .nav .btn, .nav .hdr-social {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        font-size: 17px;
+        padding: 12px 0;
+      }
+      .nav .btn {
+        margin: 5px 0;
+      }
+    }
+
+    /* Live-Status Badge */
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(37, 211, 102, 0.12);
+      border: 1px solid #25d366;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #25d366;
+      margin-bottom: 25px;
+      letter-spacing: 0.5px;
+    }
+    .badge-pulse {
+      width: 8px;
+      height: 8px;
+      background: #25d366;
+      border-radius: 50%;
+      margin-right: 10px;
+      position: relative;
+    }
+    .badge-pulse::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      border-radius: 50%;
+      background: #25d366;
+      animation: pulseAnimation 2s infinite;
+    }
+    @keyframes pulseAnimation {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(3); opacity: 0; }
+    }
+
+    .hero .actions {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+/* --- SAUBERER STICKY SCROLL (APPLE STYLE) --- */
+    .sticky-stack-section {
+      background: #13161c;
+      padding: 80px 20px;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .sticky-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .sticky-header h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .sticky-header p {
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+    .stack-container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 50px; /* Normale Lücke, KEIN riesiges schwarzes Loch mehr */
+      padding-bottom: 20px;
+    }
+    .stack-card {
+      position: sticky;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-top: 2px solid rgba(255, 204, 0, 0.4);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 -15px 30px rgba(0,0,0,0.6);
+      display: flex;
+      align-items: flex-start;
+      gap: 30px;
+    }
+    /* Stops für den Sticky Effekt - Die Karten überlappen sich hier sanft */
+    .stack-card:nth-child(1) { top: 120px; z-index: 10; }
+    .stack-card:nth-child(2) { top: 140px; z-index: 20; }
+    .stack-card:nth-child(3) { top: 160px; z-index: 30; }
+
+    .stack-num {
+      font-size: 70px;
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 0.8;
+      opacity: 0.9;
+      flex-shrink: 0;
+    }
+    .stack-content h4 {
+      font-size: 22px;
+      margin: 0 0 10px 0;
+      color: #fff;
+    }
+    .stack-content p {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .stack-container {
+        gap: 30px;
+      }
+      .stack-card {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 15px;
+        padding: 30px 20px;
+      }
+      .stack-num { font-size: 50px; }
+      .stack-card:nth-child(1) { top: 100px; }
+      .stack-card:nth-child(2) { top: 115px; }
+      .stack-card:nth-child(3) { top: 130px; }
+    } 
+
+    @media (max-width: 768px) {
+      .stack-card {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 15px;
+        padding: 30px 20px;
+        margin-bottom: 80vh; 
+      }
+      .stack-num { font-size: 50px; }
+      .stack-card:nth-child(1) { top: 100px; }
+      .stack-card:nth-child(2) { top: 115px; }
+      .stack-card:nth-child(3) { top: 130px; margin-bottom: 40px; }
+    }
+
+    /* Highlight Card (Klimaservice) */
+    .card.highlight {
+      background: #1f242e !important;
+      border: 2px solid var(--primary) !important;
+      box-shadow: 0 8px 25px rgba(255, 204, 0, 0.15);
+    }
+    .card.highlight h3,
+    .card.highlight p,
+    .card.highlight ul li,
+    .card.highlight ul li strong {
+      color: #ffffff !important;
+    }
+    .card.highlight .highlight-tag {
+      background: var(--primary);
+      color: #000000 !important;
+      padding: 5px 12px;
+      border-radius: 4px;
+      font-weight: 800;
+    }
+
+    /* Reifenservice Doppelkarte */
+    .price-card.double-layout {
+      grid-column: span 1;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+    }
+    .double-header {
+      font-weight: 700;
+      font-size: 20px;
+      color: #ffffff;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .double-box {
+      padding: 12px 0;
+    }
+    .double-box .amt {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+    .double-sep {
+      border-top: 1px dashed var(--border-color);
+      margin: 15px 0;
+    }
+
+    /* --- BUGFIX MODAL (Immer sicher, kein Hintergrundscrollen) --- */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0; /* Exakte Abdeckung */
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 999999; /* Absolut höchste Ebene */
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      animation: fadeIn 0.3s forwards;
+      box-sizing: border-box;
+    }
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    .modal-content {
+      background: #171a21;
+      color: #ffffff;
+      border-radius: 20px;
+      padding: 45px 30px;
+      max-width: 540px;
+      width: 100%;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+      border: 1px solid #2b313d;
+      position: relative;
+      text-align: center;
+      max-height: 90vh; /* Verhindert das Herausragen */
+      overflow-y: auto; /* Nur der Modal-Inhalt darf scrollen */
+    }
+
+    /* Fixiertes Schließen-X immer oben rechts im sichtbaren Bereich */
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: white;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      z-index: 100;
+    }
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .modal h3 {
+      font-size: 26px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      color: var(--primary);
+      font-weight: 800;
+    }
+    .modal-notice-box {
+      background: rgba(255, 204, 0, 0.06);
+      border-left: 4px solid var(--primary);
+      padding: 18px;
+      border-radius: 8px;
+      margin: 25px 0;
+      text-align: left;
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: #e2e8f0;
+    }
+    .modal-notice-box strong {
+      color: var(--primary);
+    }
+    .login-btn-group {
+      display: flex;
+      gap: 14px;
+      margin-top: 25px;
+    }
+    .login-btn-group .btn-main {
+      background: var(--primary);
+      color: #000000;
+      padding: 15px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      flex: 1;
+      transition: background 0.2s;
+    }
+    .login-btn-group .btn-main:hover {
+      background: var(--primary-hover);
+    }
+    .login-btn-group .btn-sub {
+      background: #25d366;
+      color: #ffffff;
+      padding: 15px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      flex: 1;
+      transition: opacity 0.2s;
+    }
+    .login-btn-group .btn-sub:hover {
+      opacity: 0.9;
+    }
+
+    /* Mobile Quick-Bar */
+    .mobile-quick-actions {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .mobile-quick-actions {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 65px;
+        background: #11141a;
+        border-top: 2px solid var(--border-color);
+        z-index: 9999;
+      }
+      .quick-action-btn {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 14px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+      }
+      .quick-action-btn.qa-whatsapp {
+        background: #25d366;
+        color: #ffffff;
+      }
+      .quick-action-btn.qa-login {
+        background: var(--primary);
+        color: #000000;
+      }
+      body {
+        padding-bottom: 65px !important;
+      }
+      .login-btn-group {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="ticker-wrap">
+    <div class="ticker-inner">
+      <div class="ticker-item"><span>+++ KLIMAGAS AUFFÜLLUNG</span></div>
+      <div class="ticker-item">REIFENHANDEL & MONTAGE</div>
+      <div class="ticker-item"><span>TROCKENEIS-REINIGUNG</span></div>
+      <div class="ticker-item">UNTERBODENSCHUTZ</div>
+      <div class="ticker-item"><span>HEBEBÜHNEN 24/7 ZUGANG</span></div>
+      <div class="ticker-item">BREMSENENTLÜFTUNGSGERÄT NEU +++</div>
+      <div class="ticker-item"><span>+++ KLIMAGAS AUFFÜLLUNG</span></div>
+      <div class="ticker-item">REIFENHANDEL & MONTAGE</div>
+      <div class="ticker-item"><span>TROCKENEIS-REINIGUNG</span></div>
+      <div class="ticker-item">UNTERBODENSCHUTZ</div>
+      <div class="ticker-item"><span>HEBEBÜHNEN 24/7 ZUGANG</span></div>
+      <div class="ticker-item">BREMSENENTLÜFTUNGSGERÄT NEU +++</div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#start" class="brand">
+        <img src="images/logo.png" width="48" height="48" alt="Logo Mietwerkstatt">
+        <span>
+          <small style="display:block; color:var(--text-muted); font-size:11px; text-transform:uppercase; letter-spacing:1px;">Mietwerkstatt St. Pölten</small>
+          <span class="brand-sheen" style="color:#ffffff; font-weight:700; font-size:18px;">Werner Paternoster</span>
+        </span>
+      </a>
+      <nav class="nav" id="mainNavigation" aria-label="Hauptnavigation">
+        <a href="#preise">Preise</a>
+        <a href="#ausstattung">Ausstattung</a>
+        <a href="#trockeneis">Trockeneis Gerät</a>
+        <a href="#angebote">Angebote</a>
+        <a href="#kontakt">Kontakt</a>
+        <button class="btn btn-blue" style="font-weight:600;" onclick="openModal('loginModal')">Buchungslogin</button>
+        <button class="btn btn-primary" style="font-weight:600;" onclick="openModal('whatsappModal')">Anfrage WhatsApp</button>
+        <a class="hdr-social" href="https://www.instagram.com/24hmietwerkstatt/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7m5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2.2a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6M18 6.4a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>
+        </a>
+      </nav>
+      <button id="navToggle" class="nav-toggle" aria-label="Menü öffnen">☰</button>
+    </div>
+  </header>
+
+  <main id="start">
+    <section class="hero section">
+      <div class="hero-bg" role="img" aria-label="Werkstatt Luftaufnahme"></div>
+      <div class="container hero-inner">
+        <div>
+          <div class="live-badge">
+            <span class="badge-pulse"></span>
+            Für registrierte Bestandskunden 24/7 geöffnet
+          </div>
+          <h2>Mietwerkstatt St. Pölten</h2>
+          <h1>Schrauben wann du willst – 24/7</h1>
+          <p class="lead">4 Hebebühnen. Werkzeug inklusive. <br>Jetzt neu: <strong>Klimagas Auffüllung</strong> für die Saison!</p>
+          
+          <div class="actions">
+            <a class="btn btn-primary" href="#preise">Preise & Tarife</a>
+            <button class="btn btn-outline" onclick="openModal('whatsappModal')">Direktanfrage WhatsApp</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAUBERER STICKY STACK -->
+    <section class="sticky-stack-section">
+      <div class="sticky-header">
+        <h2>Wie funktioniert die Buchung?</h2>
+        <p>Der einfache Weg zu deiner Miet-Hebebühne.</p>
+      </div>
+      
+      <div class="stack-container">
+        <div class="stack-card">
+          <div class="stack-num">01</div>
+          <div class="stack-content">
+            <h4>Ersttermin vereinbaren</h4>
+            <p>Deinen allerersten Termin zur Einweisung vereinbarst du einfach und direkt per WhatsApp mit uns.</p>
+          </div>
+        </div>
+        
+        <div class="stack-card">
+          <div class="stack-num">02</div>
+          <div class="stack-content">
+            <h4>Einweisung erhalten</h4>
+            <p>Vor Ort registrieren wir dich im System und du erhältst eine genaue Einweisung für die Werkstattnutzung und das Werkzeug.</p>
+          </div>
+        </div>
+        
+        <div class="stack-card">
+          <div class="stack-num">03</div>
+          <div class="stack-content">
+            <h4>24/7 Freischaltung & Buchung</h4>
+            <p>Je nach Arbeitsweise schalten wir dich nach dem ersten oder nach ein paar weiteren Terminen für unser Online-Buchungsportal (Timify) frei. Ab dann kannst du rund um die Uhr selbstständig buchen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section container">
+      <div class="row-cards">
+        <article class="card">
+          <h3>24/7 Freiheit</h3>
+          <p>Für registrierte Kunden ist die Werkstatt rund um die Uhr zugänglich. Nachtschicht? Kein Problem.</p>
+        </article>
+        <article class="card">
+          <h3>Top-Ausstattung & Services</h3>
+          <p>Vom Klimaservice-Gerät über moderne Diagnose-Tools bis zur 5,5t Transporter-Bühne steht dir alles für dein Projekt zur Verfügung.</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="angebote" class="section container">
+      <h2>Aktuelles & Angebote</h2>
+      <div class="row-cards">
+        
+        <article class="card highlight">
+          <div class="highlight-tag">Saison-Highlight</div>
+          <h3>Klimaservice</h3>
+          <p>Bereit für den Sommer? Wir füllen dein Klimagas fachgerecht auf. Preise für 500g Füllung:</p>
+          <ul style="text-align:left; font-size:15px; margin-bottom:15px; padding-left:20px;">
+            <li>Gas R134a: <strong>95 €</strong></li>
+            <li>Gas R1234yf: <strong>160 €</strong></li>
+            <li>Leckfinder: <strong>30 €</strong></li>
+          </ul>
+          <button class="btn btn-primary" onclick="openModal('whatsappModal')">Jetzt Termin buchen</button>
+        </article>
+
+        <article class="card">
+          <h3>Bremsenentlüftungsgerät</h3>
+          <p>Gerät zum Entlüften der Bremsanlage für optimale Sicherheit am Fahrzeug.</p>
+          <p style="font-size: 20px; font-weight: bold; margin: 15px 0; color: var(--primary);">15 € <span style="font-size:14px; font-weight:normal; color:var(--text-muted);">/ Fahrzeug</span></p>
+          <button class="btn btn-outline" onclick="openModal('whatsappModal')">Jetzt anfragen</button>
+        </article>
+
+        <article class="card">
+          <h3>Unterboden-Versiegelung</h3>
+          <p>Schutz für Wohnmobile & PKW. Wir versiegeln deinen Unterboden fachgerecht gegen Rost und Salz.</p>
+          <button class="btn btn-outline" onclick="openModal('whatsappModal')">Angebot einholen</button>
+        </article>
+
+        <article class="card">
+          <h3>Reifenservice & Handel</h3>
+          <p>Montage & Wuchten durch Fachpersonal. <strong>Neu:</strong> Wir sind Reifen-Händler und empfehlen <strong>Petlas Reifen</strong> für ein ideales Preis-Leistungs-Verhältnis.</p>
+          <button class="btn btn-outline" onclick="openModal('whatsappModal')">Angebot einholen</button>
+        </article>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+   <section id="trockeneis" class="section container">
+      <h2>Trockeneis-Reinigung</h2>
+      <p class="lead" style="margin-bottom:30px">High-Tech Reinigung ohne Wasser und Chemie. Der Thermoschock löst Schmutz, schont aber das Material.</p>
+
+      <div style="text-align: center; margin-bottom: 40px;">
+        <iframe width="315" height="560" src="https://www.youtube.com/embed/leCB6bQQiNM" title="Trockeneis Reinigung Unterboden Mercedes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 12px; max-width: 100%; box-shadow: 0 4px 15px rgba(0,0,0,0.3);"></iframe>
+      </div>
+      
+      <div class="row-cards">
+        <article class="card">
+          <h3>Motorraum & Technik</h3>
+          <p>Da Trockeneis sofort verdampft, ist es sicher für Elektronik. Entfernt Öl, Fett und Salz, ohne Wasser in Stecker zu drücken.</p>
+        </article>
+
+        <article class="card">
+          <h3>Unterboden & Rostschutz</h3>
+          <p>Entfernt alten Bitumen und Straßenschmutz restlos bis aufs Blech. Perfekt für Restaurationen.</p>
+        </article>
+
+        <article class="card">
+          <h3>Innenraum Hygiene</h3>
+          <p>Tötet Bakterien und Schimmel ab. Entfernt Gerüche (Raucher/Hunde) aus Polstern und Lüftungsschlitzen.</p>
+        </article>
+      </div>
+
+      <div class="carousel-wrapper contained">
+        <div class="carousel-track" id="track">
+          <div class="slide">
+            <img src="images/trockeneisRM.png" alt="Trockeneis Motor Reinigung" loading="lazy">
+            <div class="slide-caption">Zylinderkopf: Vorher / Nachher</div>
+          </div>
+          <div class="slide">
+            <img src="images/terAF.png" alt="Trockeneis Außen/Felgen" loading="lazy">
+            <div class="slide-caption">Schonende Detail-Arbeiten</div>
+          </div>
+          <div class="slide">
+            <img src="images/terUB.png" alt="Trockeneis Unterboden" loading="lazy">
+            <div class="slide-caption">Unterboden Aufbereitung</div>
+          </div>
+          <div class="slide">
+            <img src="images/terWM.png" alt="Trockeneis Wohnmobil" loading="lazy">
+            <div class="slide-caption">Wohnmobil Aufbereitung</div>
+          </div>
+        </div>
+        
+        <button class="c-btn prev" id="prevBtn">❮</button>
+        <button class="c-btn next" id="nextBtn">❯</button>
+      </div>
+
+      <div class="special-offer">
+        <div class="offer-content">
+          <h3>🚐 Spezialangebot: Wohnmobile</h3>
+          <p>Die Außenhaut von Wohnmobilen (GfK, Alu-Struktur) wird bei uns schonend von Moos, Algen und Grauschleier befreit. Dichtungen werden dabei nicht angegriffen, da wir <strong>keine scharfe Chemie</strong> nutzen. Werterhalt für dein mobiles Zuhause.</p>
+          <button class="btn btn-primary" onclick="openModal('whatsappModal')">Anfrage für Wohnmobil</button>
+        </div>
+        <div class="offer-glow"></div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="preise" class="section container">
+      <h2>Preise & Tarife</h2>
+      
+      <div class="scroll-row">
+        
+        <div class="price-card snap highlight">
+          <div class="highlight-tag">Beliebtester Tarif</div>
+          <h4>PKW Tarife</h4>
+          <div class="amount">20 € <small style="font-size:16px; color:#fff">/ Std</small></div>
+          <ul style="margin-bottom:12px; padding-bottom:12px; border-bottom:1px solid #333">
+            <li>Hebebühne bis 3,5t</li>
+            <li>Inkl. Werkzeugwagen</li>
+          </ul>
+          <div class="amount">120 € <small style="font-size:16px; color:#fff">/ Tag</small></div>
+          <ul>
+            <li>Tagesmiete (24h)</li>
+            <li>Kein Zeitstress mehr</li>
+          </ul>
+        </div>
+
+        <div class="price-card snap">
+          <h4>Wohnmobil / Kleinbus</h4>
+          <div class="amount">30 € <small style="font-size:16px; color:#fff">/ Std</small></div>
+          <ul style="margin-bottom:12px; padding-bottom:12px; border-bottom:1px solid #333">
+            <li>Transporter-Bühne (5,5t)</li>
+            <li>Genug Deckenhöhe</li>
+          </ul>
+          <div class="amount">250 € <small style="font-size:16px; color:#fff">/ Tag</small></div>
+          <ul>
+            <li>Tagesmiete (24h)</li>
+            <li>Ideal für Großprojekte</li>
+          </ul>
+        </div>
+
+        <div class="price-card snap">
+          <h4>Klimaservice</h4>
+          <div class="amount">ab 95 € <small style="font-size:16px; color:#fff">/ Füllung</small></div>
+          <ul>
+            <li>Gas R134a: <strong>95 €</strong> (500g)</li>
+            <li>Gas R1234yf: <strong>160 €</strong> (500g)</li>
+            <li>Leckfinder: <strong>+30 €</strong></li>
+            <li>Saison-Aktion läuft!</li>
+          </ul>
+        </div>
+
+        <div class="price-card snap double-layout">
+          <div class="double-header">Reifenservice</div>
+          <div class="double-box">
+            <div class="amt">80 €</div>
+            <p style="margin:2px 0; font-size:13px; color:var(--text-light);">Komplett-Paket</p>
+            <p style="margin:0; font-size:12px; color:var(--text-muted);">Montieren, wuchten etc. komplett durch uns erledigt.</p>
+          </div>
+          <div class="double-sep"></div>
+          <div class="double-box">
+            <div class="amt">5 € <span style="font-size:14px; color:var(--text-muted);">/ Reifen</span></div>
+            <p style="margin:2px 0; font-size:13px; color:var(--text-light);">Do-It-Yourself</p>
+            <p style="margin:0; font-size:12px; color:var(--text-muted);">Selber machen inkl. Gewichte & Maschinen (exkl. Bühne).</p>
+          </div>
+        </div>
+
+        <div class="price-card snap">
+          <h4>Zusatzgeräte</h4>
+          <div class="amount">15 €</div>
+          <ul>
+            <li>Diagnosegerät / Stunde</li>
+            <li>Hydraulik-Presse / Stunde</li>
+            <li>Federspanner / Stunde</li>
+            <li>Bremsenentlüftungsgerät / Fahrzeug</li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="prices-cta">
+        <button class="btn btn-primary" onclick="openModal('whatsappModal')">Termin via WhatsApp buchen</button>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="ausstattung" class="section container">
+      <h2>Ausstattung & Services</h2>
+      <div class="row-cards equal">
+        <div class="fact card"><strong>3×</strong><br>Bühnen bis 3,5t</div>
+        <div class="fact card"><strong>1×</strong><br>Transporter-Bühne 5,5t</div>
+        <div class="fact card"><strong>Werkzeug</strong><br>Wagen an jeder Bühne</div>
+      </div>
+      
+      <h3 class="subhead">Details & Maschinen</h3>
+      <div class="grid-tiles">
+        
+        <details class="tile" open>
+          <summary>Klimaservice & Gas Auffüllung</summary>
+          <div class="tile-content">
+            <img src="images/klimageraet.jpg" alt="Klimaservice Gerät" class="tile-img" loading="lazy" onerror="this.style.display='none'"> 
+            <p>Vollautomatisches Klimaservice-Gerät für R134a und R1234yf. Inklusive <strong>Leckfinder</strong>, um undichte Stellen im System schnell zu finden. Wir füllen dein System fachgerecht für die heißen Tage auf.</p>
+          </div>
+        </details>
+
+        <details class="tile">
+          <summary>Reifenservice & Handel</summary>
+          <div class="tile-content">
+            <img src="images/reifenmontage.jpg" alt="Reifenmontiermaschine" class="tile-img" loading="lazy" onerror="this.style.display='none'">
+            <img src="images/petlas-logo.png" alt="Petlas Logo" loading="lazy" onerror="this.style.display='none'" style="max-width: 120px; display: block; margin: 15px 0;">
+            <p>Nutzung der Reifen-/Montiermaschine extra zu bezahlen: <strong>5 € pro Reifen</strong> (inkl. Wuchtgewicht). Zudem bieten wir den Verkauf von Neureifen an (Empfehlung: Petlas Reifen). Bitte beachte, dass Putztücher selber mitgebracht werden müssen.</p>
+          </div>
+        </details>
+
+        <details class="tile">
+          <summary>Diagnosegerät</summary>
+          <div class="tile-content">
+            <img src="images/auslesegeraet.jpeg" alt="Diagnosegerät" class="tile-img" loading="lazy" onerror="this.style.display='none'">
+            <p>Diagnosegerät zum Auslesen, Fehler löschen und Service-Reset. Preis: 15€/h.</p>
+          </div>
+        </details>
+
+        <details class="tile">
+          <summary>Bremsenentlüftungsgerät</summary>
+          <div class="tile-content">
+            <p>Gerät für den sicheren Wechsel der Bremsflüssigkeit. Preis: 15 € pro Fahrzeug.</p>
+          </div>
+        </details>
+
+        <details class="tile">
+          <summary>Werkstattpresse</summary>
+          <div class="tile-content">
+             <img src="images/presse.jpg" alt="Hydraulikpresse" class="tile-img" loading="lazy" onerror="this.style.display='none'">
+            <p>Starke Hydraulik-Presse für Radlager und Buchsen. Bitte unbedingt Schutzbrille tragen!</p>
+          </div>
+        </details>
+
+        <details class="tile">
+          <summary>Spezialwerkzeug</summary>
+          <div class="tile-content">
+            <p>Wir haben nicht alles, aber vieles! Z.B. Bördelgerät, Federspanner, Scheibenschneidgerät und mehr. Einfach bei uns nachfragen.</p>
+          </div>
+        </details>
+
+        <details class="tile">
+          <summary>PKW Aufbereitung</summary>
+          <div class="tile-content">
+             <img src="images/aufbereitung.jpg" alt="Auto Aufbereitung" class="tile-img" loading="lazy" onerror="this.style.display='none'">
+            <p>Keine Lust selbst zu putzen? Wir übernehmen die komplette Fahrzeugaufbereitung für dich.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="gallery-wrap">
+        <h3 class="subhead">Einblick in die Halle</h3>
+        <div class="scroll-row gallery">
+          <img class="snap" src="images/3-buehnen.jpeg" alt="Halle Übersicht" loading="lazy">
+          <img class="snap" src="images/werkzeugkasten.jpeg" alt="Werkzeugwagen" loading="lazy">
+          <img class="snap" src="images/vw-buehne.jpeg" alt="VW Bus auf Bühne" loading="lazy">
+          <img class="snap" src="images/transporter.jpeg" alt="Transporter auf Bühne" loading="lazy">
+          <img class="snap" src="images/trockeneisRM.png" alt="Motor Reinigung" loading="lazy">
+          <img class="snap" src="images/terAF.png" alt="Trockeneis-Reinigung" loading="lazy">
+          <img class="snap" src="images/terUB.png" alt="Trockeneis-Reinigung" loading="lazy">
+          <img class="snap" src="images/terWM.png" alt="Trockeneis-Reinigung" loading="lazy">
+          <img class="snap" src="images/reifenmontage.jpg" alt="Reifenmontage" loading="lazy">
+          <img class="snap" src="images/Federspanner.jpeg" alt="Reifenmontage" loading="lazy">
+          </div>
+        <div class="scroll-hint">← wischen für mehr Bilder →</div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section container">
+      <h2 class="subtle">Das sagen die Leute</h2>
+      <div class="row-cards">
+        <div class="card" style="font-style:italic;">
+          <div style="color:var(--yellow); font-size:20px; margin-bottom:10px;">★★★★★</div>
+          <p>"Super Typ. Hat alles gepasst, Werkzeug war da, Bühne funktioniert top. Komme sicher wieder zum Schrauben."</p>
+          <p style="margin-top:15px; font-weight:bold; font-style:normal; color:var(--muted);">- Markus H.</p>
+        </div>
+        <div class="card" style="font-style:italic;">
+          <div style="color:var(--yellow); font-size:20px; margin-bottom:10px;">★★★★★</div>
+          <p>"Hab beim Bus das Fahrwerk gemacht. Die große Bühne ist ein Traum dafür. Alles unkompliziert abgelaufen."</p>
+          <p style="margin-top:15px; font-weight:bold; font-style:normal; color:var(--muted);">- Thomas W.</p>
+        </div>
+        <div class="card" style="font-style:italic;">
+          <div style="color:var(--yellow); font-size:20px; margin-bottom:10px;">★★★★★</div>
+          <p>"Trockeneis ist echt der Hammer. Der Unterboden schaut aus wieder super aus. Danke für die Zeit!"</p>
+          <p style="margin-top:15px; font-weight:bold; font-style:normal; color:var(--muted);">- Sarah L.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="faq" class="section container">
+      <h2>Häufige Fragen</h2>
+      <div class="faq-wrap">
+        <details class="faq-item">
+          <summary>Wie funktioniert der Zugang?</summary>
+          <div class="faq-content">Neukunden vereinbaren einen Termin zur Erst-Einweisung und Registrierung. Bestandskunden erhalten eine Freigabe und können das Tor per Code öffnen – 24/7.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Sind Reinigungstücher vor Ort vorhanden?</summary>
+          <div class="faq-content">Nein, Putz- und Reinigungstücher sind selbst mitzubringen. Bitte sorge selbst für passendes Material, um deinen Arbeitsplatz sauber zu hinterlassen.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Muss ich Werkzeug mitbringen?</summary>
+          <div class="faq-content">Nein. Jede Bühne hat einen eigenen, gut sortierten Werkzeugwagen. Spezialwerkzeug gibt es auf Anfrage. Wichtig: Putztücher müssen selber mitgebracht werden.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Darf ich mein eigenes Öl mitbringen?</summary>
+          <div class="faq-content">Ja, darfst du. Altöl kann bei uns gegen eine kleine Gebühr entsorgt werden.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Kann ich mit Karte zahlen?</summary>
+          <div class="faq-content">Ja, Kartenzahlung ist bei uns möglich.</div>
+        </details>
+         <details class="faq-item">
+          <summary>Ist schweißen erlaubt</summary>
+          <div class="faq-content">NEIN, das ist bei uns nicht möglich.</div>
+        </details>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="kontakt" class="section container">
+      <h2>Kontakt & Anfahrt</h2>
+      <div class="contact">
+        <div class="map-wrap" style="margin-top:24px; border-radius:16px; overflow:hidden; border:1px solid #2a2e32;">
+       <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2656.684666578036!2d15.6521!3d48.2565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47727e0c4b7b7b7b%3A0x0!2sSchwadorf%2018%2C%203100%20St.%20Pölten!5e0!3m2!1sde!2sat!4v1700000000000!5m2!1sde!2sat" 
+      width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg) contrast(90%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      </div>
+        <div class="box">
+          <h3>Mietwerkstatt Werner Paternoster</h3>
+          <p>Schwadorf 18<br>3100 St. Pölten</p>
+          <p><strong>Öffnungszeiten:</strong><br>24/7 für Bestandskunden<br>Termine nach Vereinbarung</p>
+          
+          <div class="team">
+            <img src="images/werner-paternoster.jpg" alt="Werner Paternoster">
+            <div>
+              <strong>Werner Paternoster</strong><br>
+              <span style="color:var(--yellow);font-size:14px">Inhaber & Ansprechpartner</span>
+            </div>
+          </div>
+          <div class="socials">
+            <a href="https://www.instagram.com/24hmietwerkstatt/" target="_blank" class="social">Instagram</a>
+            <a href="https://www.facebook.com/24hMietwerkstatt" target="_blank" class="social">Facebook</a>
+          </div>
+          
+          <h4 style="margin-top:30px; margin-bottom:10px;">Direktanfrage WhatsApp</h4>
+          <form id="contactForm" onsubmit="sendToWhatsapp(event, 'contactForm')">
+            <input id="c_name" name="name" required placeholder="Dein Name" style="margin-bottom:10px">
+            <textarea id="c_msg" name="message" rows="3" required placeholder="Nachricht..."></textarea>
+            <button type="submit" class="btn btn-primary">Absenden</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="impressum" class="section container">
+      <div class="imp-box">
+        <h3>Impressum</h3>
+        <p><strong>Betreiber & Inhalt:</strong> Werner Paternoster</p>
+        <p>Schwadorf 18, 3100 St. Pölten | Tel (nur über WhatsApp): +43 664 5171370</p>
+        <p style="margin-top:10px;font-size:12px;opacity:.5">© 2024 Werner Paternoster. Alle Rechte vorbehalten.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container inner">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <img src="images/logo.png" width="40" alt="Logo">
+          <strong style="color:#fff">Werner Paternoster</strong>
+        </div>
+        <p>Die Mietwerkstatt mit Handschlagqualität in St. Pölten.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Links</h4>
+        <a href="#preise">Preise</a>
+        <a href="#faq">Häufige Fragen</a>
+        <a href="#impressum">Impressum</a>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <a href="https://wa.me/436645171370" style="color: #ffffff; text-decoration: none;">Tel: +43 664 5171370 (nur über WhatsApp)</a>
+        <a href="https://wa.me/436645171370">WhatsApp Nachricht</a>
+        <a href="mailto:office@w-paternoster.at">E-Mail senden</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-quick-actions">
+    <button class="quick-action-btn qa-login" onclick="openModal('loginModal')">Buchungslogin</button>
+    <a href="https://wa.me/436645171370" class="quick-action-btn qa-whatsapp" target="_blank">Ersttermin via WhatsApp</a>
+  </div>
+
+  <!-- WhatsApp Modal -->
+  <div id="whatsappModal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('whatsappModal')">✕</button>
+      <h3 style="color:var(--primary); font-size:24px; margin-bottom:20px; margin-top:0;">Schnellanfrage an Werner</h3>
+      <form id="modalForm" onsubmit="sendToWhatsapp(event, 'modalForm')">
+        <label for="m_name" style="display:block; text-align:left; margin-bottom:5px;">Name</label>
+        <input id="m_name" name="name" required style="width:100%; padding:10px; margin-bottom:15px; border-radius:6px; border:1px solid #3b4252; background:#242933; color:#fff; box-sizing:border-box;">
+        <label for="m_msg" style="display:block; text-align:left; margin-bottom:5px;">Wunschtermin / Frage / Klimaservice</label>
+        <textarea id="m_msg" name="message" rows="4" required style="width:100%; padding:10px; margin-bottom:15px; border-radius:6px; border:1px solid #3b4252; background:#242933; color:#fff; box-sizing:border-box;"></textarea>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Via WhatsApp senden</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
+      <h3>Hebebühne online mieten</h3>
+      <p>Unser Buchungsportal für selbstständiges Arbeiten läuft über das externe Reservierungssystem <strong>Timify</strong>.</p>
+      
+      <div class="modal-notice-box">
+        <strong>⚠️ Wichtig für Neukunden:</strong><br>
+        Die direkte Online-Buchung funktioniert erst, wenn du bereits einmal bei uns warst. Dein <strong>allererster Termin</strong> muss zwingend vorab über <strong>WhatsApp</strong> vereinbart werden, damit wir dich im System registrieren können. Je nach Arbeitsweise schalten wir dich nach dem ersten oder nach ein paar weiteren Terminen frei.
+      </div>
+      
+      <div class="login-btn-group">
+        <a class="btn-main" href="buchen/index.html" target="_blank">Zum Portal (Timify)</a>
+        <a class="btn-sub" href="https://wa.me/436645171370" target="_blank">Ersttermin via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="fab">
+    <a class="fab-btn" href="https://wa.me/436645171370" target="_blank" title="WhatsApp">
+      <img src="images/Whatsapp-logo.png" alt="WhatsApp">
+    </a>
+  </div>
+
+  <script>
+    // Mobil Menü Logik
+    document.getElementById('navToggle').addEventListener('click', function(e) {
+      e.stopPropagation();
+      var nav = document.getElementById('mainNavigation');
+      nav.classList.toggle('active');
+    });
+
+    document.addEventListener('click', function(e) {
+      var nav = document.getElementById('mainNavigation');
+      var toggle = document.getElementById('navToggle');
+      if (nav.classList.contains('active') && !nav.contains(e.target) && e.target !== toggle) {
+        nav.classList.remove('active');
+      }
+    });
+
+    // Absolut sichere Modal-Steuerung
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = 'flex';
+      document.body.style.overflow = 'hidden'; // Sperrt das Scrollen im Hintergrund
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = 'none';
+      document.body.style.overflow = ''; // Scrollen wieder erlauben
+    }
+
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = "none";
+        document.body.style.overflow = '';
+      }
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

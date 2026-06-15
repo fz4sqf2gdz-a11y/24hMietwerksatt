@@ -1,0 +1,829 @@
+/* Text Elements */
+
+h2.info-title {
+  margin-top: 122px;
+  width: 100%;
+  background-color: transparent;
+  color: #fff;
+  text-align: center;
+  font-weight: 500;
+  font-size: 26px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h2.offer-heading {
+  color: #eaeaea;
+  text-align: center;
+  font-weight: 700;
+  font-size: 36px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h2.info-title.quote-heading {
+  margin-top: 0;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+h2 span.heading-text-2 {
+  font-size: 1.25rem;
+}
+
+h2 span.heading-text-1 {
+  color: #262626;
+}
+
+h5 {
+  color: #fff;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+h5.heading-2 {
+  padding-top: 50px;
+  color: #aaa;
+  font-weight: 700;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h5.antworten {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h6.sub-heading-price {
+  margin-bottom: 50px;
+  color: #fff;
+  text-align: center;
+  font-weight: 400;
+  font-size: 20px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h6 {
+  color: #2e2e2e;
+  font-weight: 900;
+  font-family: 'Archivo', sans-serif;
+}
+
+h6 span.heading-text-8 {
+  font-weight: 900;
+}
+
+h6 a.heading-text-3 {
+  color: #fff;
+}
+
+p.paragraph {
+  color: #adadad;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: 'Archivo', sans-serif;
+}
+
+p.paragraph.intro-highlighted-paragraph {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  color: #fff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+p.paragraph.section-paragraph {
+  margin-right: auto;
+  margin-bottom: 1.25rem;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  max-width: 800px;
+  background-color: transparent;
+  color: #575757;
+  font-size: 23px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+p.paragraph span.paragraph-text-5 {
+  color: #0084c2;
+  font-size: 1.3125rem;
+}
+
+p.paragraph span.paragraph-text-6 {
+  color: #0084c2;
+  font-size: 1rem;
+}
+
+p.paragraph span.paragraph-text-7 {
+  color: #0084c2;
+  font-size: 1rem;
+}
+
+p.paragraph span.paragraph-text-8 {
+  color: #0084c2;
+  font-size: 1rem;
+}
+
+p.paragraph span.paragraph-text-2 {
+  color: #fff;
+}
+
+p.paragraph.paragraph-1 {
+  background-color: #404040;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+p.paragraph span.paragraph-text-1 {
+  color: #dcdcdc;
+}
+
+p.paragraph span.paragraph-text-3 {
+  color: #353535;
+  font-size: 1.9375rem;
+}
+
+/* Interaction Elements */
+
+a.link-button.button {
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 15px;
+}
+
+/* Layout Elements */
+
+body.dark-body {
+  background-color: #343434;
+}
+
+.container.discount-container {
+  margin-right: auto;
+  margin-left: auto;
+  padding: 50px 20px 50px 30px;
+  max-width: 800px;
+  background-color: transparent;
+}
+
+.container.header-region {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display:    -moz-box;
+  display: -ms-flexbox;
+  display:         flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: center;
+  -ms-flex-align: stretch;
+  min-height: 100vh;
+  background-color: #000;
+  background-image: -webkit-radial-gradient(rgba(255, 255, 255, 0) 0%, rgba(0, 132, 194, 1) 100%), url('../images/24-stunden-mietwerkstatt.jpg');
+  background-image:    -moz-radial-gradient(rgba(255, 255, 255, 0) 0%, rgba(0, 132, 194, 1) 100%), url('../images/24-stunden-mietwerkstatt.jpg');
+  background-image:      -o-radial-gradient(rgba(255, 255, 255, 0) 0%, rgba(0, 132, 194, 1) 100%), url('../images/24-stunden-mietwerkstatt.jpg');
+  background-image:         radial-gradient(rgba(255, 255, 255, 0) 0%, rgba(0, 132, 194, 1) 100%), url('../images/24-stunden-mietwerkstatt.jpg');
+  background-attachment: scroll, fixed;
+  background-position: left top, center -418px;
+  background-clip: border-box, border-box;
+  background-origin: padding-box, padding-box;
+  background-size: auto auto, auto auto;
+  background-repeat: no-repeat, no-repeat;
+
+  background-blend-mode: normal, normal;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+     -moz-box-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+          justify-content: center;
+}
+
+.container.book-offer {
+  padding-top: 90px;
+  padding-bottom: 90px;
+  max-width: none;
+  background-color: transparent;
+  background-image: -webkit-radial-gradient(rgba(255, 255, 255, .5) 0%, rgba(0, 132, 194, 1) 100%), url('../images/24-stunden-mietwerkstatt-2.jpg');
+  background-image:    -moz-radial-gradient(rgba(255, 255, 255, .5) 0%, rgba(0, 132, 194, 1) 100%), url('../images/24-stunden-mietwerkstatt-2.jpg');
+  background-image:      -o-radial-gradient(rgba(255, 255, 255, .5) 0%, rgba(0, 132, 194, 1) 100%), url('../images/24-stunden-mietwerkstatt-2.jpg');
+  background-image:         radial-gradient(rgba(255, 255, 255, .5) 0%, rgba(0, 132, 194, 1) 100%), url('../images/24-stunden-mietwerkstatt-2.jpg');
+  background-attachment: scroll, scroll;
+  background-position: left top, center center;
+  background-clip: border-box, border-box;
+  background-origin: padding-box, padding-box;
+  background-size: auto auto, cover;
+  background-repeat: repeat, no-repeat;
+  opacity: .98;
+
+  background-blend-mode: normal, normal;
+}
+
+.container.social {
+  margin-top: 50px;
+  margin-bottom: 70px;
+  padding-top: 1px;
+  padding-bottom: 45px;
+  border-radius: 5px;
+  background-color: #aaa;
+  background-image: none;
+  background-attachment: scroll;
+  background-position: left top;
+  background-clip: border-box;
+  background-origin: padding-box;
+  background-size: 0 0;
+  background-repeat: no-repeat;
+
+  background-blend-mode: normal;
+}
+
+.container.footer {
+  background-color: #343434;
+}
+
+.container.highlighted-heading {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display:    -moz-box;
+  display: -ms-flexbox;
+  display:         flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: center;
+  -ms-flex-align: center;
+  margin: 600px auto 2rem;
+  padding: 1rem;
+  min-height: 600px;
+  max-width: 1000px;
+  border-radius: 20px;
+  background-color: rgba(61, 61, 61, .8);
+
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+          align-items: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+          align-content: center;
+}
+
+.container.footer-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display:    -moz-box;
+  display: -ms-flexbox;
+  display:         flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: center;
+  -ms-flex-align: center;
+  padding-top: 30px;
+  background-color: #404040;
+
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+          align-items: center;
+}
+
+.container.container-1 {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+a.responsive-picture.footer-pic {
+  margin-top: 3px;
+  padding-top: 30px;
+  padding-bottom: 34px;
+  max-width: 250px;
+}
+
+div.responsive-picture.picture-1 {
+  margin-top: 10px;
+  max-width: 800px;
+}
+
+a.responsive-picture.picture-link-1 {
+  margin: 13px auto;
+  padding-top: 39px;
+  padding-bottom: 35px;
+  max-width: 50px;
+}
+
+.html-element.html-element-1 {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1000px;
+}
+
+a.responsive-picture.picture-link-3 {
+  position: fixed;
+  top: 7px;
+  right: auto;
+  left: 5px;
+  max-width: 65px;
+}
+
+a.responsive-picture.picture-link-4 {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 12px;
+  padding-bottom: 27px;
+  max-width: 112px;
+}
+
+a.responsive-picture.picture-link-2 {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 300px;
+}
+
+div.responsive-picture.picture-2 {
+  margin-top: 70px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+div.responsive-picture.picture-3 {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  max-width: 350px;
+}
+
+div.responsive-picture.picture-3:hover {
+  -webkit-transform: scaleX(2) scaleY(2) scaleZ(2);
+     -moz-transform: scaleX(2) scaleY(2) scaleZ(2);
+          transform: scaleX(2) scaleY(2) scaleZ(2);
+}
+
+@media screen and (min-width: 40rem) {
+  /* Text Elements */
+
+  h2.info-title {
+    position: static;
+    float: none;
+    clear: none;
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+  }
+
+  h5.heading-2 {
+    margin-top: 0;
+    padding-top: 48px;
+    color: #b9b9b9;
+    font-weight: 700;
+  }
+
+  h6.sub-heading-price {
+    margin-bottom: 50px;
+  }
+
+  p.paragraph.section-paragraph {
+    background-color: transparent;
+    font-size: 17px;
+  }
+
+  p.paragraph span.paragraph-text-2 {
+    color: #eaeaea;
+  }
+
+  p.paragraph.paragraph-1 {
+    background-color: #404040;
+  }
+
+  /* Layout Elements */
+
+  .container.book-offer {
+    background-attachment: fixed, fixed;
+    background-position: center top, center top;
+    background-clip: border-box, border-box;
+    background-origin: padding-box, padding-box;
+    background-size: cover, cover;
+    background-repeat: no-repeat, no-repeat;
+  }
+
+  .container.header-region {
+    background-color: #000;
+    background-image: -webkit-radial-gradient(rgba(255, 255, 255, 0) 0%, rgba(0, 132, 194, 1) 100%), url('../images/24-stunden-mietwerkstatt.jpg');
+    background-image:    -moz-radial-gradient(rgba(255, 255, 255, 0) 0%, rgba(0, 132, 194, 1) 100%), url('../images/24-stunden-mietwerkstatt.jpg');
+    background-image:      -o-radial-gradient(rgba(255, 255, 255, 0) 0%, rgba(0, 132, 194, 1) 100%), url('../images/24-stunden-mietwerkstatt.jpg');
+    background-image:         radial-gradient(rgba(255, 255, 255, 0) 0%, rgba(0, 132, 194, 1) 100%), url('../images/24-stunden-mietwerkstatt.jpg');
+    opacity: 1;
+  }
+
+  .container.footer-wrapper {
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+    -ms-flex-align: center;
+    background-color: #404040;
+
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+       -moz-box-orient: horizontal;
+       -moz-box-direction: normal;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+            align-items: center;
+    -webkit-justify-content: space-around;
+            justify-content: space-around;
+  }
+
+  .container.social {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    max-width: 830px;
+    border-radius: 5px;
+    background-image: none;
+    background-attachment: scroll;
+    background-position: left top;
+    background-clip: border-box;
+    background-origin: padding-box;
+    background-size: 0 0;
+    background-repeat: no-repeat;
+    opacity: 1;
+
+    background-blend-mode: normal;
+  }
+
+  a.responsive-picture.picture-link-3 {
+    visibility: hidden;
+  }
+
+  a.responsive-picture.picture-link-4 {
+    max-width: 200px;
+  }
+
+  div.responsive-picture.picture-2 {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  a.responsive-picture.footer-pic {
+    max-width: 400px;
+  }
+
+  div.responsive-picture.picture-1 {
+    margin-top: 12px;
+  }
+}
+
+@media screen and (min-width: 64rem) {
+  /* Text Elements */
+
+  h2.info-title {
+    position: static;
+    display: block;
+    float: none;
+    clear: none;
+    margin-top: 80px;
+    margin-bottom: 8px;
+    width: auto;
+    background-color: transparent;
+    vertical-align: baseline;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  h2.offer-heading {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  h2 span.heading-text-1 {
+    color: #eaeaea;
+  }
+
+  h2 span.heading-text-2 {
+    font-size: 1.5rem;
+  }
+
+  h5.heading-2 {
+    padding-top: 35px;
+    color: #a1a1a1;
+    font-weight: 700;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  h5.antworten {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  h6.sub-heading-price {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  p.paragraph.section-paragraph {
+    background-color: transparent;
+    color: #000;
+    font-size: 24px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  p.paragraph span.paragraph-text-2 {
+    color: #fff;
+  }
+
+  p.paragraph.intro-highlighted-paragraph {
+    font-size: 21px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  p.paragraph font.paragraph-text-10 {
+    font-size: 2.5625rem;
+  }
+
+  p.paragraph span.paragraph-text-11 {
+    color: #ff0202;
+  }
+
+  p.paragraph.paragraph-1 {
+    background-color: #404040;
+  }
+
+  a.link-text span.text-link-text-1 {
+    font-size: 1.625rem;
+  }
+
+  a.link-text.text-link-1 {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: right;
+  }
+
+  /* Interaction Elements */
+
+  a.link-button.button {
+    display: inline-block;
+    margin-right: 5px;
+    border-radius: 15px;
+  }
+
+  /* Layout Elements */
+
+  body.body-1 {
+    padding: 15px;
+  }
+
+  .container.book-offer {
+    padding-bottom: 90px;
+    height: 600px;
+    background-color: transparent;
+    background-image: -webkit-radial-gradient(rgba(255, 255, 255, .5) 0%, rgba(0, 132, 194, 1) 100%), url('../images/24-stunden-mietwerkstatt-2.jpg');
+    background-image:    -moz-radial-gradient(rgba(255, 255, 255, .5) 0%, rgba(0, 132, 194, 1) 100%), url('../images/24-stunden-mietwerkstatt-2.jpg');
+    background-image:      -o-radial-gradient(rgba(255, 255, 255, .5) 0%, rgba(0, 132, 194, 1) 100%), url('../images/24-stunden-mietwerkstatt-2.jpg');
+    background-image:         radial-gradient(rgba(255, 255, 255, .5) 0%, rgba(0, 132, 194, 1) 100%), url('../images/24-stunden-mietwerkstatt-2.jpg');
+    background-attachment: scroll, fixed;
+    background-position: left top, center center;
+    background-clip: border-box, border-box;
+    background-origin: padding-box, padding-box;
+    background-size: auto auto, cover;
+    background-repeat: repeat, no-repeat;
+
+    background-blend-mode: normal, normal;
+  }
+
+  .container.header-region {
+    background-image: -webkit-radial-gradient(rgba(255, 255, 255, 0) 0%, rgba(0, 132, 194, 1) 100%), url('../images/24-stunden-mietwerkstatt.jpg');
+    background-image:    -moz-radial-gradient(rgba(255, 255, 255, 0) 0%, rgba(0, 132, 194, 1) 100%), url('../images/24-stunden-mietwerkstatt.jpg');
+    background-image:      -o-radial-gradient(rgba(255, 255, 255, 0) 0%, rgba(0, 132, 194, 1) 100%), url('../images/24-stunden-mietwerkstatt.jpg');
+    background-image:         radial-gradient(rgba(255, 255, 255, 0) 0%, rgba(0, 132, 194, 1) 100%), url('../images/24-stunden-mietwerkstatt.jpg');
+    background-position: center center;
+  }
+
+  .container.footer {
+    background-color: #272727;
+  }
+
+  .container.discount-container {
+    padding-top: 0;
+    padding-bottom: 0;
+    max-width: 1000px;
+  }
+
+  .container.highlighted-heading {
+    margin-top: 400px;
+    padding-right: 1rem;
+    max-width: 90%;
+    border-radius: 20px;
+    background-color: rgba(61, 61, 61, .8);
+  }
+
+  .container.social {
+    padding-top: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    max-width: 700px;
+    height: auto;
+    background-color: rgba(170, 170, 170, .81);
+    background-image: none;
+    background-attachment: scroll;
+    background-position: left top;
+    background-clip: border-box;
+    background-origin: padding-box;
+    background-size: 0 0;
+    background-repeat: no-repeat;
+
+    background-blend-mode: normal;
+  }
+
+  .container.footer-wrapper {
+    background-color: #404040;
+  }
+
+  .container.container-1 {
+    margin-top: 0;
+    padding-top: 15px;
+    padding-bottom: 40px;
+  }
+
+  .container.container-2 {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  a.responsive-picture.picture-link-1 {
+    margin-top: 15px;
+    margin-bottom: 18px;
+    padding-top: 0;
+    padding-bottom: 13px;
+  }
+
+  a.responsive-picture.footer-pic {
+    max-width: 400px;
+  }
+
+  a.responsive-picture.picture-link-4 {
+    max-width: 200px;
+  }
+
+  a.responsive-picture.picture-link-2 {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 400px;
+  }
+
+  ul.list-container.dropdown.menu {
+    max-width: 100%;
+  }
+
+  div.responsive-picture.picture-1 {
+    padding-bottom: 68px;
+  }
+
+  div.responsive-picture.picture-2 {
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 62px;
+  }
+
+  div.responsive-picture.picture-3 {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 600px;
+  }
+
+  div.responsive-picture.picture-2:hover {
+    -webkit-transform: scaleX(1) scaleY(1) scaleZ(1);
+       -moz-transform: scaleX(1) scaleY(1) scaleZ(1);
+            transform: scaleX(1) scaleY(1) scaleZ(1);
+  }
+}
+
+@media screen and (min-width: 87.5625rem) {
+  /* Text Elements */
+
+  h2.info-title {
+    color: #fff;
+  }
+
+  h5.antworten {
+    font-size: 13px;
+  }
+
+  h5.heading-2 {
+    font-size: 20px;
+  }
+
+  p.paragraph.paragraph-1 {
+    background-color: #404040;
+  }
+
+  p.paragraph.section-paragraph {
+    margin-top: 31px;
+  }
+
+  /* Layout Elements */
+
+  .container.highlighted-heading {
+    padding-left: 1rem;
+    max-width: 90%;
+    background-color: rgba(61, 61, 61, .8);
+  }
+
+  .container.header-region {
+    background-image: -webkit-radial-gradient(rgba(255, 255, 255, 0) 0%, rgba(0, 132, 194, 1) 85%), url('../images/24-stunden-mietwerkstatt.jpg');
+    background-image:    -moz-radial-gradient(rgba(255, 255, 255, 0) 0%, rgba(0, 132, 194, 1) 85%), url('../images/24-stunden-mietwerkstatt.jpg');
+    background-image:      -o-radial-gradient(rgba(255, 255, 255, 0) 0%, rgba(0, 132, 194, 1) 85%), url('../images/24-stunden-mietwerkstatt.jpg');
+    background-image:         radial-gradient(rgba(255, 255, 255, 0) 0%, rgba(0, 132, 194, 1) 85%), url('../images/24-stunden-mietwerkstatt.jpg');
+    background-attachment: scroll, fixed;
+    background-position: center center;
+    background-clip: border-box, border-box;
+    background-origin: padding-box, padding-box;
+    background-size: auto auto, auto auto;
+    background-repeat: no-repeat, no-repeat;
+
+    background-blend-mode: normal, normal;
+  }
+
+  .container.book-offer {
+    background-color: #000;
+    background-image: -webkit-radial-gradient(rgba(255, 255, 255, .5) 0%, rgba(0, 132, 194, 1) 85%), url('../images/24-stunden-mietwerkstatt-2.jpg');
+    background-image:    -moz-radial-gradient(rgba(255, 255, 255, .5) 0%, rgba(0, 132, 194, 1) 85%), url('../images/24-stunden-mietwerkstatt-2.jpg');
+    background-image:      -o-radial-gradient(rgba(255, 255, 255, .5) 0%, rgba(0, 132, 194, 1) 85%), url('../images/24-stunden-mietwerkstatt-2.jpg');
+    background-image:         radial-gradient(rgba(255, 255, 255, .5) 0%, rgba(0, 132, 194, 1) 85%), url('../images/24-stunden-mietwerkstatt-2.jpg');
+    background-attachment: scroll, fixed;
+    background-position: left top, center center;
+    background-clip: border-box, border-box;
+    background-origin: padding-box, padding-box;
+    background-size: auto auto, cover;
+    background-repeat: repeat, no-repeat;
+
+    background-blend-mode: normal, normal;
+  }
+
+  .container.discount-container {
+    border-radius: 20px;
+    background-color: transparent;
+  }
+
+  .container.footer-wrapper {
+    background-color: #404040;
+  }
+
+  .container.social {
+    border-radius: 5px;
+  }
+
+  a.responsive-picture.picture-link-2 {
+    margin-top: 0;
+    padding-top: 39px;
+  }
+
+  a.responsive-picture.picture-link-1 {
+    padding-top: 52px;
+  }
+
+  div.responsive-picture.picture-2 {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  a.responsive-picture.footer-pic {
+    max-width: 400px;
+  }
+
+  div.responsive-picture.picture-1 {
+    border-radius: 5px;
+  }
+
+  div.responsive-picture.picture-3:hover {
+    -webkit-transform: scaleX(1) scaleY(1) scaleZ(1);
+       -moz-transform: scaleX(1) scaleY(1) scaleZ(1);
+            transform: scaleX(1) scaleY(1) scaleZ(1);
+  }
+
+  div.responsive-picture.picture-3:active {
+    -webkit-transform: scaleX(1) scaleY(1) scaleZ(1);
+       -moz-transform: scaleX(1) scaleY(1) scaleZ(1);
+            transform: scaleX(1) scaleY(1) scaleZ(1);
+  }
+}

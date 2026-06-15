@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mietwerkstatt St. Pölten – Werner Paternoster | 24/7</title>
+  <meta name="description" content="Die Mietwerkstatt von Werner Paternoster in St. Pölten. 24/7 Hebebühnen mieten. Klimaservice, Reifenservice & Trockeneis. Faire Preise & persönliche Betreuung.">
+  <link rel="icon" href="images/logo.png">
+  <link rel="preload" as="image" href="images/hero-aerial.jpg">
+  <link rel="stylesheet" href="style.css">
+  <meta property="og:title" content="Mietwerkstatt Werner Paternoster – St. Pölten">
+  <meta property="og:description" content="Schrauben bei Werner Paternoster. 24/7 Zugang, faire Tarife, Top-Ausstattung.">
+  <meta property="og:image" content="images/hero-aerial.jpg">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#start" class="brand">
+        <img src="images/logo.png" width="48" height="48" alt="Logo Mietwerkstatt">
+        <span>
+          <small>Mietwerkstatt St. Pölten</small>
+          <span class="brand-sheen">Werner Paternoster</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a href="#preise">Preise</a>
+        <a href="#ausstattung">Ausstattung</a>
+        <a href="#trockeneis">Trockeneis Gerät</a>
+        <a href="#angebote">Angebote</a>
+        <a href="#kontakt">Kontakt</a>
+        <button id="loginBtn" class="btn btn-blue">Login</button>
+        <button id="openModal" class="btn btn-primary">Anfrage WhatsApp</button>
+        <a class="hdr-social" href="https://www.instagram.com/24hmietwerkstatt/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7m5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2.2a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6M18 6.4a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>
+        </a>
+      </nav>
+      <button id="navToggle" class="nav-toggle" aria-label="Menü öffnen">☰</button>
+    </div>
+  </header>
+
+  <main id="start">
+    <section class="hero section">
+      <div class="hero-bg" role="img" aria-label="Werkstatt Luftaufnahme"></div>
+      <div class="container hero-inner">
+        <div>
+          <h2>Mietwerkstatt St. Pölten</h2>
+          <h1>Schrauben wann du willst – 24/7</h1>
+          <p class="lead">4 Hebebühnen. Werkzeug inklusive. <br>Dein Platz für Reparatur, Service & Pflege.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#preise">Preise ansehen</a>
+            <a class="btn btn-outline" href="#trockeneis">Neu: Trockeneis-Gerät</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section container">
+      <div class="row-cards">
+        <article class="card">
+          <h3>24/7 Freiheit</h3>
+          <p>Für registrierte Kunden ist die Halle rund um die Uhr zugänglich. Nachtschicht? Kein Problem.</p>
+        </article>
+        <article class="card">
+          <h3>Alles inklusive</h3>
+          <p>Keine versteckten Kosten für Standard-Werkzeug. Du zahlst nur die Bühne evtl. Spezialwerkzeug & Verbrauchsmaterial.</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+<section id="angebote" class="section container">
+      <h2>Aktuelles & Angebote</h2>
+      <div class="row-cards">
+        
+        <article class="card">
+          <h3>Unterboden-Versiegelung</h3>
+          <p>Schutz für Wohnmobile & PKW. Wir versiegeln deinen Unterboden fachgerecht gegen Rost und Salz.</p>
+          <button class="btn btn-outline" onclick="document.getElementById('openModal').click()">Angebot einholen</button>
+        </article>
+
+          <article class="card">
+          <h3>Aufbereitung & Pflege</h3>
+          <p>Wir bieten jetzt professionelle PKW-Aufbereitung an. Innenraum, Polster und Lederpflege. Dein Auto wie neu.</p>
+          <button class="btn btn-outline" onclick="document.getElementById('openModal').click()">Termin anfragen</button>
+        </article>
+
+        <article class="card">
+          <h3>Reifenservice & Verkauf</h3>
+          <p>Montage & Wuchten wird persönlich durch Fachpersonal durchgeführt. Verkauf von Neureifen direkt möglich.</p>
+          <div style="font-weight:bold; color:var(--yellow); margin-bottom:15px; font-size:18px">Komplett 80 €</div>
+          <button class="btn btn-outline" onclick="document.getElementById('openModal').click()">Termin Reifen</button>
+        </article>
+
+        <article class="card">
+          <h3>Klimaservice </h3>
+          <p>Nur durch Fachpersonal: Preise für 500g Füllung:</p>
+          <ul style="text-align:left; font-size:15px; margin-bottom:15px; padding-left:20px; color:#ccc">
+            <li>Gas R134a: <strong>95 €</strong></li>
+            <li>Gas R1234yf: <strong>160 €</strong></li>
+            <li>Leckfinder: <strong>30 €</strong></li>
+          </ul>
+          <button class="btn btn-outline" onclick="document.getElementById('openModal').click()">Termin Klima</button>
+        </article>
+
+        <article class="card highlight">
+          <h3>Neu: Trockeneis-Gerät</h3>
+          <p>Ideal für Unterboden, Motor & Innenraum. Schonend, sauber, desinfizierend. Jetzt verfügbar!</p>
+          <a class="btn btn-primary" href="#trockeneis">Mehr Infos</a>
+        </article>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+   <section id="trockeneis" class="section container">
+      <h2>Trockeneis-Reinigung</h2>
+      <p class="lead" style="margin-bottom:30px">High-Tech Reinigung ohne Wasser und Chemie. Der Thermoschock löst Schmutz, schont aber das Material.</p>
+      
+      <div class="row-cards">
+        <article class="card">
+          <h3>Motorraum & Technik</h3>
+          <p>Da Trockeneis sofort verdampft, ist es sicher für Elektronik. Entfernt Öl, Fett und Salz, ohne Wasser in Stecker zu drücken.</p>
+        </article>
+
+        <article class="card">
+          <h3>Unterboden & Rostschutz</h3>
+          <p>Entfernt alten Bitumen und Straßenschmutz restlos bis aufs Blech. Perfekt für Restaurationen.</p>
+        </article>
+
+        <article class="card">
+          <h3>Innenraum Hygiene</h3>
+          <p>Tötet Bakterien und Schimmel ab. Entfernt Gerüche (Raucher/Hunde) aus Polstern und Lüftungsschlitzen.</p>
+        </article>
+      </div>
+
+      <div class="carousel-wrapper contained">
+        <div class="carousel-track" id="track">
+          <div class="slide">
+            <img src="images/trockeneisRM.png" alt="Trockeneis Motor Reinigung" loading="lazy">
+            <div class="slide-caption">Zylinderkopf: Vorher / Nachher</div>
+          </div>
+          <div class="slide">
+            <img src="images/terAF.png" alt="Trockeneis Außen/Felgen" loading="lazy">
+            <div class="slide-caption">Schonende Detail-Arbeiten</div>
+          </div>
+          <div class="slide">
+            <img src="images/terUB.png" alt="Trockeneis Unterboden" loading="lazy">
+            <div class="slide-caption">Unterboden Aufbereitung</div>
+          </div>
+          <div class="slide">
+            <img src="images/terWM.png" alt="Trockeneis Wohnmobil" loading="lazy">
+            <div class="slide-caption">Wohnmobil Aufbereitung</div>
+          </div>
+        </div>
+        
+        <button class="c-btn prev" id="prevBtn">❮</button>
+        <button class="c-btn next" id="nextBtn">❯</button>
+      </div>
+
+      <div class="special-offer">
+        <div class="offer-content">
+          <h3>🚐 Spezialangebot: Wohnmobile</h3>
+          <p>Die Außenhaut von Wohnmobilen (GfK, Alu-Struktur) wird bei uns schonend von Moos, Algen und Grauschleier befreit. Dichtungen werden dabei nicht angegriffen, da wir <strong>keine scharfe Chemie</strong> nutzen. Werterhalt für dein mobiles Zuhause.</p>
+          <button class="btn btn-primary" onclick="document.getElementById('openModal').click()">Anfrage für Wohnmobil</button>
+        </div>
+        <div class="offer-glow"></div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="preise" class="section container">
+      <h2>Preise & Tarife</h2>
+      <div class="scroll-row">
+        
+        <div class="price-card snap">
+          <h4>PKW Tarife</h4>
+          <div class="amount">15 € <small style="font-size:16px; color:#fff">/ Std</small></div>
+          <ul style="margin-bottom:12px; padding-bottom:12px; border-bottom:1px solid #333">
+            <li>Hebebühne bis 3,5t</li>
+            <li>Inkl. Werkzeugwagen</li>
+          </ul>
+          <div class="amount">100 € <small style="font-size:16px; color:#fff">/ Tag</small></div>
+          <ul>
+            <li>Tagesmiete (24h)</li>
+            <li>Volle Flexibilität</li>
+          </ul>
+        </div>
+
+        <div class="price-card snap">
+          <h4>Wohnmobil / Kleinbus</h4>
+          <div class="amount">25 € <small style="font-size:16px; color:#fff">/ Std</small></div>
+          <ul style="margin-bottom:12px; padding-bottom:12px; border-bottom:1px solid #333">
+            <li>Transporter-Bühne (5,5t)</li>
+            <li>Genug Deckenhöhe</li>
+          </ul>
+          <div class="amount">200 € <small style="font-size:16px; color:#fff">/ Tag</small></div>
+          <ul>
+            <li>Tagesmiete (24h)</li>
+            <li>Ideal für Großprojekte</li>
+          </ul>
+        </div>
+
+        <div class="price-card snap">
+          <h4>Reifenservice</h4>
+          <div class="amount">80 € <small style="font-size:16px; color:#fff">/ Satz</small></div>
+          <ul>
+            <li>Montage & Wuchten</li>
+            <li>Komplett für 4 Räder</li>
+            <li>Fachgerecht</li>
+            <li>Neureifen auf Anfrage</li>
+          </ul>
+        </div>
+
+        <div class="price-card snap">
+          <h4>Klimaservice</h4>
+          <div class="amount">ab 95 € <small style="font-size:16px; color:#fff">/ Füllung</small></div>
+          <ul>
+            <li>Gas R134a: <strong>95 €</strong> (500g)</li>
+            <li>Gas R1234yf: <strong>160 €</strong> (500g)</li>
+            <li>Leckfinder: <strong>+30 €</strong></li>
+            <li>Nur durch Fachpersonal</li>
+          </ul>
+        </div>
+
+        <div class="price-card snap">
+          <h4>Zusatzgeräte / Stunde</h4>
+          <div class="amount">15 €</div>
+          <ul>
+            <li>Diagnose (Gutmann)</li>
+            <li>Hydraulik-Presse</li>
+            <li>Federspanner</li>
+            </ul>
+        </div>
+
+      </div>
+      <div class="prices-cta">
+        <button class="btn btn-primary" onclick="document.getElementById('openModal').click()">Termin via WhatsApp buchen</button>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="ausstattung" class="section container">
+      <h2>Ausstattung & Services</h2>
+      <div class="row-cards equal">
+        <div class="fact card"><strong>3×</strong><br>Bühnen bis 3,5t</div>
+        <div class="fact card"><strong>1×</strong><br>Transporter-Bühne 5,5t</div>
+        <div class="fact card"><strong>Werkzeug</strong><br>Wagen an jeder Bühne</div>
+      </div>
+      
+      <h3 class="subhead">Details & Maschinen</h3>
+      <div class="grid-tiles">
+        
+        <details class="tile">
+          <summary>Klimaservice & Leckfinder</summary>
+          <div class="tile-content">
+            <img src="images/klimageraet.jpg" alt="Klimaservice Gerät" class="tile-img" loading="lazy" onerror="this.style.display='none'"> 
+            <p>Vollautomatisches Klimaservice-Gerät. Inklusive <strong>Leckfinder</strong>, um undichte Stellen im System schnell zu finden. Abrechnung nach Aufwand/Gas.</p>
+          </div>
+        </details>
+
+        <details class="tile">
+          <summary>Reifenservice & Verkauf</summary>
+          <div class="tile-content">
+            <img src="images/reifenmontage.jpg" alt="Reifenmontiermaschine" class="tile-img" loading="lazy" onerror="this.style.display='none'">
+            <p>Montieren & Wuchten möglich. Wir bieten auch <strong>Reifenverkauf</strong> an – frag einfach nach einem Angebot für deine neuen Gummis. Einweisung vor Ort möglich.</p>
+          </div>
+        </details>
+
+        <details class="tile">
+          <summary>Diagnosegerät (Gutmann)</summary>
+          <div class="tile-content">
+            <img src="images/auslesegerät.jpeg" alt="Gutmann Diagnose" class="tile-img" loading="lazy" onerror="this.style.display='none'">
+            <p>Profi-Gerät von Gutmann zum Auslesen, Fehler löschen und Service-Reset. Preis: 15€/h.</p>
+          </div>
+        </details>
+
+        <details class="tile">
+          <summary>Werkstattpresse</summary>
+          <div class="tile-content">
+             <img src="images/presse.jpg" alt="Hydraulikpresse" class="tile-img" loading="lazy" onerror="this.style.display='none'">
+            <p>Starke Hydraulik-Presse für Radlager und Buchsen. Bitte unbedingt Schutzbrille tragen!</p>
+          </div>
+        </details>
+
+        <details class="tile">
+          <summary>Spezialwerkzeug</summary>
+          <div class="tile-content">
+            <p>Wir haben nicht alles, aber vieles! Z.B. Bördelgerät, Federspanner, Scheibenschneidgerät und mehr. Einfach bei nachfragen.</p>
+          </div>
+        </details>
+
+        <details class="tile">
+          <summary>PKW Aufbereitung</summary>
+          <div class="tile-content">
+             <img src="images/aufbereitung.jpg" alt="Auto Aufbereitung" class="tile-img" loading="lazy" onerror="this.style.display='none'">
+            <p>Keine Lust selbst zu putzen? Wir übernehmen die komplette Fahrzeugaufbereitung für dich.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="gallery-wrap">
+        <h3 class="subhead">Einblick in die Halle</h3>
+        <div class="scroll-row gallery">
+          <img class="snap" src="images/3-buehnen.jpeg" alt="Halle Übersicht" loading="lazy">
+          <img class="snap" src="images/werkzeugkasten.jpeg" alt="Werkzeugwagen" loading="lazy">
+          <img class="snap" src="images/vw-buehne.jpeg" alt="VW Bus auf Bühne" loading="lazy">
+          <img class="snap" src="images/transporter.jpeg" alt="Transporter auf Bühne" loading="lazy">
+          <img class="snap" src="images/trockeneisRM.png" alt="Motor Reinigung" loading="lazy">
+          <img class="snap" src="images/terAF.png" alt="Trockeneis-Reinigung" loading="lazy">
+          <img class="snap" src="images/terUB.png" alt="Trockeneis-Reinigung" loading="lazy">
+          <img class="snap" src="images/terWM.png" alt="Trockeneis-Reinigung" loading="lazy">
+          <img class="snap" src="images/reifenmontage.jpg" alt="Reifenmontage" loading="lazy">
+          <img class="snap" src="images/Federspanner.jpeg" alt="Reifenmontage" loading="lazy">
+          </div>
+        <div class="scroll-hint">← wischen für mehr Bilder →</div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section container">
+      <h2 class="subtle">Das sagen die Leute</h2>
+      <div class="row-cards">
+        <div class="card" style="font-style:italic;">
+          <div style="color:var(--yellow); font-size:20px; margin-bottom:10px;">★★★★★</div>
+          <p>"Super Typ. Hat alles gepasst, Werkzeug war da, Bühne funktioniert top. Komme sicher wieder zum Schrauben."</p>
+          <p style="margin-top:15px; font-weight:bold; font-style:normal; color:var(--muted);">- Markus H.</p>
+        </div>
+        <div class="card" style="font-style:italic;">
+          <div style="color:var(--yellow); font-size:20px; margin-bottom:10px;">★★★★★</div>
+          <p>"Hab beim Bus das Fahrwerk gemacht. Die große Bühne ist ein Traum dafür. Alles unkompliziert abgelaufen."</p>
+          <p style="margin-top:15px; font-weight:bold; font-style:normal; color:var(--muted);">- Thomas W.</p>
+        </div>
+        <div class="card" style="font-style:italic;">
+          <div style="color:var(--yellow); font-size:20px; margin-bottom:10px;">★★★★★</div>
+          <p>"Trockeneis ist echt der Hammer. Der Unterboden schaut aus wieder super aus. Danke für die Zeit!"</p>
+          <p style="margin-top:15px; font-weight:bold; font-style:normal; color:var(--muted);">- Sarah L.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="faq" class="section container">
+      <h2>Häufige Fragen</h2>
+      <div class="faq-wrap">
+        <details class="faq-item">
+          <summary>Wie funktioniert der Zugang?</summary>
+          <div class="faq-content">Neukunden vereinbaren einen Termin zur Erst-Einweisung und Registrierung. Bestandskunden erhalten eine Freigabe und können das Tor per Code öffnen – 24/7.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Muss ich Werkzeug mitbringen?</summary>
+          <div class="faq-content">Nein. Jede Bühne hat einen eigenen, gut sortierten Werkzeugwagen. Spezialwerkzeug gibt es auf Anfrage (wir haben vieles, aber nicht alles).</div>
+        </details>
+        <details class="faq-item">
+          <summary>Darf ich mein eigenes Öl mitbringen?</summary>
+          <div class="faq-content">Ja, darfst du. Altöl kann bei uns gegen eine kleine Gebühr entsorgt werden.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Kann ich mit Karte zahlen?</summary>
+          <div class="faq-content">Ja, Kartenzahlung ist bei uns möglich.</div>
+        </details>
+         <details class="faq-item">
+          <summary>Ist schweißen erlaubt</summary>
+          <div class="faq-content">NEIN, das ist bei uns nicht möglich.</div>
+        </details>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="kontakt" class="section container">
+      <h2>Kontakt & Anfahrt</h2>
+      <div class="contact">
+        <div class="map-wrap" style="margin-top:24px; border-radius:16px; overflow:hidden; border:1px solid #2a2e32;">
+       <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2656.684666578036!2d15.6521!3d48.2565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47727e0c4b7b7b7b%3A0x0!2sSchwadorf%2018%2C%203100%20St.%20Pölten!5e0!3m2!1sde!2sat!4v1700000000000!5m2!1sde!2sat" 
+      width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg) contrast(90%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      </div>
+        <div class="box">
+          <h3>Mietwerkstatt Werner Paternoster</h3>
+          <p>Schwadorf 18<br>3100 St. Pölten</p>
+          <p><strong>Öffnungszeiten:</strong><br>24/7 für Bestandskunden<br>Termine nach Vereinbarung</p>
+          
+          <div class="team">
+            <img src="images/werner-paternoster.jpg" alt="Werner Paternoster">
+            <div>
+              <strong>Werner Paternoster</strong><br>
+              <span style="color:var(--yellow);font-size:14px">Inhaber & Ansprechpartner</span>
+            </div>
+          </div>
+          <div class="socials">
+            <a href="https://www.instagram.com/24hmietwerkstatt/" target="_blank" class="social">Instagram</a>
+            <a href="https://www.facebook.com/24hMietwerkstatt" target="_blank" class="social">Facebook</a>
+          </div>
+          
+          <h4 style="margin-top:30px; margin-bottom:10px;">Direktanfrage WhatsApp</h4>
+          <form id="contactForm" onsubmit="sendToWhatsapp(event, 'contactForm')">
+            <input id="c_name" name="name" required placeholder="Dein Name" style="margin-bottom:10px">
+            <textarea id="c_msg" name="message" rows="3" required placeholder="Nachricht..."></textarea>
+            <button type="submit" class="btn btn-primary">Absenden</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="impressum" class="section container">
+      <div class="imp-box">
+        <h3>Impressum</h3>
+        <p><strong>Betreiber & Inhalt:</strong> Werner Paternoster</p>
+        <p>Schwadorf 18, 3100 St. Pölten | Tel: +43 664 5171370</p>
+        <p style="margin-top:10px;font-size:12px;opacity:.5">© 2024 Werner Paternoster. Alle Rechte vorbehalten.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container inner">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <img src="images/logo.png" width="40" alt="Logo">
+          <strong style="color:#fff">Werner Paternoster</strong>
+        </div>
+        <p>Die Mietwerkstatt mit Handschlagqualität in St. Pölten.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Links</h4>
+        <a href="#preise">Preise</a>
+        <a href="#faq">Häufige Fragen</a>
+        <a href="#impressum">Impressum</a>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <a href="tel:+436645171370">+43 664 5171370</a>
+        <a href="https://wa.me/436645171370">WhatsApp Nachricht</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" id="closeModal">✕</button>
+      <h3>Schnellanfrage an Werner</h3>
+      <form id="modalForm" onsubmit="sendToWhatsapp(event, 'modalForm')">
+        <label for="m_name">Name</label>
+        <input id="m_name" name="name" required>
+        <label for="m_msg">Wunschtermin / Frage</label>
+        <textarea id="m_msg" name="message" rows="3" required></textarea>
+        <button type="submit" class="btn btn-primary">Via WhatsApp senden</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="loginModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" id="closeLogin">✕</button>
+      <h3>Kunden Login</h3>
+      <p>Zugang nur für registrierte Kunden. Bitte erst Termin vereinbaren.</p>
+      <div class="login-actions">
+        <a class="btn-login" href="https://www.24-stunden-mietwerkstatt.at/buchen/index.html" target="_blank">Zum Portal</a>
+        <a class="btn-sm btn-wa" href="https://wa.me/436645171370">Hilfe (WhatsApp)</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="fab">
+    <a class="fab-btn" href="https://wa.me/436645171370" target="_blank" title="WhatsApp">
+      <img src="images/Whatsapp-logo.png" alt="WhatsApp">
+    </a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

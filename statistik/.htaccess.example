@@ -1,0 +1,6 @@
+# Kopie als .htaccess auf dem Server anlegen (NICHT ins öffentliche Git!)
+AuthUserFile /home/DEIN-USER/www.24-stunden-mietwerkstatt.at/statistik/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Passwortgeschuetzter Bereich!"
+AuthType Basic
+require valid-user

@@ -1,2 +1,26 @@
+# macOS
 .DS_Store
 **/.DS_Store
+
+# Secrets & Server-Auth (NIE committen!)
+.env
+.env.*
+*.pem
+*.key
+.htpasswd
+**/.htpasswd
+
+# Server-spezifische Apache-Config (Pfad enthält Hosting-Account)
+buchen/.htaccess
+statistik/.htaccess
+
+# Große Medien (optional lokal / CDN / YouTube)
+videos/
+*.MP4
+*.mp4
+*.mov
+
+# Editor
+.idea/
+.vscode/
+*.swp

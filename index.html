@@ -7,7 +7,11 @@
   <meta name="description" content="Die Mietwerkstatt von Werner Paternoster in St. Pölten. 24/7 Hebebühnen mieten. Klimaservice, Reifenservice & Trockeneis. Faire Preise & persönliche Betreuung.">
   <link rel="icon" href="images/logo.png">
   <link rel="preload" as="image" href="images/hero-aerial.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="vibe.css">
   <style>
     /* Einheitliche System-Schriftart */
     :root {
@@ -472,7 +476,7 @@
     }
   </style>
 </head>
-<body>
+<body class="vibe-site">
   
   <div class="ticker-wrap">
     <div class="ticker-inner">
@@ -527,6 +531,7 @@
             <span class="badge-pulse"></span>
             Für registrierte Bestandskunden 24/7 geöffnet
           </div>
+          <p class="section-eyebrow" style="margin-bottom:8px;">St. Pölten · 24/7</p>
           <h2>Mietwerkstatt St. Pölten</h2>
           <h1>Schrauben wann du willst – 24/7</h1>
           <p class="lead">4 Hebebühnen. Werkzeug inklusive. <br>Jetzt neu: <strong>Klimagas Auffüllung</strong> für die Saison!</p>
@@ -542,6 +547,7 @@
     <!-- SAUBERER STICKY STACK -->
     <section class="sticky-stack-section">
       <div class="sticky-header">
+        <p class="section-eyebrow">Ablauf</p>
         <h2>Wie funktioniert die Buchung?</h2>
         <p>Der einfache Weg zu deiner Miet-Hebebühne.</p>
       </div>
@@ -591,6 +597,7 @@
     <div class="divider"></div>
 
     <section id="angebote" class="section container">
+      <p class="section-eyebrow">Services</p>
       <h2>Aktuelles & Angebote</h2>
       <div class="row-cards">
         
@@ -638,25 +645,65 @@
     <div class="divider"></div>
 
    <section id="trockeneis" class="section container">
+      <p class="section-eyebrow">Trockeneis & Video</p>
       <h2>Trockeneis-Reinigung</h2>
       <p class="lead" style="margin-bottom:30px">High-Tech Reinigung ohne Wasser und Chemie. Der Thermoschock löst Schmutz, schont aber das Material.</p>
 
-      <div class="video-embed video-embed--shorts reveal">
-        <iframe src="https://www.youtube-nocookie.com/embed/leCB6bQQiNM?rel=0" title="Trockeneis Reinigung Unterboden Mercedes" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+      <div class="bento-photos reveal">
+        <figure class="bento-photo">
+          <img src="images/trockeneisRM.png" alt="Motorraum nach Trockeneis-Reinigung" loading="lazy">
+          <figcaption class="bento-photo__label">Motorraum</figcaption>
+        </figure>
+        <figure class="bento-photo">
+          <img src="images/auslesegeraet.jpeg" alt="Diagnose in der Werkstatt" loading="lazy">
+          <figcaption class="bento-photo__label">Werkstatt</figcaption>
+        </figure>
+        <figure class="bento-photo">
+          <img src="images/diagosegeraet-mietwerkstatt.jpg" alt="Ausstattung Mietwerkstatt" loading="lazy">
+          <figcaption class="bento-photo__label">Ausstattung</figcaption>
+        </figure>
       </div>
+
+      <div class="bento-videos reveal">
+        <article class="bento-video bento-video--featured">
+          <div class="video-embed video-embed--shorts">
+            <iframe src="https://www.youtube-nocookie.com/embed/q_X-nAyXZ40?rel=0" title="Motorraum Abdeckung Trockeneis Reinigung" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="bento-caption">Motorraum Abdeckung – Trockeneis Reinigung</p>
+        </article>
+        <article class="bento-video bento-video--wide">
+          <div class="video-embed video-embed--wide">
+            <iframe src="https://www.youtube-nocookie.com/embed/PNSdLFRYj08?rel=0" title="Trockeneis Reinigung" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="bento-caption">Trockeneis Reinigung</p>
+        </article>
+        <article class="bento-video bento-video--half">
+          <div class="video-embed video-embed--wide">
+            <iframe src="https://www.youtube-nocookie.com/embed/2qb9rLZB5gQ?rel=0" title="Klimaanlagen Trockeneis Reinigung" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="bento-caption">Klimaanlagen – Trockeneis Reinigung</p>
+        </article>
+        <article class="bento-video bento-video--half">
+          <div class="video-embed video-embed--wide">
+            <iframe src="https://www.youtube-nocookie.com/embed/leCB6bQQiNM?rel=0" title="Trockeneis Reinigung am Auto-Unterboden" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="bento-caption">Auto-Unterboden – Trockeneis Reinigung</p>
+        </article>
+      </div>
+      <p class="bento-scroll-hint">← wischen für mehr Videos →</p>
       
       <div class="row-cards">
-        <article class="card">
+        <article class="card reveal">
           <h3>Motorraum & Technik</h3>
           <p>Da Trockeneis sofort verdampft, ist es sicher für Elektronik. Entfernt Öl, Fett und Salz, ohne Wasser in Stecker zu drücken.</p>
         </article>
 
-        <article class="card">
+        <article class="card reveal">
           <h3>Unterboden & Rostschutz</h3>
           <p>Entfernt alten Bitumen und Straßenschmutz restlos bis aufs Blech. Perfekt für Restaurationen.</p>
         </article>
 
-        <article class="card">
+        <article class="card reveal">
           <h3>Innenraum Hygiene</h3>
           <p>Tötet Bakterien und Schimmel ab. Entfernt Gerüche (Raucher/Hunde) aus Polstern und Lüftungsschlitzen.</p>
         </article>
@@ -699,6 +746,7 @@
     <div class="divider"></div>
 
     <section id="preise" class="section container">
+      <p class="section-eyebrow">Tarife</p>
       <h2>Preise & Tarife</h2>
       
       <div class="scroll-row">
@@ -778,6 +826,7 @@
     <div class="divider"></div>
 
     <section id="ausstattung" class="section container">
+      <p class="section-eyebrow">Halle</p>
       <h2>Ausstattung & Services</h2>
       <div class="row-cards equal">
         <div class="fact card"><strong>3×</strong><br>Bühnen bis 3,5t</div>

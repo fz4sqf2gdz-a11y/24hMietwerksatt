@@ -84,9 +84,13 @@ document.addEventListener('DOMContentLoaded', () => {
     startTimer();
   }
 
-  // --- Scroll-Reveal (dezent) ---
+  // --- Scroll-Reveal (dezent, mit Stagger) ---
   const revealEls = document.querySelectorAll('.reveal');
   if (revealEls.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    revealEls.forEach((el, i) => {
+      el.style.transitionDelay = `${Math.min(i * 0.06, 0.36)}s`;
+    });
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {

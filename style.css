@@ -315,6 +315,86 @@ form .btn{width:100%;margin-top:16px}
   pointer-events: none;
 }
 
+/* Scroll-Reveal (dezent) */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* YouTube – responsiv (Shorts-Format) */
+.video-embed {
+  position: relative;
+  width: min(100%, 360px);
+  margin: 0 auto 40px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  border: 1px solid #2a2e32;
+}
+.video-embed--shorts {
+  aspect-ratio: 9 / 16;
+}
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.coming-soon-tag {
+  background: rgba(246,196,0,0.15);
+  color: var(--yellow) !important;
+  border: 1px solid rgba(246,196,0,0.35);
+}
+.tile-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: rgba(246,196,0,0.15);
+  color: var(--yellow);
+  border: 1px solid rgba(246,196,0,0.35);
+  vertical-align: middle;
+}
+.announce-icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  background: rgba(246,196,0,0.12);
+  border: 1px solid rgba(246,196,0,0.35);
+  color: var(--yellow);
+}
+.login-btn-group button.btn-main,
+.login-btn-group button.btn-sub {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  flex: 1;
+}
+
 @media (max-width:900px){
   
   

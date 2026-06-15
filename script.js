@@ -1,45 +1,46 @@
 document.addEventListener('DOMContentLoaded', () => {
-  
+
+  // --- Navigation (Mobile) ---
   const navToggle = document.getElementById('navToggle');
-  const nav = document.querySelector('.nav');
-  
-  if(navToggle && nav) {
-    navToggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
+  const nav = document.getElementById('mainNavigation') || document.querySelector('.nav');
+
+  if (navToggle && nav) {
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      nav.classList.toggle('active');
     });
 
     nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('open');
-      });
+      link.addEventListener('click', () => nav.classList.remove('active'));
+    });
+
+    document.addEventListener('click', (e) => {
+      if (nav.classList.contains('active') &&
+          !nav.contains(e.target) &&
+          e.target !== navToggle) {
+        nav.classList.remove('active');
+      }
     });
   }
 
-  const modal = document.getElementById('modal');
-  const loginModal = document.getElementById('loginModal');
-  const dryIceModal = document.getElementById('dryIceModal');
+  // --- Modals ---
+  const modalIds = ['whatsappModal', 'loginModal', 'sandstrahlModal'];
 
-  const open = (el) => { if(el) { el.style.display='flex'; el.setAttribute('aria-hidden','false'); }};
-  const close = (el) => { if(el) { el.style.display='none'; el.setAttribute('aria-hidden','true'); }};
-
-  document.getElementById('openModal')?.addEventListener('click', () => open(modal));
-  document.getElementById('closeModal')?.addEventListener('click', () => close(modal));
-  document.getElementById('loginBtn')?.addEventListener('click', () => open(loginModal));
-  document.getElementById('closeLogin')?.addEventListener('click', () => close(loginModal));
-
-  [modal, loginModal, dryIceModal].forEach(m => {
-    if(m) m.addEventListener('click', e => { if(e.target === m) close(m); });
+  modalIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('click', e => {
+      if (e.target === el) closeModal(id);
+    });
   });
 
-
+  // --- Bild-Slider (Trockeneis) ---
   const track = document.getElementById('track');
   const nextBtn = document.getElementById('nextBtn');
   const prevBtn = document.getElementById('prevBtn');
   const slides = document.querySelectorAll('.slide');
 
   if (track && slides.length > 0) {
-    console.log("Slider gefunden, starte Logik..."); // Debug Info
-    
     let index = 0;
     const totalSlides = slides.length;
     let autoSlideInterval;
@@ -49,17 +50,17 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const nextSlide = () => {
-      index = (index + 1) % totalSlides; // 0 -> 1 -> 2 -> 0
+      index = (index + 1) % totalSlides;
       updateSlide();
     };
 
     const prevSlide = () => {
-      index = (index - 1 + totalSlides) % totalSlides; // 0 -> 2 -> 1 -> 0
+      index = (index - 1 + totalSlides) % totalSlides;
       updateSlide();
     };
 
     const startTimer = () => {
-      if(autoSlideInterval) clearInterval(autoSlideInterval);
+      if (autoSlideInterval) clearInterval(autoSlideInterval);
       autoSlideInterval = setInterval(nextSlide, 4000);
     };
 
@@ -68,51 +69,81 @@ document.addEventListener('DOMContentLoaded', () => {
       startTimer();
     };
 
-    if(nextBtn) nextBtn.addEventListener('click', (e) => {
+    nextBtn?.addEventListener('click', (e) => {
       e.preventDefault();
       nextSlide();
       resetTimer();
     });
 
-    if(prevBtn) prevBtn.addEventListener('click', (e) => {
+    prevBtn?.addEventListener('click', (e) => {
       e.preventDefault();
       prevSlide();
       resetTimer();
     });
 
     startTimer();
-  } else {
-    console.log("Kein Slider auf dieser Seite gefunden.");
   }
 
-}); 
+  // --- Scroll-Reveal (dezent) ---
+  const revealEls = document.querySelectorAll('.reveal');
+  if (revealEls.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => observer.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  }
+
+  // --- Sandstrahl-Hinweis (einmal pro Browser-Sitzung) ---
+  const sandstrahlModal = document.getElementById('sandstrahlModal');
+  const STORAGE_KEY = 'mws-sandstrahl-hinweis';
+
+  if (sandstrahlModal && !sessionStorage.getItem(STORAGE_KEY)) {
+    setTimeout(() => {
+      if (typeof openModal === 'function') {
+        openModal('sandstrahlModal');
+        sessionStorage.setItem(STORAGE_KEY, '1');
+      }
+    }, 2200);
+  }
+
+});
 
 function sendToWhatsapp(e, formId) {
   e.preventDefault();
   const form = document.getElementById(formId);
-  if(!form) return;
+  if (!form) return;
 
   const nameInput = form.querySelector('[name="name"]');
   const msgInput = form.querySelector('[name="message"]');
-  
-  const name = nameInput ? nameInput.value : "Kunde";
-  const msg = msgInput ? msgInput.value : "";
-  
+
+  const name = nameInput ? nameInput.value : 'Kunde';
+  const msg = msgInput ? msgInput.value : '';
+
   const text = `Hallo Werner, ich bin ${name}. ${msg}`;
   const encodedText = encodeURIComponent(text);
-  
   const url = `https://wa.me/436645171370?text=${encodedText}`;
-  
+
   const btn = form.querySelector('button');
-  const oldText = btn ? btn.innerText : "Senden";
-  if(btn) btn.innerText = "Wird geöffnet...";
-  
+  const oldText = btn ? btn.innerText : 'Senden';
+  if (btn) btn.innerText = 'Wird geöffnet...';
+
   window.open(url, '_blank');
-  
+
   setTimeout(() => {
-    if(btn) btn.innerText = oldText;
+    if (btn) btn.innerText = oldText;
     form.reset();
-    const modal = document.getElementById('modal');
-    if(modal) modal.style.display = 'none';
+    ['whatsappModal', 'sandstrahlModal'].forEach(id => {
+      const modal = document.getElementById(id);
+      if (modal) modal.style.display = 'none';
+    });
+    document.body.style.overflow = '';
   }, 1000);
 }

@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Sandstrahl-Hinweis (einmal pro Browser-Sitzung) ---
   const sandstrahlModal = document.getElementById('sandstrahlModal');
-  const STORAGE_KEY = 'mws-sandstrahl-live-2026';
+  const STORAGE_KEY = 'mws-sandstrahl-live-v3';
 
   if (sandstrahlModal && !sessionStorage.getItem(STORAGE_KEY)) {
     setTimeout(() => {

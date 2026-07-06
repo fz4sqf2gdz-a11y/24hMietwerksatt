@@ -223,17 +223,33 @@
 
 /* Bento Video Grid */
 .bento-videos {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+
+.bento-videos--scroll {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   gap: 16px;
   padding-bottom: 16px;
   -webkit-overflow-scrolling: touch;
+  grid-template-columns: unset;
 }
 
-.bento-videos .bento-video {
+.bento-videos--scroll .bento-video {
   flex: 0 0 min(320px, 85vw);
   scroll-snap-align: center;
+}
+
+.bento-videos--scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.bento-videos--scroll::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
 }
 
 .bento-video {

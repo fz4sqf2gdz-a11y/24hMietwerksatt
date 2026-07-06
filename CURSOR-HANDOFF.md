@@ -118,6 +118,24 @@ git push origin main
 
 ---
 
+## ⚠️ Live-Website deployen (FTP / cPanel)
+
+**`git push` allein reicht nicht.** GitHub und die Live-Site unter https://www.24-stunden-mietwerkstatt.at sind getrennt.
+
+Nach jedem GitHub-Update auf dem Mac:
+
+```bash
+cd ~/Desktop/"24h mietwerksatt"
+git pull origin main
+bash media/deploy-zum-webserver.sh
+```
+
+Das legt ein ZIP auf den Desktop. Inhalt per **FTP oder cPanel Dateimanager** in den Webroot hochladen (Ordner wo `index.html` der Live-Site liegt). **Überschreiben** bestätigen.
+
+**Prüfen ob es geklappt hat:** Seitenquelltext → `site-version` muss `20260706` sein. Ticker zeigt „SANDSTRAHLEN IN DER HALLE“, nicht „BALD DA“.
+
+---
+
 ## ⚠️ Sicherheit (öffentliches Repo!)
 
 **NIE committen:**

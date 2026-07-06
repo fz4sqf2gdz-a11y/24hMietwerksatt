@@ -49,6 +49,27 @@
 
 ---
 
+## Medien (Fotos & Videos)
+
+```
+~/Downloads/WhatsApp Video 2026-06-24 at *.mp4   ← Werner's Videos
+~/Desktop/24h mietwerksatt/images/einblicke/   ← Vorher/Nachher Fotos
+~/Desktop/24h mietwerksatt/media/import/       ← Videos lokal (gitignored)
+```
+
+**Anleitung:** `media/MEDIA-GUIDE.md` (YouTube vs Website)  
+**Setup-Skript:** `bash media/setup-media.sh`
+
+### YouTube vs Website
+
+| YouTube hochladen | Website |
+|-------------------|---------|
+| Alle 7 WhatsApp-Videos | Nur YouTube-Einbettung |
+| Shorts (30–60s) | Vorher/Nachher JPG in `images/einblicke/` |
+| Klimagas-Video (SEO!) | Tab-Sektion `#einblicke` |
+
+---
+
 ## Projektstruktur
 
 ```
@@ -57,7 +78,10 @@
 ├── style.css           ← Basis-Styles
 ├── vibe.css            ← Vibe-Coder Layer (Glass, Bento)
 ├── script.js           ← Nav, Modals, Slider, Scroll-Reveal
-├── images/             ← Bilder
+├── images/einblicke/   ← Vorher/Nachher Fotos (README dort)
+├── media/
+│   ├── MEDIA-GUIDE.md  ← YouTube vs Website
+│   └── setup-media.sh  ← Mac: Videos kopieren
 ├── buchen/
 │   ├── index.html      ← Redirect zu Timify
 │   ├── .htaccess       ← NUR auf Server (gitignored!)

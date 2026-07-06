@@ -486,14 +486,14 @@
       <div class="ticker-item">UNTERBODENSCHUTZ</div>
       <div class="ticker-item"><span>HEBEBÜHNEN 24/7 ZUGANG</span></div>
       <div class="ticker-item">BREMSENENTLÜFTUNGSGERÄT NEU +++</div>
-      <div class="ticker-item"><span>MOBILES SANDSTRAHLGERÄT – BALD DA</span></div>
+      <div class="ticker-item"><span>SANDSTRAHLEN & VERSIEGELUNG</span></div>
       <div class="ticker-item"><span>+++ KLIMAGAS AUFFÜLLUNG</span></div>
       <div class="ticker-item">REIFENHANDEL & MONTAGE</div>
       <div class="ticker-item"><span>TROCKENEIS-REINIGUNG</span></div>
       <div class="ticker-item">UNTERBODENSCHUTZ</div>
       <div class="ticker-item"><span>HEBEBÜHNEN 24/7 ZUGANG</span></div>
       <div class="ticker-item">BREMSENENTLÜFTUNGSGERÄT NEU +++</div>
-      <div class="ticker-item"><span>MOBILES SANDSTRAHLGERÄT – BALD DA</span></div>
+      <div class="ticker-item"><span>SANDSTRAHLEN & VERSIEGELUNG</span></div>
     </div>
   </div>
 
@@ -507,9 +507,10 @@
         </span>
       </a>
       <nav class="nav" id="mainNavigation" aria-label="Hauptnavigation">
+        <a href="#einblicke">Einblicke</a>
         <a href="#preise">Preise</a>
         <a href="#ausstattung">Ausstattung</a>
-        <a href="#trockeneis">Trockeneis Gerät</a>
+        <a href="#trockeneis">Trockeneis</a>
         <a href="#angebote">Angebote</a>
         <a href="#kontakt">Kontakt</a>
         <button class="btn btn-blue" style="font-weight:600;" onclick="openModal('loginModal')">Buchungslogin</button>
@@ -613,10 +614,10 @@
           <button class="btn btn-primary" onclick="openModal('whatsappModal')">Jetzt Termin buchen</button>
         </article>
 
-        <article class="card reveal">
-          <div class="highlight-tag coming-soon-tag">Demnächst</div>
-          <h3>Mobiles Sandstrahlgerät</h3>
-          <p>Demnächst bei uns – für Unterboden, Karosserie und mehr.</p>
+        <article class="card highlight reveal">
+          <div class="highlight-tag">Neu</div>
+          <h3>Sandstrahlen & Versiegelung</h3>
+          <p>Mobiles Sandstrahlgerät – Rost weg, Unterboden geschützt. Vorher/Nachher in den <a href="#einblicke" style="color:var(--primary);">Einblicke</a>.</p>
           <button class="btn btn-outline" onclick="openModal('whatsappModal')">Jetzt anfragen</button>
         </article>
 
@@ -639,6 +640,164 @@
           <button class="btn btn-outline" onclick="openModal('whatsappModal')">Angebot einholen</button>
         </article>
 
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- EINBLICKE: Vorher / Nachher + Videos -->
+    <section id="einblicke" class="section container">
+      <p class="section-eyebrow">Einblicke</p>
+      <h2>Vorher & Nachher</h2>
+      <p class="lead" style="margin-bottom:28px">Sandstrahlen, Trockeneis, Versiegelung und Klimaservice – so sieht's bei uns in der Halle aus.</p>
+
+      <div class="showcase-tabs" role="tablist" aria-label="Service-Einblicke">
+        <button type="button" class="showcase-tab is-active" role="tab" aria-selected="true" data-tab="sandstrahl">Sandstrahlen</button>
+        <button type="button" class="showcase-tab" role="tab" aria-selected="false" data-tab="trockeneis">Trockeneis</button>
+        <button type="button" class="showcase-tab" role="tab" aria-selected="false" data-tab="versiegelung">Versiegelung</button>
+        <button type="button" class="showcase-tab" role="tab" aria-selected="false" data-tab="klima">Klimaservice</button>
+      </div>
+
+      <!-- Sandstrahlen -->
+      <div class="showcase-panel is-active" id="panel-sandstrahl" role="tabpanel">
+        <div class="ba-grid reveal">
+          <figure class="ba-pair">
+            <div class="ba-pair__images">
+              <div class="ba-pair__img-wrap">
+                <span class="ba-tag ba-tag--vorher">Vorher</span>
+                <img src="images/einblicke/sandstrahl-vorher-01.jpg" alt="Unterboden vor Sandstrahlen – Rost" loading="lazy" onerror="this.dataset.missing='1'">
+              </div>
+              <div class="ba-pair__img-wrap">
+                <span class="ba-tag ba-tag--nachher">Nachher</span>
+                <img src="images/einblicke/sandstrahl-nachher-01.jpg" alt="Unterboden nach Sandstrahlen" loading="lazy" onerror="this.dataset.missing='1'">
+              </div>
+            </div>
+            <figcaption class="ba-pair__caption">Unterboden & Achse – Rost entfernt, bereit für Versiegelung.</figcaption>
+          </figure>
+          <figure class="ba-pair">
+            <div class="ba-pair__images">
+              <div class="ba-pair__img-wrap">
+                <span class="ba-tag ba-tag--vorher">Vorher</span>
+                <img src="images/einblicke/sandstrahl-vorher-02.jpg" alt="Federbein mit Rost" loading="lazy" onerror="this.dataset.missing='1'">
+              </div>
+              <div class="ba-pair__img-wrap">
+                <span class="ba-tag ba-tag--arbeit">In Arbeit</span>
+                <img src="images/einblicke/sandstrahl-arbeit-01.jpg" alt="Sandstrahlen in der Werkstatt" loading="lazy" onerror="this.dataset.missing='1'">
+              </div>
+            </div>
+            <figcaption class="ba-pair__caption">Mobiles Sandstrahlgerät – direkt an der Hebebühne.</figcaption>
+          </figure>
+        </div>
+        <div class="showcase-video-row reveal">
+          <div class="showcase-video-slot" data-yt-id="">
+            <div class="showcase-video-placeholder" data-yt-slot="sandstrahl-1">
+              <strong>Video folgt</strong>
+              <span>YouTube: Sandstrahlen – nach Upload ID in index.html eintragen<br>(siehe media/MEDIA-GUIDE.md)</span>
+            </div>
+          </div>
+          <div class="showcase-video-slot" data-yt-id="">
+            <div class="showcase-video-placeholder" data-yt-slot="sandstrahl-2">
+              <strong>Video folgt</strong>
+              <span>WhatsApp 13.11–13.13 → YouTube → hier einbetten</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trockeneis -->
+      <div class="showcase-panel" id="panel-trockeneis" role="tabpanel" hidden>
+        <div class="ba-grid reveal">
+          <figure class="ba-pair">
+            <div class="ba-pair__images">
+              <div class="ba-pair__img-wrap">
+                <span class="ba-tag ba-tag--vorher">Vorher</span>
+                <img src="images/einblicke/trockeneis-vorher-01.jpg" alt="Vor Trockeneis-Reinigung" loading="lazy" onerror="this.dataset.missing='1'">
+              </div>
+              <div class="ba-pair__img-wrap">
+                <span class="ba-tag ba-tag--nachher">Nachher</span>
+                <img src="images/einblicke/trockeneis-nachher-01.jpg" alt="Nach Trockeneis-Reinigung" loading="lazy" onerror="this.dataset.missing='1'">
+              </div>
+            </div>
+            <figcaption class="ba-pair__caption">Trockeneis-Reinigung ohne Wasser und Chemie.</figcaption>
+          </figure>
+        </div>
+        <div class="showcase-video-row reveal">
+          <div class="showcase-video-slot">
+            <div class="video-embed video-embed--wide">
+              <iframe src="https://www.youtube-nocookie.com/embed/leCB6bQQiNM?rel=0" title="Trockeneis Unterboden" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <p class="bento-caption">Unterboden – Trockeneis</p>
+          </div>
+          <div class="showcase-video-slot" data-yt-id="">
+            <div class="showcase-video-placeholder" data-yt-slot="trockeneis-1">
+              <strong>Video folgt</strong>
+              <span>WhatsApp 13.17 → YouTube Short</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Versiegelung -->
+      <div class="showcase-panel" id="panel-versiegelung" role="tabpanel" hidden>
+        <div class="ba-grid reveal">
+          <figure class="ba-pair">
+            <div class="ba-pair__images">
+              <div class="ba-pair__img-wrap">
+                <span class="ba-tag ba-tag--vorher">Vorher</span>
+                <img src="images/einblicke/versiegelung-vorher-01.jpg" alt="Vor Versiegelung" loading="lazy" onerror="this.dataset.missing='1'">
+              </div>
+              <div class="ba-pair__img-wrap">
+                <span class="ba-tag ba-tag--nachher">Nachher</span>
+                <img src="images/einblicke/versiegelung-nachher-01.jpg" alt="Nach Versiegelung" loading="lazy" onerror="this.dataset.missing='1'">
+              </div>
+            </div>
+            <figcaption class="ba-pair__caption">Unterboden-Versiegelung – Schutz gegen Rost und Salz.</figcaption>
+          </figure>
+          <figure class="ba-pair">
+            <div class="ba-pair__images ba-pair__images--single">
+              <div class="ba-pair__img-wrap" style="grid-column: 1 / -1;">
+                <span class="ba-tag ba-tag--nachher">Ergebnis</span>
+                <img src="images/einblicke/versiegelung-nachher-02.jpg" alt="Versiegelter Querträger" loading="lazy" onerror="this.dataset.missing='1'">
+              </div>
+            </div>
+            <figcaption class="ba-pair__caption">Querträger & Achse – fachgerecht versiegelt.</figcaption>
+          </figure>
+        </div>
+        <div class="showcase-video-row reveal">
+          <div class="showcase-video-slot" data-yt-id="">
+            <div class="showcase-video-placeholder" data-yt-slot="versiegelung-1">
+              <strong>Video folgt</strong>
+              <span>WhatsApp 13.15 → YouTube</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Klimaservice -->
+      <div class="showcase-panel" id="panel-klima" role="tabpanel" hidden>
+        <div class="ba-grid reveal">
+          <figure class="ba-pair">
+            <div class="ba-pair__images ba-pair__images--single">
+              <div class="ba-pair__img-wrap" style="grid-column: 1 / -1;">
+                <span class="ba-tag ba-tag--arbeit">Klimaservice</span>
+                <img src="images/einblicke/klima-service-01.jpg" alt="Klimagas Auffüllung" loading="lazy" onerror="this.dataset.missing='1'">
+              </div>
+            </div>
+            <figcaption class="ba-pair__caption">Klimagas fachgerecht auffüllen – R134a & R1234yf.</figcaption>
+          </figure>
+        </div>
+        <div class="showcase-video-row reveal">
+          <div class="showcase-video-slot" data-yt-id="">
+            <div class="showcase-video-placeholder" data-yt-slot="klima-1">
+              <strong>Video folgt</strong>
+              <span>WhatsApp 17.01 → YouTube (Klimaservice St. Pölten)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="showcase-cta reveal">
+        <button class="btn btn-primary" onclick="openModal('whatsappModal')">Termin anfragen</button>
       </div>
     </section>
 
@@ -893,9 +1052,9 @@
         </details>
 
         <details class="tile">
-          <summary>Mobiles Sandstrahlgerät <span class="tile-badge">Demnächst</span></summary>
+          <summary>Sandstrahlen & Versiegelung</summary>
           <div class="tile-content">
-            <p>Unser mobiles Sandstrahlgerät ist in Planung. Details folgen – bei Interesse gerne per WhatsApp melden.</p>
+            <p>Mobiles Sandstrahlgerät für Unterboden und Karosserie. Anschließend fachgerechte Versiegelung gegen Rost und Salz. <a href="#einblicke" style="color:var(--primary);">Vorher/Nachher ansehen</a></p>
           </div>
         </details>
       </div>
@@ -1070,8 +1229,8 @@
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal('sandstrahlModal')" aria-label="Schließen">✕</button>
       <div class="announce-icon" aria-hidden="true">⚙</div>
-      <h3>Demnächst: Sandstrahlgerät</h3>
-      <p>Unser mobiles Sandstrahlgerät ist in Planung. Details folgen – bei Interesse gerne per WhatsApp melden.</p>
+      <h3>Sandstrahlen & Versiegelung</h3>
+      <p>Rost weg, Unterboden geschützt – mobiles Sandstrahlgerät direkt in unserer Halle. <a href="#einblicke" style="color:var(--primary);">Einblicke ansehen</a></p>
       <div class="login-btn-group">
         <button class="btn-main" type="button" onclick="closeModal('sandstrahlModal'); openModal('whatsappModal');">Anfragen</button>
         <button class="btn-sub" type="button" onclick="closeModal('sandstrahlModal')">Verstanden</button>

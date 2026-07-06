@@ -40,16 +40,15 @@ declare -a MAP=(
 )
 
 declare -a TARGETS=(
-  "sandstrahl-vorher-01.jpg|Unterboden mit Rost (Vorher)"
-  "sandstrahl-vorher-02.jpg|Aufhängung / Federbein mit Rost"
-  "sandstrahl-arbeit-01.jpg|Sandstrahlen in Arbeit"
-  "sandstrahl-nachher-01.jpg|Unterboden sauber (Nachher)"
-  "versiegelung-vorher-01.jpg|Vor Versiegelung (Rost/Altbitumen)"
-  "versiegelung-nachher-01.jpg|Versiegelt – glänzend schwarz"
-  "versiegelung-nachher-02.jpg|Querträger / Achse versiegelt"
-  "trockeneis-vorher-01.jpg|Motorraum / Unterboden vor Reinigung"
-  "trockeneis-nachher-01.jpg|Nach Trockeneis-Reinigung"
-  "klima-service-01.jpg|Klimagas Auffüllung"
+  "sandstrahl-vorher-01.jpg|Unterboden mit Rost (Gesamtansicht)"
+  "sandstrahl-vorher-02.jpg|Aufhängung / Unterboden mit Rost"
+  "sandstrahl-vorher-03.jpg|Fahrwerk / Stoßdämpfer mit Rost"
+  "sandstrahl-arbeit-01.jpg|Sandstrahlen in der Halle"
+  "sandstrahl-nachher-01.jpg|Unterboden aufbereitet"
+  "sandstrahl-nachher-02.jpg|Fahrwerk aufbereitet"
+  "versiegelung-vorher-01.jpg|Vor Versiegelung"
+  "versiegelung-nachher-01.jpg|Versiegelter Unterboden"
+  "klima-service-01.jpg|Klimaservice (Gerät oder Motorraum)"
 )
 
 copy_and_convert() {
@@ -142,9 +141,8 @@ if [[ $AUTO_MODE -eq 1 ]]; then
 
   rm -f "$TMP_LIST"
   echo ""
-  echo "⚠️  Bitte Reihenfolge im Finder prüfen!"
-  echo "    Falls falsch: Dateien in $DESKTOP_OUT manuell tauschen,"
-  echo "    dann erneut nach $OUT_DIR kopieren."
+  echo "⚠️  Auto-Modus mappt nur nach Datei-Datum – immer im Finder prüfen!"
+  echo "    Screenshots und falsche Bilder manuell entfernen."
   echo ""
 fi
 
@@ -178,6 +176,8 @@ kopieren – Dateinamen exakt wie oben.
 EOF
 
 cp "$DESKTOP_OUT/LIESMICH.txt" "$OUT_DIR/LIESMICH.txt" 2>/dev/null || true
+# LIESMICH nicht ins Git committen
+rm -f "$OUT_DIR/LIESMICH.txt" 2>/dev/null || true
 
 echo "=========================================="
 echo "Fertig: $OK Bilder vorbereitet"

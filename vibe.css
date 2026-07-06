@@ -318,6 +318,14 @@
   .ba-pair__images { grid-template-columns: 1fr; }
 }
 
+.ba-pair--single .ba-pair__images {
+  grid-template-columns: 1fr;
+}
+
+.ba-pair--single .ba-pair__img-wrap {
+  aspect-ratio: 16 / 10;
+}
+
 .bento-video {
   position: relative;
   border-radius: var(--radius-lg);

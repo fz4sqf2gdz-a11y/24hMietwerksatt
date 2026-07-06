@@ -18,11 +18,19 @@ set -euo pipefail
 
 DOWNLOADS="$HOME/Downloads"
 DESKTOP_OUT="$HOME/Desktop/24h-mietwerkstatt-fotos"
-PROJECT="${1:-$HOME/Desktop/24h mietwerksatt}"
-OUT_DIR="$PROJECT/images/einblicke"
+DEFAULT_PROJECT="$HOME/Desktop/24h mietwerksatt"
 AUTO_MODE=0
+PROJECT="$DEFAULT_PROJECT"
 
-[[ "${2:-}" == "--auto" || "${1:-}" == "--auto" ]] && AUTO_MODE=1
+for arg in "$@"; do
+  if [[ "$arg" == "--auto" ]]; then
+    AUTO_MODE=1
+  elif [[ "$arg" != --* ]]; then
+    PROJECT="$arg"
+  fi
+done
+
+OUT_DIR="$PROJECT/images/einblicke"
 
 # Wenn du exakte Dateinamen in Downloads kennst, hier eintragen:
 # Format: "Originalname|ziel-dateiname.jpg"

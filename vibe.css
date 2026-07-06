@@ -223,9 +223,17 @@
 
 /* Bento Video Grid */
 .bento-videos {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
   gap: 16px;
+  padding-bottom: 16px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.bento-videos .bento-video {
+  flex: 0 0 min(320px, 85vw);
+  scroll-snap-align: center;
 }
 
 .bento-video {

@@ -105,6 +105,39 @@ document.addEventListener('DOMContentLoaded', () => {
     revealEls.forEach(el => el.classList.add('is-visible'));
   }
 
+  // --- Einblicke: Tab-Umschaltung ---
+  const showcaseTabs = document.querySelectorAll('.showcase-tab');
+  const showcasePanels = document.querySelectorAll('.showcase-panel');
+
+  showcaseTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+      showcaseTabs.forEach(t => {
+        t.classList.toggle('is-active', t === tab);
+        t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
+      });
+      showcasePanels.forEach(panel => {
+        const active = panel.id === `panel-${target}`;
+        panel.classList.toggle('is-active', active);
+        panel.hidden = !active;
+      });
+    });
+  });
+
+  // YouTube-IDs eintragen: data-yt-id auf .showcase-video-slot setzen
+  document.querySelectorAll('.showcase-video-slot[data-yt-id]').forEach(slot => {
+    const id = slot.dataset.ytId?.trim();
+    if (!id) return;
+    const placeholder = slot.querySelector('.showcase-video-placeholder');
+    if (placeholder) placeholder.remove();
+    slot.innerHTML = `
+      <div class="video-embed video-embed--wide">
+        <iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0"
+          title="Mietwerkstatt Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen loading="lazy"></iframe>
+      </div>`;
+  });
+
   // --- Sandstrahl-Hinweis (einmal pro Browser-Sitzung) ---
   const sandstrahlModal = document.getElementById('sandstrahlModal');
   const STORAGE_KEY = 'mws-sandstrahl-hinweis';

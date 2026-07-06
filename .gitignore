@@ -16,6 +16,7 @@ statistik/.htaccess
 
 # Große Medien (optional lokal / CDN / YouTube)
 videos/
+media/import/
 *.MP4
 *.mp4
 *.mov

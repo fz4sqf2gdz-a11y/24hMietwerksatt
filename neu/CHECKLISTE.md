@@ -16,22 +16,19 @@ Das Redesign liegt komplett im Ordner **`neu/`** – die alte Website (`index.ht
 - [ ] **GA4:** Google-Analytics-Konto anlegen und die Measurement-ID in `neu/assets/main.js` eintragen (siehe `neu/ANALYTICS.md`). Vorher Datenschutz-Hinweis klären.
 - [ ] **Werkstatt-Fotos:** Ein aktuelles Hallen-/Hero-Foto in guter Auflösung würde dem neuen Design zusätzlich helfen (aktuell wird `images/hero-aerial.jpg` verwendet).
 
-## 3. Live schalten (Cyberduck / FTP) – WICHTIG
+## 3. Live / Testserver (Cyberduck / FTP) – WICHTIG
 
 `git push` allein ändert die Live-Site **nicht**. Deploy läuft wie bisher über Cyberduck/FTP bzw. cPanel.
 
-**Phase 1 – Vorschau live stellen (ohne Risiko):**
+**Für den Testserver die Root-Version verwenden:** Ordner **`relaunch/`** (eigene Bilder, eigene Pfade, unabhängig von der alten Site). Anleitung: `relaunch/README.md`.
 
-1. Repo am Mac aktualisieren: `git pull origin main` (nach dem Merge des PRs).
-2. Per Cyberduck den kompletten Ordner `neu/` in den Webroot hochladen (dorthin, wo die `index.html` der Live-Site liegt).
-3. Vorschau ist dann unter `https://www.24-stunden-mietwerkstatt.at/neu/` erreichbar – die alte Seite bleibt die Startseite.
+**Phase 1 – Vorschau unter `/neu/` (alte Site bleibt Startseite):**
 
-**Phase 2 – Redesign zur Hauptseite machen (erst wenn Werner zufrieden ist):**
+1. Repo am Mac aktualisieren.
+2. Per Cyberduck den Ordner `neu/` in den Live-Webroot hochladen.
+3. Vorschau: `https://www.24-stunden-mietwerkstatt.at/neu/` – Bilder kommen noch aus der alten Site (`../images/`).
 
-1. Backup der alten Live-Dateien ziehen (mindestens `index.html`, `style.css`, `vibe.css`, `script.js`).
-2. Inhalt von `neu/` in den Webroot verschieben und dabei die Pfade anpassen: in `neu/index.html` alle `../images/` → `images/`, `../buchen/` → `buchen/`; in `neu/wohnwagen/index.html` alle `../../` → `../`; in `neu/assets/style.css` das `../../images/` → `../images/`.
-   (Alternativ: kurz Bescheid geben, dann bereite ich eine fertige Root-Version im Repo vor.)
-3. Prüfen: Seitenquelltext → `site-version` muss `20260817` sein.
+**Phase 2 – eigenständiger Testserver:** Inhalt von `relaunch/` hochladen (siehe `relaunch/README.md`). Die Live-Domain bleibt unberührt.
 
 ## 4. SEO – was gemacht wurde
 

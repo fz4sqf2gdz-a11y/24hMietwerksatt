@@ -1,0 +1,7 @@
+# Kopie als .htaccess auf dem Server anlegen (NICHT ins öffentliche Git!)
+# Pfad an dein Hosting anpassen:
+AuthUserFile /home/DEIN-USER/www.24-stunden-mietwerkstatt.at/buchen/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Passwortgeschuetzter Bereich!"
+AuthType Basic
+Require valid-user

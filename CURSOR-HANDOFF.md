@@ -65,8 +65,11 @@
 ├── statistik/          ← Passwortgeschützt (Server only)
 ├── druck/              ← Visitenkarte + Flyer (Branch/PR)
 ├── generate_card.py
-└── generate_flyer.py
+├── neu/                ← Redesign als Unterordner (nutzt ../images der alten Site)
+└── relaunch/           ← Redesign als eigenständiger Webroot (Testserver / später Live)
 ```
+
+**Redesign 2026:** Alte Dateien nicht überschreiben. Eigenständige Root-Version: `relaunch/` (siehe `relaunch/README.md`). Auf den Mac kopieren nach `~/Projects/24h-mietwerkstatt-relaunch`.
 
 ---
 

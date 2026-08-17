@@ -239,15 +239,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const updateProgressEls = () => {
     const vh = window.innerHeight;
-    /* Start erst, wenn das Element gut sichtbar ist – mobil noch später,
-       damit die Animation wirklich im Blickfeld abläuft. */
-    const startR = vh < 760 ? 0.66 : 0.76;
-    const endR = 0.26;
-    const denom = (startR - endR) * vh;
     progressEls.forEach(el => {
       const rect = el.getBoundingClientRect();
       if (rect.bottom < -80 || rect.top > vh + 80) return;
-      const raw = (startR * vh - rect.top) / denom;
+      /* Start erst, wenn das Element WIRKLICH zu sehen ist:
+         mindestens ~85% der Höhe müssen im Viewport sein.
+         Danach läuft die Animation, bis das Element im oberen
+         Bereich angekommen ist. */
+      const start = Math.min(vh * 0.66, Math.max(vh * 0.4, vh - rect.height * 0.85));
+      const end = vh * 0.15;
+      const raw = (start - rect.top) / (start - end);
       let p = Math.max(0, Math.min(1, raw));
       p = p * p * (3 - 2 * p); /* sanfter Ein-/Auslauf */
       el.style.setProperty('--p', p.toFixed(4));

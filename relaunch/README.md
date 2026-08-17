@@ -41,7 +41,7 @@ open index.html
 
 1. In Cyberduck zum **Testserver** verbinden (nicht den Live-Webroot der alten Site).
 2. Den **Inhalt** von `24h-mietwerkstatt-relaunch` hochladen (also `index.html`, `assets/`, `images/`, `wohnwagen/`, `buchen/` direkt in den Webroot des Testservers).
-3. Prüfen: Seitenquelltext → `site-version` muss `20260817c` sein.
+3. Prüfen: Seitenquelltext → `site-version` muss `20260817d` sein.
 4. Wohnwagen-URL: `https://<testserver>/wohnwagen/`
 
 Die Live-Domain `www.24-stunden-mietwerkstatt.at` bleibt die alte Seite, solange dieser Ordner nicht dorthin hochgeladen wird.

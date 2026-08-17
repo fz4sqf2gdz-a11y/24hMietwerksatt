@@ -30,6 +30,6 @@ python3 -m http.server 8000
 
 1. Ordner lokal nach `~/Projects/24h-mietwerkstatt-relaunch` kopieren (siehe `README.md`).
 2. Inhalt dieses Ordners per FTP auf den **Testserver** hochladen – nicht in den Live-Webroot der alten Site.
-3. Prüfen: `site-version` = `20260817c`.
+3. Prüfen: `site-version` = `20260817d`.
 
 Erst wenn Werner zufrieden ist: denselben Ordnerinhalt auf die Live-Domain legen (vorher Backup der alten Live-Dateien).

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Wohnwagen kaufen – Swift Modelle in St. Pölten, Österreich | Werner Paternoster</title>
   <meta name="description" content="Swift Wohnwagen kaufen in Österreich: Raritäten mit Dusche und hochwertiger Ausstattung – zu besichtigen bei der 24h Mietwerkstatt Werner Paternoster in St. Pölten (Schwadorf 18, Niederösterreich). Anfrage einfach per WhatsApp.">
-  <meta name="site-version" content="20260817">
+  <meta name="site-version" content="20260817b">
   <link rel="canonical" href="https://www.24-stunden-mietwerkstatt.at/wohnwagen/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Wohnwagen kaufen – Swift Modelle in St. Pölten | Werner Paternoster">
@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/style.css?v=20260817">
+  <link rel="stylesheet" href="../assets/style.css?v=20260817b">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,24 +38,25 @@
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container header-inner">
+  <header class="site-header on-hero" id="siteHeader">
+    <div class="header-inner">
       <a href="../" class="brand" aria-label="Zur Startseite">
-        <img src="../../images/logo.png" width="42" height="42" alt="Logo 24h Mietwerkstatt St. Pölten">
+        <img src="../../images/logo.png" width="40" height="40" alt="Logo 24h Mietwerkstatt St. Pölten">
         <span>
           <span class="brand-sub">Mietwerkstatt St. Pölten</span>
           <span class="brand-name">Werner Paternoster</span>
         </span>
       </a>
       <nav class="nav" id="mainNavigation" aria-label="Hauptnavigation">
-        <a href="../#ablauf">Ablauf</a>
-        <a href="../#angebote">Services</a>
-        <a href="../#einblicke">Einblicke</a>
+        <a href="../#leistungen">Leistungen</a>
         <a href="../#preise">Preise</a>
-        <a href="./" class="nav-new" aria-current="page" data-ga-nav="wohnwagen">Wohnwagen</a>
+        <a href="./" aria-current="page" data-ga-nav="wohnwagen">Wohnwagen<span class="nav-new-dot" aria-hidden="true"></span></a>
         <a href="../#kontakt">Kontakt</a>
-        <button class="btn btn-outline-dark" onclick="openModal('loginModal')" data-ga-cta="buchungslogin" data-ga-location="header">Buchungslogin</button>
-        <button class="btn btn-primary" onclick="openModal('whatsappModal')" data-ga-cta="wohnwagen_anfrage" data-ga-location="header">WhatsApp</button>
+        <a href="../#ablauf" class="nav-more">Ablauf</a>
+        <a href="../#hebebuehne" class="nav-more">Hebebühne</a>
+        <a href="../#faq" class="nav-more">Häufige Fragen</a>
+        <a href="#" class="nav-login" onclick="event.preventDefault(); openModal('loginModal')" data-ga-cta="buchungslogin" data-ga-location="header">Buchungslogin</a>
+        <button class="btn btn-primary" onclick="openModal('whatsappModal')" data-ga-cta="wohnwagen_anfrage" data-ga-location="header">Anfrage stellen</button>
       </nav>
       <button id="navToggle" class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mainNavigation">
         <span></span><span></span><span></span>
@@ -70,7 +71,7 @@
       <div class="container">
         <p class="breadcrumb"><a href="../">Startseite</a> / Wohnwagen</p>
         <p class="eyebrow"><span class="idx">Neu</span> Verkauf</p>
-        <h1>Wohnwagen – Swift</h1>
+        <h1 class="tr" id="heroHeadline"><span class="tr-line"><span>Wohnwagen – Swift</span></span></h1>
         <p class="lead">Jetzt neu bei uns in St. Pölten: Wir verkaufen Wohnwagen der Marke Swift – Raritäten, die man in Österreich selten findet. Besichtigung direkt bei der Werkstatt, Anfrage einfach per WhatsApp.</p>
         <div class="hero-actions" style="margin-top: 32px;">
           <button class="btn btn-primary" onclick="openModal('whatsappModal')" data-ga-cta="wohnwagen_anfrage" data-ga-location="wohnwagen_hero">Anfrage per WhatsApp</button>
@@ -85,7 +86,7 @@
         <div class="section-head">
           <div>
             <p class="eyebrow"><span class="idx">01</span> Die Marke</p>
-            <h2>Warum Swift?</h2>
+            <h2 class="tr"><span class="tr-inner">Warum Swift?</span></h2>
           </div>
           <p class="lead">Swift ist einer der größten Wohnwagen-Hersteller Großbritanniens – in Österreich sind die Modelle eine Seltenheit.</p>
         </div>
@@ -122,9 +123,38 @@
         <div class="section-head">
           <div>
             <p class="eyebrow"><span class="idx">02</span> Galerie</p>
-            <h2>Aktuelle Modelle</h2>
+            <h2 class="tr"><span class="tr-inner">Aktuelle Modelle</span></h2>
           </div>
           <p class="lead">Fotos folgen in Kürze – bis dahin einfach per WhatsApp nach den aktuellen Wohnwagen fragen.</p>
+        </div>
+
+        <div class="caravan-stage reveal" style="margin-bottom: 32px;">
+          <svg class="caravan-svg" viewBox="0 0 640 360" fill="none" role="img" aria-label="Illustration: Swift Wohnwagen">
+            <line x1="16" y1="316" x2="624" y2="316" stroke="#3a414d" stroke-width="3"/>
+            <g stroke="#2b313b" stroke-width="2">
+              <line x1="70" y1="316" x2="55" y2="332"/>
+              <line x1="190" y1="316" x2="175" y2="332"/>
+              <line x1="310" y1="316" x2="295" y2="332"/>
+              <line x1="430" y1="316" x2="415" y2="332"/>
+              <line x1="550" y1="316" x2="535" y2="332"/>
+            </g>
+            <g stroke="#cfd3da" stroke-width="3">
+              <path d="M132 262 L120 130 Q118 96 152 92 L520 92 Q556 96 558 132 L558 244 Q558 262 540 262 L132 262 Z"/>
+              <path d="M132 250 L76 288 L48 288" stroke-width="3"/>
+              <circle cx="48" cy="294" r="7"/>
+              <rect x="170" y="122" width="92" height="60" rx="10" stroke-width="2.5"/>
+              <rect x="404" y="122" width="112" height="60" rx="10" stroke-width="2.5"/>
+              <rect x="292" y="122" width="82" height="140" rx="8" stroke-width="2.5"/>
+              <circle cx="352" cy="290" r="30"/>
+              <circle cx="352" cy="290" r="12" stroke-width="2.5"/>
+            </g>
+            <g stroke="#ffcc00">
+              <line x1="292" y1="196" x2="374" y2="196" stroke-width="3"/>
+              <line x1="304" y1="176" x2="304" y2="188" stroke-width="4"/>
+              <line x1="132" y1="238" x2="558" y2="238" stroke-width="3"/>
+            </g>
+          </svg>
+          <p class="caravan-note">Fotos folgen – aktuelle Modelle auf Anfrage</p>
         </div>
 
         <div class="caravan-gallery reveal">
@@ -145,7 +175,7 @@
         <div class="section-head">
           <div>
             <p class="eyebrow"><span class="idx">03</span> Anfrage</p>
-            <h2>Interesse? Schreib uns.</h2>
+            <h2 class="tr"><span class="tr-inner">Interesse? Schreib uns.</span></h2>
           </div>
           <p class="lead">Am schnellsten geht es per WhatsApp – Werner meldet sich persönlich mit allen Details zu den verfügbaren Wohnwagen.</p>
         </div>
@@ -254,6 +284,6 @@
     </div>
   </div>
 
-  <script src="../assets/main.js?v=20260817"></script>
+  <script src="../assets/main.js?v=20260817b"></script>
 </body>
 </html>

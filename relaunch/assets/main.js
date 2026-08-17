@@ -1,8 +1,10 @@
 /* ============================================================
-   24h Mietwerkstatt – Redesign 2026
-   Navigation, Modals, Scroll-Reveal, Hebebühnen-Animation,
+   24h Mietwerkstatt – Redesign 2026 (v2)
+   Navigation, Modals, Scroll-Reveal, Zeilen-Reveal,
+   Scroll-Progress-Engine (Hebebühne, Wipes, Frost, Rad, Zähler),
+   Count-up-Zahlen, exklusive Akkordeons,
    Google Analytics 4 (Konfiguration + Events)
-   Event-Doku: siehe neu/ANALYTICS.md
+   Event-Doku: siehe ANALYTICS.md
    ============================================================ */
 
 /* ------------------------------------------------------------
@@ -25,7 +27,6 @@ const GA4_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // <<< HIER GA4-ID EINTRAGEN
   window.gtag('config', GA4_MEASUREMENT_ID, { anonymize_ip: true });
 })();
 
-/* Zentraler Event-Helfer – feuert nur, wenn GA4 aktiv ist. */
 function track(eventName, params) {
   if (typeof window.gtag === 'function') {
     window.gtag('event', eventName, params || {});
@@ -85,10 +86,27 @@ function sendToWhatsapp(e, formId) {
 }
 
 /* ------------------------------------------------------------
+   Hilfsfunktion: Zahl im deutschen Format
+   ------------------------------------------------------------ */
+function fmtNum(value, decimals) {
+  return value.toFixed(decimals).replace('.', ',');
+}
+
+/* ------------------------------------------------------------
    DOM ready
    ------------------------------------------------------------ */
 document.addEventListener('DOMContentLoaded', () => {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* --- Header: schrumpft/färbt sich beim Scrollen --- */
+  const header = document.getElementById('siteHeader');
+  if (header) {
+    const onScrollHeader = () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    };
+    window.addEventListener('scroll', onScrollHeader, { passive: true });
+    onScrollHeader();
+  }
 
   /* --- Mobile Navigation --- */
   const navToggle = document.getElementById('navToggle');
@@ -126,12 +144,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  /* --- Scroll-Reveal (dezent) --- */
-  const revealEls = document.querySelectorAll('.reveal');
-  if (revealEls.length && !reducedMotion && 'IntersectionObserver' in window) {
-    revealEls.forEach((el, i) => {
-      el.style.transitionDelay = `${Math.min((i % 4) * 0.07, 0.28)}s`;
+  /* --- Exklusive Akkordeons: ein offenes Element pro Gruppe --- */
+  document.querySelectorAll('.faq-list, .tiles').forEach(group => {
+    group.querySelectorAll(':scope > details').forEach(d => {
+      d.addEventListener('toggle', () => {
+        if (!d.open) return;
+        group.querySelectorAll(':scope > details[open]').forEach(other => {
+          if (other !== d) other.open = false;
+        });
+      });
     });
+  });
+
+  /* --- Scroll-Reveal + Zeilen-Reveal (dezent) --- */
+  const revealEls = document.querySelectorAll('.reveal, .tr, .img-reveal');
+  if (revealEls.length && !reducedMotion && 'IntersectionObserver' in window) {
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -139,63 +166,151 @@ document.addEventListener('DOMContentLoaded', () => {
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
     revealEls.forEach(el => revealObserver.observe(el));
+    /* Hero-Headline sofort einblenden */
+    const heroHeadline = document.getElementById('heroHeadline');
+    if (heroHeadline) {
+      requestAnimationFrame(() => heroHeadline.classList.add('is-visible'));
+      revealObserver.unobserve(heroHeadline);
+    }
   } else {
     revealEls.forEach(el => el.classList.add('is-visible'));
   }
 
-  /* --- Hebebühnen-Scroll-Animation ---
-     Beim Scrollen durch die Sektion hebt die Bühne das Fahrzeug an.
-     Reine Transform-Animation (GPU), respektiert prefers-reduced-motion. */
+  /* --- Count-up-Zahlen (Zahlen-Band) --- */
+  const countEls = document.querySelectorAll('[data-count-to]');
+  if (countEls.length && 'IntersectionObserver' in window && !reducedMotion) {
+    const runCount = (el) => {
+      const to = parseFloat(el.getAttribute('data-count-to'));
+      const decimals = parseInt(el.getAttribute('data-count-decimals') || '0', 10);
+      const duration = 1400;
+      const start = performance.now();
+      const tick = (now) => {
+        const t = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = fmtNum(to * eased, decimals);
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          runCount(entry.target);
+          countObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    countEls.forEach(el => countObserver.observe(el));
+  } else {
+    countEls.forEach(el => {
+      const decimals = parseInt(el.getAttribute('data-count-decimals') || '0', 10);
+      el.textContent = fmtNum(parseFloat(el.getAttribute('data-count-to')), decimals);
+    });
+  }
+
+  /* ------------------------------------------------------------
+     Scroll-Progress-Engine
+     Jedes Element mit [data-progress] bekommt eine CSS-Variable
+     --p (0 → 1), während es durch den Viewport wandert.
+     Damit laufen die Wipes (Vorher/Nachher), der Frost-Effekt,
+     das rollende Rad und die Zähler – ohne Bibliotheken.
+     ------------------------------------------------------------ */
+  const progressEls = Array.from(document.querySelectorAll('[data-progress]'));
+  const progressCounters = new Map();
+  progressEls.forEach(el => {
+    const counters = el.querySelectorAll('[data-progress-counter]');
+    if (counters.length) progressCounters.set(el, Array.from(counters));
+  });
+
+  const updateProgressEls = () => {
+    const vh = window.innerHeight;
+    progressEls.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.bottom < -80 || rect.top > vh + 80) return;
+      /* 0 = Element betritt den Viewport unten, 1 = obere Hälfte erreicht */
+      const raw = (vh * 0.92 - rect.top) / (vh * 0.62);
+      const p = Math.max(0, Math.min(1, raw));
+      el.style.setProperty('--p', p.toFixed(4));
+      const counters = progressCounters.get(el);
+      if (counters) {
+        counters.forEach(c => {
+          const from = parseFloat(c.getAttribute('data-from'));
+          const to = parseFloat(c.getAttribute('data-to'));
+          const decimals = parseInt(c.getAttribute('data-decimals') || '0', 10);
+          const suffix = c.getAttribute('data-suffix') || '';
+          c.textContent = fmtNum(from + (to - from) * p, decimals) + suffix;
+        });
+      }
+    });
+  };
+
+  /* --- Hebebühnen-Scroll-Animation (Sticky Stage) --- */
   const liftWrap = document.getElementById('liftStageWrap');
   const liftCar = document.getElementById('liftCar');
   const liftArmL = document.getElementById('liftArmL');
   const liftArmR = document.getElementById('liftArmR');
   const liftHeight = document.getElementById('liftHeightValue');
 
-  if (liftWrap && liftCar && !reducedMotion) {
-    const MAX_LIFT_PX = 150;   /* Hub im SVG-Koordinatensystem */
-    const MAX_HEIGHT_M = 1.8;  /* angezeigte Hubhöhe in Metern */
+  const MAX_LIFT_PX = 150;   /* Hub im SVG-Koordinatensystem */
+  const MAX_HEIGHT_M = 1.8;  /* angezeigte Hubhöhe in Metern */
+  const easeLift = t => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
+
+  const updateLift = () => {
+    if (!liftWrap || !liftCar) return;
+    const rect = liftWrap.getBoundingClientRect();
+    const total = rect.height - window.innerHeight;
+    if (total <= 0) return;
+    let progress = -rect.top / total;
+    progress = Math.max(0, Math.min(1, progress));
+    const eased = easeLift(progress);
+    const lift = eased * MAX_LIFT_PX;
+    liftCar.style.transform = `translateY(${-lift}px)`;
+    if (liftArmL) liftArmL.style.transform = `translateY(${-lift}px)`;
+    if (liftArmR) liftArmR.style.transform = `translateY(${-lift}px)`;
+    if (liftHeight) liftHeight.textContent = fmtNum(eased * MAX_HEIGHT_M, 2) + ' m';
+  };
+
+  if (!reducedMotion) {
     let ticking = false;
-
-    const ease = t => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
-
-    const update = () => {
-      ticking = false;
-      const rect = liftWrap.getBoundingClientRect();
-      const total = rect.height - window.innerHeight;
-      if (total <= 0) return;
-      let progress = -rect.top / total;
-      progress = Math.max(0, Math.min(1, progress));
-      const eased = ease(progress);
-      const lift = eased * MAX_LIFT_PX;
-      liftCar.style.transform = `translateY(${-lift}px)`;
-      if (liftArmL) liftArmL.style.transform = `translateY(${-lift}px)`;
-      if (liftArmR) liftArmR.style.transform = `translateY(${-lift}px)`;
-      if (liftHeight) liftHeight.textContent = (eased * MAX_HEIGHT_M).toFixed(2).replace('.', ',') + ' m';
+    const onScrollAnim = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        updateLift();
+        updateProgressEls();
+      });
     };
-
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(update);
+    window.addEventListener('scroll', onScrollAnim, { passive: true });
+    window.addEventListener('resize', onScrollAnim, { passive: true });
+    updateLift();
+    updateProgressEls();
+  } else {
+    /* Ohne Animation: Endzustände zeigen */
+    if (liftCar) liftCar.style.transform = `translateY(${-MAX_LIFT_PX}px)`;
+    if (liftArmL) liftArmL.style.transform = `translateY(${-MAX_LIFT_PX}px)`;
+    if (liftArmR) liftArmR.style.transform = `translateY(${-MAX_LIFT_PX}px)`;
+    if (liftHeight) liftHeight.textContent = fmtNum(MAX_HEIGHT_M, 2) + ' m';
+    progressEls.forEach(el => {
+      el.style.setProperty('--p', '1');
+      const counters = progressCounters.get(el);
+      if (counters) {
+        counters.forEach(c => {
+          const to = parseFloat(c.getAttribute('data-to'));
+          const decimals = parseInt(c.getAttribute('data-decimals') || '0', 10);
+          c.textContent = fmtNum(to, decimals) + (c.getAttribute('data-suffix') || '');
+        });
       }
-    }, { passive: true });
-    update();
-  } else if (liftCar && reducedMotion) {
-    /* Ohne Animation: Fahrzeug oben zeigen */
-    liftCar.style.transform = 'translateY(-150px)';
-    if (liftArmL) liftArmL.style.transform = 'translateY(-150px)';
-    if (liftArmR) liftArmR.style.transform = 'translateY(-150px)';
-    if (liftHeight) liftHeight.textContent = '1,80 m';
+    });
   }
 
   /* ------------------------------------------------------------
-     ANALYTICS-EVENTS (siehe neu/ANALYTICS.md)
+     ANALYTICS-EVENTS (siehe ANALYTICS.md)
      ------------------------------------------------------------ */
 
-  /* 1) CTA-Klicks: alle Elemente mit data-ga-cta="…" */
+  /* 1) CTA-Klicks */
   document.querySelectorAll('[data-ga-cta]').forEach(el => {
     el.addEventListener('click', () => {
       track('cta_click', {
@@ -212,7 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* 3) Section-Views: Sektionen mit data-ga-section="…" (einmal pro Seitenaufruf) */
+  /* 3) Section-Views (einmal pro Seitenaufruf) */
   if ('IntersectionObserver' in window) {
     const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -221,10 +336,10 @@ document.addEventListener('DOMContentLoaded', () => {
           sectionObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.25 });
     document.querySelectorAll('[data-ga-section]').forEach(s => sectionObserver.observe(s));
 
-    /* 4) Video-Sichtbarkeit: YouTube-Embeds, die in den Viewport scrollen */
+    /* 4) Video-Sichtbarkeit */
     const videoObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {

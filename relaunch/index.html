@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mietwerkstatt St. Pölten – Hebebühne mieten 24/7 | Werner Paternoster</title>
   <meta name="description" content="24h Mietwerkstatt in St. Pölten, Schwadorf 18 (Niederösterreich): Hebebühne für PKW und Transporter mieten – rund um die Uhr. Trockeneis-Reinigung, Sandstrahlen, Klimaservice, Reifenservice. Ersttermin einfach per WhatsApp.">
-  <meta name="site-version" content="20260817">
+  <meta name="site-version" content="20260817b">
   <link rel="canonical" href="https://www.24-stunden-mietwerkstatt.at/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Mietwerkstatt St. Pölten – Hebebühne mieten 24/7 | Werner Paternoster">
@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=20260817">
+  <link rel="stylesheet" href="assets/style.css?v=20260817b">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -54,24 +54,25 @@
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container header-inner">
+  <header class="site-header on-hero" id="siteHeader">
+    <div class="header-inner">
       <a href="#start" class="brand" aria-label="Zur Startseite">
-        <img src="images/logo.png" width="42" height="42" alt="Logo 24h Mietwerkstatt St. Pölten">
+        <img src="images/logo.png" width="40" height="40" alt="Logo 24h Mietwerkstatt St. Pölten">
         <span>
           <span class="brand-sub">Mietwerkstatt St. Pölten</span>
           <span class="brand-name">Werner Paternoster</span>
         </span>
       </a>
       <nav class="nav" id="mainNavigation" aria-label="Hauptnavigation">
-        <a href="#ablauf">Ablauf</a>
-        <a href="#angebote">Services</a>
-        <a href="#einblicke">Einblicke</a>
+        <a href="#leistungen">Leistungen</a>
         <a href="#preise">Preise</a>
-        <a href="wohnwagen/" class="nav-new" data-ga-nav="wohnwagen">Wohnwagen</a>
+        <a href="wohnwagen/" data-ga-nav="wohnwagen">Wohnwagen<span class="nav-new-dot" aria-hidden="true"></span></a>
         <a href="#kontakt">Kontakt</a>
-        <button class="btn btn-outline-dark" onclick="openModal('loginModal')" data-ga-cta="buchungslogin" data-ga-location="header">Buchungslogin</button>
-        <button class="btn btn-primary" onclick="openModal('whatsappModal')" data-ga-cta="whatsapp" data-ga-location="header">WhatsApp</button>
+        <a href="#ablauf" class="nav-more">Ablauf</a>
+        <a href="#hebebuehne" class="nav-more">Hebebühne</a>
+        <a href="#faq" class="nav-more">Häufige Fragen</a>
+        <a href="#" class="nav-login" onclick="event.preventDefault(); openModal('loginModal')" data-ga-cta="buchungslogin" data-ga-location="header">Buchungslogin</a>
+        <button class="btn btn-primary" onclick="openModal('whatsappModal')" data-ga-cta="whatsapp" data-ga-location="header">Ersttermin anfragen</button>
       </nav>
       <button id="navToggle" class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mainNavigation">
         <span></span><span></span><span></span>
@@ -84,18 +85,39 @@
     <!-- ======================= HERO ======================= -->
     <section class="hero" aria-label="Intro">
       <div class="hero-bg" role="img" aria-label="Luftaufnahme der Mietwerkstatt in St. Pölten"></div>
-      <div class="container hero-inner">
+      <div class="hero-inner">
         <p class="hero-topline">Mietwerkstatt St. Pölten · Schwadorf 18</p>
-        <h1>Schrauben wann du willst – 24/7</h1>
+        <h1 class="tr" id="heroHeadline">
+          <span class="tr-line"><span>Schrauben wann</span></span>
+          <span class="tr-line"><span>du willst – 24/7</span></span>
+        </h1>
         <p class="lead">4 Hebebühnen. Werkzeug inklusive.<br>Jetzt neu: <strong>Klimagas Auffüllung</strong> für die Saison!</p>
         <div class="hero-actions">
           <button class="btn btn-primary" onclick="openModal('whatsappModal')" data-ga-cta="whatsapp" data-ga-location="hero">Ersttermin via WhatsApp</button>
           <a class="btn btn-outline-light" href="#preise" data-ga-cta="preise" data-ga-location="hero">Preise &amp; Tarife</a>
         </div>
-        <div class="hero-meta">
-          <span>Für registrierte Bestandskunden <strong>24/7 geöffnet</strong></span>
-          <span>Hebebühnen bis <strong>3,5&nbsp;t / 5,5&nbsp;t</strong></span>
-          <span><strong>Sandstrahlen</strong> in der Halle</span>
+      </div>
+      <div class="hero-scrollcue" aria-hidden="true">Scroll</div>
+    </section>
+
+    <!-- ======================= ZAHLEN ======================= -->
+    <section class="stats-band" aria-label="Kennzahlen">
+      <div class="stats-grid">
+        <div class="stat">
+          <span class="num"><span data-count-to="4">0</span><em>×</em></span>
+          <span class="lbl">Hebebühnen</span>
+        </div>
+        <div class="stat">
+          <span class="num"><span data-count-to="5.5" data-count-decimals="1">0</span><em>&nbsp;t</em></span>
+          <span class="lbl">max. Tragkraft</span>
+        </div>
+        <div class="stat">
+          <span class="num"><span data-count-to="24">0</span><em>/7</em></span>
+          <span class="lbl">für Bestandskunden geöffnet</span>
+        </div>
+        <div class="stat">
+          <span class="num">ab <span data-count-to="20">0</span><em>&nbsp;€</em></span>
+          <span class="lbl">pro Stunde inkl. Werkzeug</span>
         </div>
       </div>
     </section>
@@ -106,7 +128,7 @@
         <div class="section-head">
           <div>
             <p class="eyebrow"><span class="idx">01</span> Ablauf</p>
-            <h2>Wie funktioniert die Buchung?</h2>
+            <h2 class="tr"><span class="tr-inner">Wie funktioniert die Buchung?</span></h2>
           </div>
           <p class="lead">Der einfache Weg zu deiner Miet-Hebebühne.</p>
         </div>
@@ -136,377 +158,327 @@
       </div>
     </section>
 
-    <!-- ======================= HEBEBÜHNE 24/7 (Scroll-Animation) ======================= -->
-    <section id="hebebuehne" class="section--dark" data-ga-section="hebebuehne" aria-label="Hebebühne mieten – 24/7">
+    <!-- ======================= HEBEBÜHNE (Scroll-Animation) ======================= -->
+    <section id="hebebuehne" class="section--dark" data-ga-section="hebebuehne" aria-label="Hebebühne mieten – 24/7" style="padding-bottom: clamp(80px, 10vw, 160px);">
       <div class="lift-stage-wrap" id="liftStageWrap">
         <div class="lift-stage">
-          <div class="container">
-            <div class="lift-grid">
-              <div class="lift-copy">
-                <p class="eyebrow"><span class="idx">02</span> Kernangebot</p>
-                <h2>Hebebühne mieten – 24/7</h2>
-                <h3>24/7 Freiheit</h3>
-                <p>Für registrierte Kunden ist die Werkstatt rund um die Uhr zugänglich. Nachtschicht? Kein Problem.</p>
-                <h3>Top-Ausstattung &amp; Services</h3>
-                <p>Vom Klimaservice-Gerät über moderne Diagnose-Tools bis zur 5,5t Transporter-Bühne steht dir alles für dein Projekt zur Verfügung.</p>
-                <div class="lift-readout" aria-hidden="true">
-                  <div>
-                    <span class="val" id="liftHeightValue">0,00 m</span>
-                    <span class="lbl">Hubhöhe</span>
-                  </div>
-                  <div>
-                    <span class="val">4×</span>
-                    <span class="lbl">Hebebühnen</span>
-                  </div>
-                  <div>
-                    <span class="val">3,5–5,5 t</span>
-                    <span class="lbl">Tragkraft</span>
-                  </div>
-                </div>
-                <div class="lift-actions">
-                  <a class="btn btn-primary" href="#preise" data-ga-cta="preise" data-ga-location="hebebuehne">Preise &amp; Tarife</a>
-                  <button class="btn btn-outline-light" onclick="openModal('loginModal')" data-ga-cta="buchungslogin" data-ga-location="hebebuehne">Online buchen</button>
-                </div>
+          <div class="lift-grid">
+            <div class="lift-head">
+              <p class="eyebrow"><span class="idx">02</span> Kernangebot</p>
+              <h2 class="tr"><span class="tr-inner">Hebebühne mieten – 24/7</span></h2>
+            </div>
+
+            <!-- Technische Illustration: 2-Säulen-Hebebühne, hebt beim Scrollen -->
+            <svg class="lift-svg" viewBox="0 0 640 440" fill="none" role="img" aria-label="Illustration: Fahrzeug wird auf einer Hebebühne angehoben">
+              <line x1="16" y1="404" x2="624" y2="404" stroke="#3a414d" stroke-width="3"/>
+              <g stroke="#2b313b" stroke-width="2">
+                <line x1="40" y1="404" x2="24" y2="420"/>
+                <line x1="110" y1="404" x2="94" y2="420"/>
+                <line x1="180" y1="404" x2="164" y2="420"/>
+                <line x1="250" y1="404" x2="234" y2="420"/>
+                <line x1="320" y1="404" x2="304" y2="420"/>
+                <line x1="390" y1="404" x2="374" y2="420"/>
+                <line x1="460" y1="404" x2="444" y2="420"/>
+                <line x1="530" y1="404" x2="514" y2="420"/>
+                <line x1="600" y1="404" x2="584" y2="420"/>
+              </g>
+              <rect x="64" y="72" width="22" height="332" stroke="#5b636f" stroke-width="2.5"/>
+              <rect x="554" y="72" width="22" height="332" stroke="#5b636f" stroke-width="2.5"/>
+              <line x1="64" y1="72" x2="576" y2="72" stroke="#5b636f" stroke-width="2.5"/>
+              <line x1="75" y1="84" x2="75" y2="396" stroke="#2b313b" stroke-width="2" stroke-dasharray="6 8"/>
+              <line x1="565" y1="84" x2="565" y2="396" stroke="#2b313b" stroke-width="2" stroke-dasharray="6 8"/>
+              <g id="liftArmL" style="will-change: transform;">
+                <rect x="86" y="336" width="20" height="40" fill="#ffcc00"/>
+                <line x1="106" y1="356" x2="238" y2="356" stroke="#ffcc00" stroke-width="7"/>
+                <line x1="222" y1="356" x2="238" y2="356" stroke="#ffcc00" stroke-width="14"/>
+              </g>
+              <g id="liftArmR" style="will-change: transform;">
+                <rect x="534" y="336" width="20" height="40" fill="#ffcc00"/>
+                <line x1="402" y1="356" x2="534" y2="356" stroke="#ffcc00" stroke-width="7"/>
+                <line x1="402" y1="356" x2="418" y2="356" stroke="#ffcc00" stroke-width="14"/>
+              </g>
+              <g id="liftCar" stroke="#cfd3da" stroke-width="3" style="will-change: transform;">
+                <path d="M136 352 L136 318 L152 300 L252 288 L292 246 L420 246 L468 292 L496 302 L502 322 L502 352 L446 352 A33 33 0 0 0 380 352 L262 352 A33 33 0 0 0 196 352 L136 352 Z"/>
+                <path d="M300 252 L272 290 L436 290 L414 252 Z" stroke-width="2.5"/>
+                <line x1="352" y1="252" x2="352" y2="290" stroke-width="2.5"/>
+                <line x1="352" y1="290" x2="352" y2="344" stroke-width="2"/>
+                <circle cx="229" cy="368" r="28"/>
+                <circle cx="229" cy="368" r="11" stroke-width="2.5"/>
+                <circle cx="413" cy="368" r="28"/>
+                <circle cx="413" cy="368" r="11" stroke-width="2.5"/>
+                <line x1="136" y1="330" x2="152" y2="330" stroke="#ffcc00" stroke-width="4"/>
+              </g>
+            </svg>
+
+            <div class="lift-readout" aria-hidden="true">
+              <div>
+                <span class="val" id="liftHeightValue">0,00 m</span>
+                <span class="lbl">Hubhöhe</span>
               </div>
+              <div>
+                <span class="val">3,5 t</span>
+                <span class="lbl">PKW-Bühnen</span>
+              </div>
+              <div>
+                <span class="val">5,5 t</span>
+                <span class="lbl">Transporter-Bühne</span>
+              </div>
+            </div>
 
-              <!-- Technische Illustration: 2-Säulen-Hebebühne, hebt beim Scrollen -->
-              <svg class="lift-svg" viewBox="0 0 640 440" fill="none" role="img" aria-label="Illustration: Fahrzeug wird auf einer Hebebühne angehoben">
-                <!-- Boden -->
-                <line x1="16" y1="404" x2="624" y2="404" stroke="#3a414d" stroke-width="3"/>
+            <div class="lift-actions">
+              <a class="btn btn-primary" href="#preise" data-ga-cta="preise" data-ga-location="hebebuehne">Preise &amp; Tarife</a>
+              <button class="btn btn-outline-light" onclick="openModal('loginModal')" data-ga-cta="buchungslogin" data-ga-location="hebebuehne">Online buchen</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lift-copy-below">
+        <div class="two-col">
+          <div class="reveal">
+            <h3>24/7 Freiheit</h3>
+            <p>Für registrierte Kunden ist die Werkstatt rund um die Uhr zugänglich. Nachtschicht? Kein Problem.</p>
+          </div>
+          <div class="reveal">
+            <h3>Top-Ausstattung &amp; Services</h3>
+            <p>Vom Klimaservice-Gerät über moderne Diagnose-Tools bis zur 5,5t Transporter-Bühne steht dir alles für dein Projekt zur Verfügung.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= LEISTUNGEN ======================= -->
+    <section id="leistungen" class="section" data-ga-section="angebote">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow"><span class="idx">03</span> Leistungen</p>
+            <h2 class="tr"><span class="tr-inner">Aktuelles &amp; Angebote</span></h2>
+          </div>
+          <p class="lead">Eine Leistung nach der anderen – einfach weiterscrollen.</p>
+        </div>
+
+        <!-- 03.1 Klimaservice -->
+        <article class="svc" id="klimaservice">
+          <div class="svc-media" data-progress>
+            <div class="gauge-photo">
+              <img src="images/einblicke/klima-service-01.jpg" alt="Klimaservice-Gerät ECK TWIN 12 in der Werkstatt" loading="lazy">
+              <div class="frost-temp"><span data-progress-counter data-from="28" data-to="6" data-decimals="0" data-suffix=" °C">28 °C</span><small>Innenraum</small></div>
+            </div>
+          </div>
+          <div class="svc-copy reveal">
+            <span class="svc-tag">Saison-Highlight</span>
+            <p class="eyebrow"><span class="idx">/01</span> Klimaservice</p>
+            <h3>Klimaservice</h3>
+            <p>Bereit für den Sommer? Wir füllen dein Klimagas fachgerecht auf. Preise für 500g Füllung:</p>
+            <ul>
+              <li>Gas R134a: <strong>95 €</strong></li>
+              <li>Gas R1234yf: <strong>160 €</strong></li>
+              <li>Leckfinder: <strong>30 €</strong></li>
+            </ul>
+            <div class="svc-cta">
+              <button class="btn btn-dark" onclick="openModal('whatsappModal')" data-ga-cta="whatsapp" data-ga-location="service_klima">Jetzt Termin buchen</button>
+            </div>
+          </div>
+          <div class="media-scroll" aria-label="Video Klimaservice">
+            <article class="media-item">
+              <div class="video-embed video-embed--shorts">
+                <iframe src="https://www.youtube-nocookie.com/embed/1KgSf7BAWkA?rel=0" title="Klimagas Auffüllung" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <p class="media-caption">Klimagas Auffüllung</p>
+            </article>
+          </div>
+        </article>
+
+        <!-- 03.2 Sandstrahlen -->
+        <article class="svc svc--flip" id="sandstrahlen">
+          <div class="svc-media" data-progress>
+            <div class="wipe">
+              <img src="images/einblicke/sandstrahl-vorher-02.jpg" alt="Stark verrostete Aufhängung und Achse vor dem Sandstrahlen" loading="lazy">
+              <img class="after" src="images/einblicke/sandstrahl-nachher-01.jpg" alt="Unterboden sandgestrahlt und versiegelt" loading="lazy">
+              <span class="wipe-bar" aria-hidden="true"></span>
+              <span class="wipe-label wipe-label--v">Vorher</span>
+              <span class="wipe-label wipe-label--n">Nachher</span>
+            </div>
+          </div>
+          <div class="svc-copy reveal">
+            <span class="svc-tag">Neu</span>
+            <p class="eyebrow"><span class="idx">/02</span> Sandstrahlen St. Pölten</p>
+            <h3>Mobiles Sandstrahlgerät</h3>
+            <p>In der Halle nutzbar – Unterboden, Fahrwerk, Karosserie. Rost weg, saubere Basis für Versiegelung oder Lack.</p>
+            <div class="svc-cta">
+              <button class="btn btn-dark" onclick="openModal('whatsappModal')" data-ga-cta="sandstrahlen" data-ga-location="service_sandstrahlen">Termin anfragen</button>
+            </div>
+          </div>
+          <div class="media-scroll" aria-label="Videos Sandstrahlen">
+            <article class="media-item">
+              <div class="video-embed video-embed--shorts">
+                <iframe src="https://www.youtube-nocookie.com/embed/n_8YZ6dJOBQ?rel=0" title="Sandstrahlen Unterboden – Start" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <p class="media-caption">Sandstrahlen – Start</p>
+            </article>
+            <article class="media-item">
+              <div class="video-embed video-embed--shorts">
+                <iframe src="https://www.youtube-nocookie.com/embed/gsJ3tkDTBeM?rel=0" title="Sandstrahlen Unterboden – in Arbeit" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <p class="media-caption">Sandstrahlen – in Arbeit</p>
+            </article>
+            <article class="media-item">
+              <div class="video-embed video-embed--shorts">
+                <iframe src="https://www.youtube-nocookie.com/embed/eHRtS35S3W0?rel=0" title="Sandstrahlen Unterboden – Ergebnis" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <p class="media-caption">Sandstrahlen – Vorher/Nachher</p>
+            </article>
+            <article class="media-item">
+              <div class="video-embed video-embed--wide">
+                <iframe src="https://www.youtube-nocookie.com/embed/yetfAoFN90A?rel=0" title="Vorher Nachher Kompilation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <p class="media-caption">Vorher/Nachher – Kompilation</p>
+            </article>
+          </div>
+        </article>
+
+        <!-- 03.3 Trockeneis -->
+        <article class="svc" id="trockeneis" data-ga-section="trockeneis">
+          <div class="svc-media" data-progress>
+            <div class="frost">
+              <img src="images/terUB.png" alt="Trockeneis-Reinigung am Unterboden" loading="lazy">
+              <div class="frost-temp"><span data-progress-counter data-from="20" data-to="-78.5" data-decimals="1" data-suffix=" °C">20,0 °C</span><small>Trockeneis</small></div>
+            </div>
+          </div>
+          <div class="svc-copy reveal">
+            <p class="eyebrow"><span class="idx">/03</span> Trockeneisstrahlen St. Pölten</p>
+            <h3>Trockeneis-Reinigung</h3>
+            <p>High-Tech Reinigung ohne Wasser und Chemie. Der Thermoschock löst Schmutz, schont aber das Material.</p>
+            <ul>
+              <li><strong>Motorraum &amp; Technik:</strong> Da Trockeneis sofort verdampft, ist es sicher für Elektronik. Entfernt Öl, Fett und Salz, ohne Wasser in Stecker zu drücken.</li>
+              <li><strong>Unterboden &amp; Rostschutz:</strong> Entfernt alten Bitumen und Straßenschmutz restlos bis aufs Blech. Perfekt für Restaurationen.</li>
+              <li><strong>Innenraum Hygiene:</strong> Tötet Bakterien und Schimmel ab. Entfernt Gerüche (Raucher/Hunde) aus Polstern und Lüftungsschlitzen.</li>
+            </ul>
+            <p><strong>Spezialangebot Wohnmobile:</strong> Die Außenhaut von Wohnmobilen (GfK, Alu-Struktur) wird bei uns schonend von Moos, Algen und Grauschleier befreit. Dichtungen werden dabei nicht angegriffen, da wir <strong>keine scharfe Chemie</strong> nutzen. Werterhalt für dein mobiles Zuhause.</p>
+            <div class="svc-cta">
+              <button class="btn btn-dark" onclick="openModal('whatsappModal')" data-ga-cta="whatsapp" data-ga-location="trockeneis">Anfrage stellen</button>
+              <button class="arrow-link" onclick="openModal('whatsappModal')" data-ga-cta="whatsapp" data-ga-location="trockeneis_wohnmobil">Anfrage für Wohnmobil</button>
+            </div>
+          </div>
+          <div class="media-scroll" aria-label="Videos Trockeneis-Reinigung">
+            <article class="media-item">
+              <div class="video-embed video-embed--shorts">
+                <iframe src="https://www.youtube-nocookie.com/embed/q_X-nAyXZ40?rel=0" title="Motorraum Abdeckung Trockeneis Reinigung" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <p class="media-caption">Motorraum Abdeckung</p>
+            </article>
+            <article class="media-item">
+              <div class="video-embed video-embed--wide">
+                <iframe src="https://www.youtube-nocookie.com/embed/PNSdLFRYj08?rel=0" title="Trockeneis Reinigung" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <p class="media-caption">Trockeneis Reinigung</p>
+            </article>
+            <article class="media-item">
+              <div class="video-embed video-embed--wide">
+                <iframe src="https://www.youtube-nocookie.com/embed/2qb9rLZB5gQ?rel=0" title="Klimaanlagen Trockeneis Reinigung" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <p class="media-caption">Klimaanlagen</p>
+            </article>
+            <article class="media-item">
+              <div class="video-embed video-embed--wide">
+                <iframe src="https://www.youtube-nocookie.com/embed/leCB6bQQiNM?rel=0" title="Trockeneis Reinigung am Auto-Unterboden" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <p class="media-caption">Auto-Unterboden</p>
+            </article>
+            <article class="media-item">
+              <div class="video-embed video-embed--shorts">
+                <iframe src="https://www.youtube-nocookie.com/embed/kruN152biVA?rel=0" title="Trockeneis Reinigung" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <p class="media-caption">Trockeneis-Reinigung</p>
+            </article>
+          </div>
+        </article>
+
+        <!-- 03.4 Reifenservice -->
+        <article class="svc svc--flip" id="reifen">
+          <div class="svc-media" data-progress>
+            <div class="roll-stage">
+              <img class="bgphoto" src="images/reifenmontage.jpg" alt="" aria-hidden="true" loading="lazy">
+              <svg class="roll-svg" viewBox="0 0 640 260" fill="none" role="img" aria-label="Illustration: rollender Reifen">
+                <line x1="10" y1="232" x2="630" y2="232" stroke="#3a414d" stroke-width="3"/>
                 <g stroke="#2b313b" stroke-width="2">
-                  <line x1="40" y1="404" x2="24" y2="420"/>
-                  <line x1="110" y1="404" x2="94" y2="420"/>
-                  <line x1="180" y1="404" x2="164" y2="420"/>
-                  <line x1="250" y1="404" x2="234" y2="420"/>
-                  <line x1="320" y1="404" x2="304" y2="420"/>
-                  <line x1="390" y1="404" x2="374" y2="420"/>
-                  <line x1="460" y1="404" x2="444" y2="420"/>
-                  <line x1="530" y1="404" x2="514" y2="420"/>
-                  <line x1="600" y1="404" x2="584" y2="420"/>
+                  <line x1="60" y1="232" x2="46" y2="248"/>
+                  <line x1="160" y1="232" x2="146" y2="248"/>
+                  <line x1="260" y1="232" x2="246" y2="248"/>
+                  <line x1="360" y1="232" x2="346" y2="248"/>
+                  <line x1="460" y1="232" x2="446" y2="248"/>
+                  <line x1="560" y1="232" x2="546" y2="248"/>
                 </g>
-
-                <!-- Säulen -->
-                <rect x="64" y="72" width="22" height="332" stroke="#5b636f" stroke-width="2.5"/>
-                <rect x="554" y="72" width="22" height="332" stroke="#5b636f" stroke-width="2.5"/>
-                <line x1="64" y1="72" x2="576" y2="72" stroke="#5b636f" stroke-width="2.5"/>
-                <!-- Führungsschlitze -->
-                <line x1="75" y1="84" x2="75" y2="396" stroke="#2b313b" stroke-width="2" stroke-dasharray="6 8"/>
-                <line x1="565" y1="84" x2="565" y2="396" stroke="#2b313b" stroke-width="2" stroke-dasharray="6 8"/>
-
-                <!-- Tragarme (bewegen sich mit) -->
-                <g id="liftArmL" style="will-change: transform;">
-                  <rect x="86" y="336" width="20" height="40" fill="#ffcc00"/>
-                  <line x1="106" y1="356" x2="238" y2="356" stroke="#ffcc00" stroke-width="7"/>
-                  <line x1="222" y1="356" x2="238" y2="356" stroke="#ffcc00" stroke-width="14"/>
-                </g>
-                <g id="liftArmR" style="will-change: transform;">
-                  <rect x="534" y="336" width="20" height="40" fill="#ffcc00"/>
-                  <line x1="402" y1="356" x2="534" y2="356" stroke="#ffcc00" stroke-width="7"/>
-                  <line x1="402" y1="356" x2="418" y2="356" stroke="#ffcc00" stroke-width="14"/>
-                </g>
-
-                <!-- Fahrzeug (bewegt sich mit) -->
-                <g id="liftCar" stroke="#cfd3da" stroke-width="3" style="will-change: transform;">
-                  <path d="M136 352 L136 318 L152 300 L252 288 L292 246 L420 246 L468 292 L496 302 L502 322 L502 352 L446 352 A33 33 0 0 0 380 352 L262 352 A33 33 0 0 0 196 352 L136 352 Z"/>
-                  <path d="M300 252 L272 290 L436 290 L414 252 Z" stroke-width="2.5"/>
-                  <line x1="352" y1="252" x2="352" y2="290" stroke-width="2.5"/>
-                  <line x1="352" y1="290" x2="352" y2="344" stroke-width="2"/>
-                  <circle cx="229" cy="368" r="28"/>
-                  <circle cx="229" cy="368" r="11" stroke-width="2.5"/>
-                  <circle cx="413" cy="368" r="28"/>
-                  <circle cx="413" cy="368" r="11" stroke-width="2.5"/>
-                  <line x1="136" y1="330" x2="152" y2="330" stroke="#ffcc00" stroke-width="4"/>
+                <g class="tire-move" style="will-change: transform;">
+                  <g class="tire-spin">
+                    <circle cx="110" cy="164" r="64" stroke="#cfd3da" stroke-width="12"/>
+                    <circle cx="110" cy="164" r="36" stroke="#ffcc00" stroke-width="3"/>
+                    <line x1="110" y1="130" x2="110" y2="198" stroke="#ffcc00" stroke-width="3"/>
+                    <line x1="76" y1="164" x2="144" y2="164" stroke="#ffcc00" stroke-width="3"/>
+                    <line x1="86" y1="140" x2="134" y2="188" stroke="#ffcc00" stroke-width="2"/>
+                    <line x1="134" y1="140" x2="86" y2="188" stroke="#ffcc00" stroke-width="2"/>
+                  </g>
                 </g>
               </svg>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================= SERVICES ======================= -->
-    <section id="angebote" class="section" data-ga-section="angebote">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow"><span class="idx">03</span> Services</p>
-            <h2>Aktuelles &amp; Angebote</h2>
+          <div class="svc-copy reveal">
+            <p class="eyebrow"><span class="idx">/04</span> Reifenservice</p>
+            <h3>Reifenservice &amp; Handel</h3>
+            <p>Montage &amp; Wuchten durch Fachpersonal. <strong>Neu:</strong> Wir sind Reifen-Händler und empfehlen <strong>Petlas Reifen</strong> für ein ideales Preis-Leistungs-Verhältnis.</p>
+            <div class="svc-cta">
+              <button class="btn btn-dark" onclick="openModal('whatsappModal')" data-ga-cta="whatsapp" data-ga-location="service_reifen">Angebot einholen</button>
+              <a class="arrow-link" href="#preise" data-ga-cta="preise" data-ga-location="service_reifen">Zu den Tarifen</a>
+            </div>
           </div>
-        </div>
+        </article>
 
-        <div class="service-rows">
-          <div class="service-row reveal">
-            <span class="sr-num" aria-hidden="true">/01</span>
-            <div>
-              <span class="service-tag">Saison-Highlight</span>
-              <h3>Klimaservice</h3>
+        <!-- 03.5 Unterboden-Versiegelung -->
+        <article class="svc" id="versiegelung">
+          <div class="svc-media" data-progress>
+            <div class="wipe">
+              <img src="images/einblicke/versiegelung-vorher-01.jpg" alt="Unterboden mit Rost am Auspuff und Querträger" loading="lazy">
+              <img class="after" src="images/einblicke/versiegelung-nachher-01.jpg" alt="Querträger versiegelt – glänzend schwarz" loading="lazy">
+              <span class="wipe-bar" aria-hidden="true"></span>
+              <span class="wipe-label wipe-label--v">Vorher</span>
+              <span class="wipe-label wipe-label--n">Nachher</span>
             </div>
-            <div class="sr-body">
-              <p>Bereit für den Sommer? Wir füllen dein Klimagas fachgerecht auf. Preise für 500g Füllung:</p>
-              <ul>
-                <li>Gas R134a: <strong>95 €</strong></li>
-                <li>Gas R1234yf: <strong>160 €</strong></li>
-                <li>Leckfinder: <strong>30 €</strong></li>
-              </ul>
-            </div>
-            <button class="sr-link" onclick="openModal('whatsappModal')" data-ga-cta="whatsapp" data-ga-location="service_klima">Jetzt Termin buchen</button>
           </div>
-
-          <div class="service-row reveal">
-            <span class="sr-num" aria-hidden="true">/02</span>
-            <div>
-              <span class="service-tag">Neu</span>
-              <h3>Mobiles Sandstrahlgerät</h3>
+          <div class="svc-copy reveal">
+            <p class="eyebrow"><span class="idx">/05</span> Rostschutz</p>
+            <h3>Unterboden-Versiegelung</h3>
+            <p>Schutz für Wohnmobile &amp; PKW. Wir versiegeln deinen Unterboden fachgerecht gegen Rost und Salz.</p>
+            <div class="svc-cta">
+              <button class="btn btn-dark" onclick="openModal('whatsappModal')" data-ga-cta="whatsapp" data-ga-location="service_versiegelung">Angebot einholen</button>
             </div>
-            <div class="sr-body">
-              <p>In der Halle nutzbar – Unterboden, Fahrwerk, Karosserie. Rost weg, saubere Basis für Versiegelung oder Lack.</p>
-            </div>
-            <button class="sr-link" onclick="openModal('whatsappModal')" data-ga-cta="sandstrahlen" data-ga-location="service_sandstrahlen">Termin anfragen</button>
           </div>
-
-          <div class="service-row reveal">
-            <span class="sr-num" aria-hidden="true">/03</span>
-            <div>
-              <h3>Trockeneis-Reinigung</h3>
-            </div>
-            <div class="sr-body">
-              <p>High-Tech Reinigung ohne Wasser und Chemie. Der Thermoschock löst Schmutz, schont aber das Material.</p>
-            </div>
-            <a class="sr-link" href="#trockeneis" data-ga-cta="trockeneis_mehr" data-ga-location="service_trockeneis">Mehr erfahren</a>
-          </div>
-
-          <div class="service-row reveal">
-            <span class="sr-num" aria-hidden="true">/04</span>
-            <div>
-              <h3>Unterboden-Versiegelung</h3>
-            </div>
-            <div class="sr-body">
-              <p>Schutz für Wohnmobile &amp; PKW. Wir versiegeln deinen Unterboden fachgerecht gegen Rost und Salz.</p>
-            </div>
-            <button class="sr-link" onclick="openModal('whatsappModal')" data-ga-cta="whatsapp" data-ga-location="service_versiegelung">Angebot einholen</button>
-          </div>
-
-          <div class="service-row reveal">
-            <span class="sr-num" aria-hidden="true">/05</span>
-            <div>
-              <h3>Reifenservice &amp; Handel</h3>
-            </div>
-            <div class="sr-body">
-              <p>Montage &amp; Wuchten durch Fachpersonal. <strong>Neu:</strong> Wir sind Reifen-Händler und empfehlen <strong>Petlas Reifen</strong> für ein ideales Preis-Leistungs-Verhältnis.</p>
-            </div>
-            <button class="sr-link" onclick="openModal('whatsappModal')" data-ga-cta="whatsapp" data-ga-location="service_reifen">Angebot einholen</button>
-          </div>
-
-          <div class="service-row reveal">
-            <span class="sr-num" aria-hidden="true">/06</span>
-            <div>
-              <h3>Bremsenentlüftungsgerät</h3>
-            </div>
-            <div class="sr-body">
-              <p>Gerät zum Entlüften der Bremsanlage für optimale Sicherheit am Fahrzeug. <strong>15 €</strong> / Fahrzeug.</p>
-            </div>
-            <button class="sr-link" onclick="openModal('whatsappModal')" data-ga-cta="whatsapp" data-ga-location="service_bremsen">Jetzt anfragen</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================= TROCKENEIS ======================= -->
-    <section id="trockeneis" class="section section--dark" data-ga-section="trockeneis">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow"><span class="idx">04</span> Trockeneisstrahlen in St. Pölten</p>
-            <h2>Trockeneis-Reinigung</h2>
-          </div>
-          <p class="lead">High-Tech Reinigung ohne Wasser und Chemie. Der Thermoschock löst Schmutz, schont aber das Material.</p>
-        </div>
-
-        <div class="gallery-scroll reveal" aria-label="Fotos Trockeneis-Reinigung">
-          <img src="images/trockeneisRM.png" alt="Trockeneis-Reinigung am Zylinderkopf – Vorher/Nachher" loading="lazy">
-          <img src="images/terUB.png" alt="Trockeneis-Reinigung am Unterboden" loading="lazy">
-          <img src="images/terAF.png" alt="Trockeneis-Reinigung – schonende Detail-Arbeiten an Felgen und Außenflächen" loading="lazy">
-          <img src="images/terWM.png" alt="Trockeneis-Reinigung – Wohnmobil Aufbereitung" loading="lazy">
-          <img src="images/3-buehnen.jpeg" alt="Hebebühnen in der Mietwerkstatt St. Pölten" loading="lazy">
-        </div>
-        <p class="scroll-hint">Wischen für mehr Bilder</p>
-
-        <div class="service-rows" style="margin-top: 48px; border-color: var(--line-dark);">
-          <div class="service-row reveal" style="border-color: var(--line-dark);">
-            <span class="sr-num" aria-hidden="true">/A</span>
-            <h3>Motorraum &amp; Technik</h3>
-            <div class="sr-body"><p style="color: var(--muted-dark);">Da Trockeneis sofort verdampft, ist es sicher für Elektronik. Entfernt Öl, Fett und Salz, ohne Wasser in Stecker zu drücken.</p></div>
-          </div>
-          <div class="service-row reveal" style="border-color: var(--line-dark);">
-            <span class="sr-num" aria-hidden="true">/B</span>
-            <h3>Unterboden &amp; Rostschutz</h3>
-            <div class="sr-body"><p style="color: var(--muted-dark);">Entfernt alten Bitumen und Straßenschmutz restlos bis aufs Blech. Perfekt für Restaurationen.</p></div>
-          </div>
-          <div class="service-row reveal" style="border-color: var(--line-dark);">
-            <span class="sr-num" aria-hidden="true">/C</span>
-            <h3>Innenraum Hygiene</h3>
-            <div class="sr-body"><p style="color: var(--muted-dark);">Tötet Bakterien und Schimmel ab. Entfernt Gerüche (Raucher/Hunde) aus Polstern und Lüftungsschlitzen.</p></div>
-          </div>
-        </div>
-
-        <h3 style="margin: 56px 0 20px;">Videos</h3>
-        <div class="media-scroll reveal" aria-label="Videos Trockeneis-Reinigung">
-          <article class="media-item">
-            <div class="video-embed video-embed--shorts">
-              <iframe src="https://www.youtube-nocookie.com/embed/q_X-nAyXZ40?rel=0" title="Motorraum Abdeckung Trockeneis Reinigung" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-            </div>
-            <p class="media-caption">Motorraum Abdeckung – Trockeneis Reinigung</p>
-          </article>
-          <article class="media-item">
-            <div class="video-embed video-embed--wide">
-              <iframe src="https://www.youtube-nocookie.com/embed/PNSdLFRYj08?rel=0" title="Trockeneis Reinigung" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-            </div>
-            <p class="media-caption">Trockeneis Reinigung</p>
-          </article>
-          <article class="media-item">
-            <div class="video-embed video-embed--wide">
-              <iframe src="https://www.youtube-nocookie.com/embed/2qb9rLZB5gQ?rel=0" title="Klimaanlagen Trockeneis Reinigung" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-            </div>
-            <p class="media-caption">Klimaanlagen – Trockeneis Reinigung</p>
-          </article>
-          <article class="media-item">
-            <div class="video-embed video-embed--wide">
-              <iframe src="https://www.youtube-nocookie.com/embed/leCB6bQQiNM?rel=0" title="Trockeneis Reinigung am Auto-Unterboden" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-            </div>
-            <p class="media-caption">Auto-Unterboden – Trockeneis Reinigung</p>
-          </article>
-        </div>
-        <p class="scroll-hint">Wischen für mehr Videos</p>
-
-        <div class="quote reveal" style="margin-top: 56px; max-width: 760px;">
-          <h3>Spezialangebot: Wohnmobile</h3>
-          <p style="color: var(--muted-dark);">Die Außenhaut von Wohnmobilen (GfK, Alu-Struktur) wird bei uns schonend von Moos, Algen und Grauschleier befreit. Dichtungen werden dabei nicht angegriffen, da wir <strong style="color: var(--text-light);">keine scharfe Chemie</strong> nutzen. Werterhalt für dein mobiles Zuhause.</p>
-          <button class="btn btn-primary" onclick="openModal('whatsappModal')" data-ga-cta="whatsapp" data-ga-location="trockeneis_wohnmobil">Anfrage für Wohnmobil</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================= EINBLICKE ======================= -->
-    <section id="einblicke" class="section" data-ga-section="einblicke">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow"><span class="idx">05</span> Einblicke</p>
-            <h2>Sandstrahlen, Versiegelung &amp; Klimaservice</h2>
-          </div>
-          <p class="lead">Fotos und Videos aus der Werkstatt – Vorher, während der Arbeit und Nachher.</p>
-        </div>
-
-        <div class="ba-grid reveal">
-          <figure class="ba-pair">
-            <div class="ba-pair__images">
-              <div class="ba-pair__img-wrap">
-                <span class="ba-tag">Vorher</span>
-                <img src="images/einblicke/sandstrahl-vorher-02.jpg" alt="Stark verrostete Aufhängung und Achse vor dem Sandstrahlen" loading="lazy">
+          <div class="media-scroll" aria-label="Video Unterboden-Versiegelung">
+            <article class="media-item">
+              <div class="video-embed video-embed--shorts">
+                <iframe src="https://www.youtube-nocookie.com/embed/0kEtYT9NDHM?rel=0" title="Unterboden Versiegelung" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
               </div>
-              <div class="ba-pair__img-wrap">
-                <span class="ba-tag ba-tag--nachher">Nachher</span>
-                <img src="images/einblicke/sandstrahl-nachher-01.jpg" alt="Unterboden sandgestrahlt und versiegelt" loading="lazy">
-              </div>
-            </div>
-            <figcaption class="ba-pair__caption">Sandstrahlen – Unterboden</figcaption>
-          </figure>
-          <figure class="ba-pair">
-            <div class="ba-pair__images">
-              <div class="ba-pair__img-wrap">
-                <span class="ba-tag">Vorher</span>
-                <img src="images/einblicke/sandstrahl-vorher-01.jpg" alt="Stark verrosteter Unterboden an der Hebebühne" loading="lazy">
-              </div>
-              <div class="ba-pair__img-wrap">
-                <span class="ba-tag">Arbeit</span>
-                <img src="images/einblicke/sandstrahl-arbeit-01.jpg" alt="Sandstrahlen in der Halle mit Schutzkleidung" loading="lazy">
-              </div>
-            </div>
-            <figcaption class="ba-pair__caption">Sandstrahlen – in der Halle</figcaption>
-          </figure>
-          <figure class="ba-pair">
-            <div class="ba-pair__images">
-              <div class="ba-pair__img-wrap">
-                <span class="ba-tag">Vorher</span>
-                <img src="images/einblicke/sandstrahl-vorher-03.jpg" alt="Rost am Stoßdämpfer und Fahrwerk" loading="lazy">
-              </div>
-              <div class="ba-pair__img-wrap">
-                <span class="ba-tag ba-tag--nachher">Nachher</span>
-                <img src="images/einblicke/sandstrahl-nachher-02.jpg" alt="Fahrwerk sauber und geschützt" loading="lazy">
-              </div>
-            </div>
-            <figcaption class="ba-pair__caption">Sandstrahlen – Fahrwerk</figcaption>
-          </figure>
-          <figure class="ba-pair">
-            <div class="ba-pair__images">
-              <div class="ba-pair__img-wrap">
-                <span class="ba-tag">Vorher</span>
-                <img src="images/einblicke/versiegelung-vorher-01.jpg" alt="Unterboden mit Rost am Auspuff und Querträger" loading="lazy">
-              </div>
-              <div class="ba-pair__img-wrap">
-                <span class="ba-tag ba-tag--nachher">Nachher</span>
-                <img src="images/einblicke/versiegelung-nachher-01.jpg" alt="Querträger versiegelt – glänzend schwarz" loading="lazy">
-              </div>
-            </div>
-            <figcaption class="ba-pair__caption">Unterboden-Versiegelung</figcaption>
-          </figure>
-          <figure class="ba-pair ba-pair--single">
-            <div class="ba-pair__images">
-              <div class="ba-pair__img-wrap">
-                <span class="ba-tag">Klima</span>
-                <img src="images/einblicke/klima-service-01.jpg" alt="Klimaservice-Gerät ECK TWIN 12 in der Werkstatt" loading="lazy">
-              </div>
-            </div>
-            <figcaption class="ba-pair__caption">Klimaservice – R134a &amp; R1234yf</figcaption>
-          </figure>
-        </div>
+              <p class="media-caption">Unterboden-Versiegelung</p>
+            </article>
+          </div>
+        </article>
 
-        <h3 style="margin: 24px 0 20px;">Videos</h3>
-        <div class="media-scroll reveal" aria-label="Videos aus der Werkstatt">
-          <article class="media-item">
-            <div class="video-embed video-embed--shorts">
-              <iframe src="https://www.youtube-nocookie.com/embed/n_8YZ6dJOBQ?rel=0" title="Sandstrahlen Unterboden – Start" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        <!-- 03.6 Bremsenentlüftung -->
+        <article class="svc svc--flip" id="bremsen">
+          <div class="svc-media reveal">
+            <div class="svc-photo img-reveal">
+              <img src="images/einblicke/sandstrahl-vorher-03.jpg" alt="Fahrwerk und Bremse an der Hebebühne" loading="lazy">
             </div>
-            <p class="media-caption">Sandstrahlen – Start</p>
-          </article>
-          <article class="media-item">
-            <div class="video-embed video-embed--shorts">
-              <iframe src="https://www.youtube-nocookie.com/embed/gsJ3tkDTBeM?rel=0" title="Sandstrahlen Unterboden – in Arbeit" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="svc-copy reveal">
+            <p class="eyebrow"><span class="idx">/06</span> Sicherheit</p>
+            <h3>Bremsenentlüftungsgerät</h3>
+            <p>Gerät zum Entlüften der Bremsanlage für optimale Sicherheit am Fahrzeug. <strong>15 €</strong> / Fahrzeug.</p>
+            <div class="svc-cta">
+              <button class="btn btn-dark" onclick="openModal('whatsappModal')" data-ga-cta="whatsapp" data-ga-location="service_bremsen">Jetzt anfragen</button>
             </div>
-            <p class="media-caption">Sandstrahlen – in Arbeit</p>
-          </article>
-          <article class="media-item">
-            <div class="video-embed video-embed--shorts">
-              <iframe src="https://www.youtube-nocookie.com/embed/eHRtS35S3W0?rel=0" title="Sandstrahlen Unterboden – Ergebnis" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-            </div>
-            <p class="media-caption">Sandstrahlen – Vorher/Nachher</p>
-          </article>
-          <article class="media-item">
-            <div class="video-embed video-embed--shorts">
-              <iframe src="https://www.youtube-nocookie.com/embed/0kEtYT9NDHM?rel=0" title="Unterboden Versiegelung" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-            </div>
-            <p class="media-caption">Unterboden-Versiegelung</p>
-          </article>
-          <article class="media-item">
-            <div class="video-embed video-embed--shorts">
-              <iframe src="https://www.youtube-nocookie.com/embed/kruN152biVA?rel=0" title="Trockeneis Reinigung" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-            </div>
-            <p class="media-caption">Trockeneis-Reinigung</p>
-          </article>
-          <article class="media-item">
-            <div class="video-embed video-embed--wide">
-              <iframe src="https://www.youtube-nocookie.com/embed/yetfAoFN90A?rel=0" title="Vorher Nachher Kompilation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-            </div>
-            <p class="media-caption">Vorher/Nachher – Kompilation</p>
-          </article>
-          <article class="media-item">
-            <div class="video-embed video-embed--shorts">
-              <iframe src="https://www.youtube-nocookie.com/embed/1KgSf7BAWkA?rel=0" title="Klimagas Auffüllung" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-            </div>
-            <p class="media-caption">Klimagas Auffüllung</p>
-          </article>
-        </div>
-        <p class="scroll-hint">Wischen für mehr Videos</p>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -515,16 +487,46 @@
       <div class="container">
         <div class="caravan-teaser">
           <div>
-            <p class="eyebrow"><span class="idx">06</span> Neu bei uns</p>
-            <h2>Wohnwagen – Swift</h2>
+            <p class="eyebrow"><span class="idx">04</span> Neu bei uns</p>
+            <h2 class="tr"><span class="tr-inner">Wohnwagen – Swift</span></h2>
             <p class="lead">Jetzt neu: Wir verkaufen Wohnwagen der Marke Swift – Raritäten in Österreich. Mit Dusche und hochwertiger Ausstattung.</p>
-            <div class="lift-actions">
+            <div class="svc-cta" style="margin-top: 32px;">
               <a class="btn btn-primary" href="wohnwagen/" data-ga-nav="wohnwagen" data-ga-cta="wohnwagen_seite" data-ga-location="teaser">Zu den Wohnwagen</a>
               <button class="btn btn-outline-light" onclick="openModal('whatsappModal')" data-ga-cta="wohnwagen_anfrage" data-ga-location="teaser">Anfrage per WhatsApp</button>
             </div>
           </div>
-          <div class="media-frame reveal">
-            Foto folgt – Swift Wohnwagen<br>vor der Halle
+          <div class="caravan-stage reveal">
+            <svg class="caravan-svg" viewBox="0 0 640 360" fill="none" role="img" aria-label="Illustration: Swift Wohnwagen">
+              <line x1="16" y1="316" x2="624" y2="316" stroke="#3a414d" stroke-width="3"/>
+              <g stroke="#2b313b" stroke-width="2">
+                <line x1="70" y1="316" x2="55" y2="332"/>
+                <line x1="190" y1="316" x2="175" y2="332"/>
+                <line x1="310" y1="316" x2="295" y2="332"/>
+                <line x1="430" y1="316" x2="415" y2="332"/>
+                <line x1="550" y1="316" x2="535" y2="332"/>
+              </g>
+              <g stroke="#cfd3da" stroke-width="3">
+                <!-- Aufbau -->
+                <path d="M132 262 L120 130 Q118 96 152 92 L520 92 Q556 96 558 132 L558 244 Q558 262 540 262 L132 262 Z"/>
+                <!-- Deichsel -->
+                <path d="M132 250 L76 288 L48 288" stroke-width="3"/>
+                <circle cx="48" cy="294" r="7"/>
+                <!-- Fenster -->
+                <rect x="170" y="122" width="92" height="60" rx="10" stroke-width="2.5"/>
+                <rect x="404" y="122" width="112" height="60" rx="10" stroke-width="2.5"/>
+                <!-- Tür -->
+                <rect x="292" y="122" width="82" height="140" rx="8" stroke-width="2.5"/>
+                <!-- Rad -->
+                <circle cx="352" cy="290" r="30"/>
+                <circle cx="352" cy="290" r="12" stroke-width="2.5"/>
+              </g>
+              <g stroke="#ffcc00">
+                <line x1="292" y1="196" x2="374" y2="196" stroke-width="3"/>
+                <line x1="304" y1="176" x2="304" y2="188" stroke-width="4"/>
+                <line x1="132" y1="238" x2="558" y2="238" stroke-width="3"/>
+              </g>
+            </svg>
+            <p class="caravan-note">Fotos folgen – aktuelle Modelle auf Anfrage</p>
           </div>
         </div>
       </div>
@@ -535,8 +537,8 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <p class="eyebrow"><span class="idx">07</span> Tarife</p>
-            <h2>Preise &amp; Tarife</h2>
+            <p class="eyebrow"><span class="idx">05</span> Tarife</p>
+            <h2 class="tr"><span class="tr-inner">Preise &amp; Tarife</span></h2>
           </div>
         </div>
 
@@ -631,18 +633,12 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <p class="eyebrow"><span class="idx">08</span> Halle</p>
-            <h2>Ausstattung &amp; Services</h2>
+            <p class="eyebrow"><span class="idx">06</span> Halle</p>
+            <h2 class="tr"><span class="tr-inner">Ausstattung &amp; Services</span></h2>
           </div>
+          <p class="lead">3× Bühnen bis 3,5t. 1× Transporter-Bühne 5,5t. Werkzeugwagen an jeder Bühne.</p>
         </div>
 
-        <div class="facts reveal">
-          <div class="fact"><strong>3×</strong><span>Bühnen bis 3,5t</span></div>
-          <div class="fact"><strong>1×</strong><span>Transporter-Bühne 5,5t</span></div>
-          <div class="fact"><strong>Werkzeug</strong><span>Wagen an jeder Bühne</span></div>
-        </div>
-
-        <h3 style="margin-bottom: 8px;">Details &amp; Maschinen</h3>
         <div class="tiles">
           <details class="tile" open>
             <summary>Klimaservice &amp; Gas Auffüllung</summary>
@@ -655,7 +651,6 @@
             <summary>Reifenservice &amp; Handel</summary>
             <div class="tile-content">
               <img src="images/reifenmontage.jpg" alt="Reifenmontiermaschine" class="tile-img" loading="lazy" onerror="this.style.display='none'">
-              <img src="images/petlas-logo.png" alt="Petlas Logo" class="tile-logo" loading="lazy" onerror="this.style.display='none'">
               <p>Nutzung der Reifen-/Montiermaschine extra zu bezahlen: <strong>5 € pro Reifen</strong> (inkl. Wuchtgewicht). Zudem bieten wir den Verkauf von Neureifen an (Empfehlung: Petlas Reifen). Bitte beachte, dass Putztücher selber mitgebracht werden müssen.</p>
             </div>
           </details>
@@ -700,29 +695,41 @@
             </div>
           </details>
         </div>
+      </div>
 
-        <h3 style="margin: 56px 0 20px;">Einblick in die Halle</h3>
-        <div class="gallery-scroll reveal" aria-label="Fotos aus der Halle">
+      <!-- Foto-Marquee über volle Breite -->
+      <div class="marquee" style="margin-top: clamp(48px, 6vw, 88px);" aria-label="Fotos aus der Halle">
+        <div class="marquee-track">
           <img src="images/3-buehnen.jpeg" alt="Halle Übersicht mit drei Hebebühnen" loading="lazy">
-          <img src="images/werkzeugkasten.jpeg" alt="Werkzeugwagen an der Hebebühne" loading="lazy">
           <img src="images/vw-buehne.jpeg" alt="VW Bus auf der Hebebühne" loading="lazy">
+          <img src="images/werkzeugkasten.jpeg" alt="Werkzeugwagen an der Hebebühne" loading="lazy">
           <img src="images/transporter.jpeg" alt="Transporter auf der 5,5t Bühne" loading="lazy">
           <img src="images/trockeneisRM.png" alt="Motor nach Trockeneis-Reinigung" loading="lazy">
+          <img src="images/einblicke/sandstrahl-arbeit-01.jpg" alt="Sandstrahlen in der Halle" loading="lazy">
           <img src="images/terAF.png" alt="Trockeneis-Reinigung Detailarbeit" loading="lazy">
-          <img src="images/terUB.png" alt="Trockeneis-Reinigung am Unterboden" loading="lazy">
+          <img src="images/einblicke/sandstrahl-nachher-02.jpg" alt="Fahrwerk sauber und geschützt" loading="lazy">
           <img src="images/terWM.png" alt="Trockeneis-Reinigung am Wohnmobil" loading="lazy">
-          <img src="images/reifenmontage.jpg" alt="Reifenmontage in der Werkstatt" loading="lazy">
           <img src="images/Federspanner.jpeg" alt="Federspanner in der Werkstatt" loading="lazy">
+          <!-- Duplikat für Endlos-Schleife -->
+          <img src="images/3-buehnen.jpeg" alt="" aria-hidden="true" loading="lazy">
+          <img src="images/vw-buehne.jpeg" alt="" aria-hidden="true" loading="lazy">
+          <img src="images/werkzeugkasten.jpeg" alt="" aria-hidden="true" loading="lazy">
+          <img src="images/transporter.jpeg" alt="" aria-hidden="true" loading="lazy">
+          <img src="images/trockeneisRM.png" alt="" aria-hidden="true" loading="lazy">
+          <img src="images/einblicke/sandstrahl-arbeit-01.jpg" alt="" aria-hidden="true" loading="lazy">
+          <img src="images/terAF.png" alt="" aria-hidden="true" loading="lazy">
+          <img src="images/einblicke/sandstrahl-nachher-02.jpg" alt="" aria-hidden="true" loading="lazy">
+          <img src="images/terWM.png" alt="" aria-hidden="true" loading="lazy">
+          <img src="images/Federspanner.jpeg" alt="" aria-hidden="true" loading="lazy">
         </div>
-        <p class="scroll-hint">Wischen für mehr Bilder</p>
       </div>
     </section>
 
     <!-- ======================= STIMMEN ======================= -->
-    <section class="section">
+    <section class="section section--tight">
       <div class="container">
-        <p class="eyebrow"><span class="idx">09</span> Stimmen</p>
-        <h2 style="margin-bottom: 48px;">Das sagen die Leute</h2>
+        <p class="eyebrow"><span class="idx">07</span> Stimmen</p>
+        <h2 class="tr" style="margin-bottom: 52px;"><span class="tr-inner">Das sagen die Leute</span></h2>
         <div class="quotes">
           <div class="quote reveal">
             <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
@@ -744,11 +751,11 @@
     </section>
 
     <!-- ======================= FAQ ======================= -->
-    <section id="faq" class="section section--paper2">
+    <section id="faq" class="section section--paper2 section--tight">
       <div class="container">
-        <p class="eyebrow"><span class="idx">10</span> FAQ</p>
-        <h2 style="margin-bottom: 40px;">Häufige Fragen</h2>
-        <div class="faq-list">
+        <p class="eyebrow"><span class="idx">08</span> FAQ</p>
+        <h2 class="tr" style="margin-bottom: 44px;"><span class="tr-inner">Häufige Fragen</span></h2>
+        <div class="faq-list" data-accordion>
           <details class="faq-item">
             <summary>Wie funktioniert der Zugang?</summary>
             <div class="faq-content">Neukunden vereinbaren einen Termin zur Erst-Einweisung und Registrierung. Bestandskunden erhalten eine Freigabe und können das Tor per Code öffnen – 24/7.</div>
@@ -782,8 +789,8 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <p class="eyebrow"><span class="idx">11</span> Kontakt</p>
-            <h2>Kontakt &amp; Anfahrt</h2>
+            <p class="eyebrow"><span class="idx">09</span> Kontakt</p>
+            <h2 class="tr"><span class="tr-inner">Kontakt &amp; Anfahrt</span></h2>
           </div>
         </div>
 
@@ -849,6 +856,7 @@
         <div>
           <h4>Links</h4>
           <a href="#ablauf">Ablauf</a>
+          <a href="#leistungen">Leistungen</a>
           <a href="#preise">Preise</a>
           <a href="#faq">Häufige Fragen</a>
           <a href="wohnwagen/" data-ga-nav="wohnwagen">Wohnwagen – Swift</a>
@@ -906,6 +914,6 @@
     </div>
   </div>
 
-  <script src="assets/main.js?v=20260817"></script>
+  <script src="assets/main.js?v=20260817b"></script>
 </body>
 </html>

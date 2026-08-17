@@ -19,6 +19,6 @@ Diese Version ist **fertig als Webroot**: Pfade zeigen auf `images/`, `buchen/`,
 
 1. Ordner lokal nach `~/Projects/24h-mietwerkstatt-relaunch` kopieren (siehe `README.md`).
 2. Inhalt dieses Ordners per FTP auf den **Testserver** hochladen – nicht in den Live-Webroot der alten Site.
-3. Prüfen: `site-version` = `20260817`.
+3. Prüfen: `site-version` = `20260817b`.
 
 Erst wenn Werner zufrieden ist: denselben Ordnerinhalt auf die Live-Domain legen (vorher Backup der alten Live-Dateien).

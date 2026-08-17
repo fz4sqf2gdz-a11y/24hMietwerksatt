@@ -147,6 +147,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  /* --- Optionale lokale Videos: ausblenden, wenn Datei (noch) fehlt --- */
+  document.querySelectorAll('video[data-optional]').forEach(v => {
+    const hide = () => {
+      const wrap = v.closest('.media-item') || v;
+      wrap.style.display = 'none';
+    };
+    v.addEventListener('error', hide);
+    v.querySelectorAll('source').forEach(s => s.addEventListener('error', hide));
+  });
+
   /* --- Exklusive Akkordeons: ein offenes Element pro Gruppe --- */
   document.querySelectorAll('.faq-list, .tiles').forEach(group => {
     group.querySelectorAll(':scope > details').forEach(d => {
@@ -229,12 +239,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const updateProgressEls = () => {
     const vh = window.innerHeight;
+    /* Start erst, wenn das Element gut sichtbar ist – mobil noch später,
+       damit die Animation wirklich im Blickfeld abläuft. */
+    const startR = vh < 760 ? 0.66 : 0.76;
+    const endR = 0.26;
+    const denom = (startR - endR) * vh;
     progressEls.forEach(el => {
       const rect = el.getBoundingClientRect();
       if (rect.bottom < -80 || rect.top > vh + 80) return;
-      /* 0 = Element betritt den Viewport unten, 1 = obere Hälfte erreicht */
-      const raw = (vh * 0.92 - rect.top) / (vh * 0.62);
-      const p = Math.max(0, Math.min(1, raw));
+      const raw = (startR * vh - rect.top) / denom;
+      let p = Math.max(0, Math.min(1, raw));
+      p = p * p * (3 - 2 * p); /* sanfter Ein-/Auslauf */
       el.style.setProperty('--p', p.toFixed(4));
       const counters = progressCounters.get(el);
       if (counters) {

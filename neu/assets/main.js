@@ -98,13 +98,16 @@ function fmtNum(value, decimals) {
 document.addEventListener('DOMContentLoaded', () => {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* --- Header: schrumpft/färbt sich beim Scrollen --- */
+  /* --- Header: transparent über dem Hero, danach hell + kompakt --- */
   const header = document.getElementById('siteHeader');
   if (header) {
+    const heroEl = document.querySelector('.hero, .page-hero');
     const onScrollHeader = () => {
-      header.classList.toggle('scrolled', window.scrollY > 40);
+      const threshold = heroEl ? Math.max(heroEl.offsetHeight - 90, 60) : 40;
+      header.classList.toggle('scrolled', window.scrollY > threshold);
     };
     window.addEventListener('scroll', onScrollHeader, { passive: true });
+    window.addEventListener('resize', onScrollHeader, { passive: true });
     onScrollHeader();
   }
 
